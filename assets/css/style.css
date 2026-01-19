@@ -1,0 +1,229 @@
+html {
+    font-size: 16px !important;
+}
+
+body {
+  font-family: "Poppins", system-ui, Arial, sans-serif;
+  color: #373a40 !important;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+h1, h2, h3, p, .card-text {
+    color: #373a40 !important;
+}
+
+.btn-secondary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #da3458;
+    --bs-btn-border-color: #da3458;
+    --bs-btn-hover-bg: #c02e4f;
+    --bs-btn-hover-border-color: #ae2a46;
+}
+
+a, .nav-link, .link-navbar, .link-interno {
+    color: #373a40;
+    text-decoration: none;
+}
+
+.link-navbar:hover, .link-interno:hover {
+    color: #808080 !important;
+}
+
+.navbar-brand { 
+    color: #373a40 !important;
+}
+
+.link-externo {
+    color: #0000ee !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+}
+
+.link-externo:hover {
+    color: #0d6efd !important; 
+    font-weight: 500;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-item::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fec400;
+    transition: width 0.2s ease-in-out;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.navbar {
+    background: #ffffff;
+}
+
+.navbar-dark .navbar-toggler {
+    border-color: #fec400;
+    padding: 6px;
+}
+
+.hunderline {
+    padding-bottom: 10px;
+    border-bottom: 0.1rem solid #ffc107;
+    display: inline-block;
+}
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+    background: transparent;
+    color: #ad0019;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: none;
+    outline: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, background 0.3s ease, color 0.3s ease;
+    z-index: 9999;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-back-to-top svg {
+    fill: currentColor;
+}
+
+body.scrolled #btn-back-to-top {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#btn-back-to-top:hover, #btn-back-to-top.on-footer:hover {
+    background: #da3458;
+    color: #ffffff;
+}
+
+#btn-back-to-top.on-footer {
+    background: #fff;
+    color: #da3458;
+}
+
+.card-liftshadow {
+    min-height: auto;
+    background-color: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease;
+}
+
+.card-liftshadow:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-body {
+    flex-grow: 1 !important;
+}
+
+.text-cerise {
+    color: #da3458 !important;
+}
+
+.my-footer {
+    background-color: #373a40;
+}
+
+.my-footer .text-white {
+    color: #ffffff !important;
+}
+
+.card-footer {
+    background: transparent !important;
+    border-top: 0px !important;
+}
+
+.img-wrapper {
+    position: relative;
+    display: block;
+    max-width: 640px; 
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.img-fallback, .video-fallback {
+    display: block;
+    width: 100%;
+    height: auto; 
+    opacity: 0; 
+    transition: opacity 0.4s ease;
+}
+
+.img-fallback.loaded, .video-fallback.loaded {
+    opacity: 1;
+}
+
+.img-fallback-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: none; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    background-color: rgba(249, 249, 249, 0.8);
+    pointer-events: none;
+}
+
+.img-fallback-icon i {
+    font-size: 6rem;
+    color: #da3458;
+}
+
+.fallback-message {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.img-fallback.loaded ~ .img-fallback-icon,
+.video-fallback.loaded ~ .img-fallback-icon {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+@media (max-width: 768px) {
+    .nav-link { padding: 8px 5px; }
+}
+
+@media (min-width: 1400px) {
+    .container { max-width: 1200px; }
+}
+
+@media (max-width: 576px) {
+    #btn-back-to-top { width: 48px; height: 48px; }
+    #btn-back-to-top svg { width: 24px; height: 24px; }
+}
