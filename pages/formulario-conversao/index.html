@@ -1,0 +1,227 @@
+---
+layout: default
+title: Formulário de Conversão
+permalink: /formulario-conversao/
+---
+<!-- ================================================================================================================== 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 mx-auto pt-5">
+			<div class="mb-5">
+          	  <h1 class="fs-4 text-center">Formulário para Conversão da Linha Digitável do Boleto Bancário na Representação Gráfica ou Numérica do Código de Barras e vice versa</h1>
+			</div>
+			<div class="mb-5">
+         	   <p><a class="link-externo" href="https://www.boletobancario-codigodebarras.com/2024/08/formulario-de-conversao-antigo.html" target="_blank">Para vencimentos <span class="">até</span> 21/02/2025 utilize o Formulário de Conversão - Antigo</a></p>
+			</div>
+		</div>
+    </div>
+</div>
+-->
+<section class="container">
+	<div class="row">
+		<div class="col-lg-10 mx-auto py-5">
+				<h1 class="fs-2 fw-bold mb-5">Formulário para Conversão da Linha Digitável do Boleto Bancário na Representação Gráfica ou Numérica do Código de Barras e vice versa</h1>
+					<p><a class="link-externo" href="https://www.boletobancario-codigodebarras.com/2024/08/formulario-de-conversao-antigo.html" target="_blank">Para vencimentos <span class="">até</span> 21/02/2025 utilize o Formulário de Conversão - Antigo</a></p>
+		</div>
+	</div>
+</section>
+
+<!-- ================================================================================================================== -->
+
+<div class="container bg-light py-5">
+	<div class="row">
+      
+		<div class="col-md-10 col-sm-12 mx-auto">
+
+			<!-- ALERTAS -->
+			<div id="alert-container">
+			</div>
+			<div id="vencimento-alerta" class="alert alert-warning" style="display: none;">
+				<p><strong>Atenção:</strong></p>
+				<p>A linha digitável é válida, mas o fator de vencimento <span id="fator-valor-1"></span> resulta em vencimento: <span id="dataVencimento"></span>.</p>
+				<p>O fator de vencimento foi reiniciado em 22/02/2025 com valor 1000. Portanto, um fator de vencimento <span id="fator"></span> é estranho e indica um vencimento muito distante. Confirme se o Boleto realmente tem vencimento superior a 90 dias.</p>
+				<p>Se o vencimento for anterior a 21/02/2025, utilize o <a class="link-externo" href="https://www.boletobancario-codigodebarras.com/2024/08/formulario-de-conversao-antigo.html" target="_blank">formulário antigo</a>.</p>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+			</div>
+			<!-- ALERTAS -->
+
+			<div class="">
+				<form action="" name="form" id="formlinhaebarra">
+                  
+					<div class="mb-3">
+						<label class="form-label mb-3" for="linhadigitavel1">Linha Digitável = 47 números</label>
+							<div class="input-container mb-4">
+								<input type="text" class="form-control p-3" id="linhadigitavel1" name="linha" maxlength="47" placeholder="Digite aqui a linha digitável" onblur="fullCheck(this)">
+								<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" class="copy-icon-linha" onclick="copyToClipboard('linhadigitavel1')">
+								<title>Copiar a Linha Digitável</title>
+        						<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
+    							</svg>
+							</div>
+					</div>
+					<div class="d-grid gap-2 d-md-flex justify-content-center mb-4">
+						<button type="button" class="col p-2 rounded-2 btn btn-info shadow-sm rounded" onclick="f_barra();">Calcular o código de barras</button>
+						<button type="button" class="col-md-2 p-2 rounded-2 btn btn-danger shadow-sm rounded" onclick="limparCampo('linhadigitavel1');">Limpar</button>
+					</div>
+
+					<div class="mb-3">
+                   	    <label class="form-label py-3" for="codigodebarras1">Código de barras = 44 números</label>
+							<div class="input-container mb-4">
+    							<input type="text" class="form-control p-3" id="codigodebarras1" name="barra" maxlength="44" placeholder="Informe aqui o código de barras" onblur="validarCodigoBarras(this)">
+    							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" class="copy-icon-barra" onclick="copyToClipboard('codigodebarras1')">
+        						<title>Copiar o Código de Barras</title>
+        						<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
+    							</svg>
+							</div>
+					</div>
+					<div class="d-grid gap-2 d-md-flex justify-content-center mb-5">
+						<button type="button" class="col p-2 rounded-2 btn btn-info shadow-sm rounded" onclick="f_linha();">Calcular a linha digitável</button>
+						<button type="button" class="col-md-2 p-2 rounded-2 btn btn-danger shadow-sm rounded" onclick="limparCampo('codigodebarras1');">Limpar</button>
+					</div>
+					<div id="barcode-container" class="form-control p-3 mb-4 rounded border text-center auto-mx" role="alert">
+						<p>O código de barras aparecerá aqui</p>
+					</div>
+					<div class="mb-3">
+						<label for="vencimento1" class="form-label">Vencimento</label>
+						<input type="text" class="form-control" id="vencimento1" name="venc" readonly>
+					</div>
+					<div class="mb-3">
+						<label for="valor1" class="form-label">Valor</label>
+						<input type="text" class="form-control" id="valor1" name="valor" readonly>
+					</div>
+					<div class="d-grid gap-2 col-12 mx-auto mb-3">
+						<button type="reset" class="p-3 rounded-2 btn btn-danger shadow-sm rounded mt-3" onclick="limparCodigoBarras();">Limpar Tudo</button>
+					</div>
+
+                </form>
+			</div>
+          
+		</div>
+
+    </div>
+</div>
+
+<!-- ================================================================================================================== -->
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-10 mx-auto mb-5">
+
+          	<div class='mb-5'>
+				<p class="fs-4 my-5">Novo fator de vencimento: a partir de 22/02/2025</p>
+				<p class="mb-5">Este formulário de conversão foi elaborado considerando o fator de vencimento 22/02/2025 = fator 1000 (data base = 29/05/2022).</p>
+				<p class="mb-5">Para mais informações sobre o fator de vencimento consulte a nossa página <a class="link-externo" href="https://www.boletobancario-codigodebarras.com/2018/04/data-de-vencimento-e-valor.html">Data de Vencimento e Valor</a>.</p>
+			</div>
+
+			<div class='mb-5'>
+				<p class="fs-4 my-5">Conversão da Linha Digitável em Código de Barras</p>
+				<p class="mb-5">Digite a Linha Digitável (47 números, sem espaços, pontos ou vírgulas) no campo "Digite aqui a linha digitável" e clique em "Calcular Código de Barras".</p>
+				<p class="mb-5">Será informado o Código de Barras convertido em números (44 números, conforme detalhado no link <a class="link-externo" href="https://www.boletobancario-codigodebarras.com/2016/04/linha-digitavel.html" title="Link para a página Linha Digitável">Linha Digitável</a>).</p>
+				<p class="mb-5">Além da conversão, o formulário informará também a Data de Vencimento e o Valor do Boleto Bancário.</p>
+			</div>
+
+			<div class='mb-5'>
+  				<p class="fs-4 my-5">Conversão do Código de Barras em Linha Digitável</p>
+				<p class="mb-5">Para converter o Código de Barras (com 44 dígitos) na Linha Digitável (com 47 dígitos), clique com o mouse dentro do campo "Informe aqui o código de barras" e escaneie (digitalize) o código de barras com um <a class="link-externo" href="https://amzn.to/4gSl8mL" title="Link para o site da Amazon.com.br" rel="noreferrer" target="_blank">leitor de código de barras (scanner)</a>. Depois é só clicar no botão "Calcular a linha digitável" para obter a Linha Digitável (com 47 dígitos).</p>
+			</div>
+
+			<div class='mb-5'>
+				<p class="fs-4 mb-5">Termos de Uso</p>
+				<p class="mb-5">Não temos qualquer relação ou vínculo com bancos ou instituições financeiras.</p>
+				<p class="mb-5">Não coletamos e não armazenamos qualquer tipo de informação fornecida pelo usuário.</p>
+				<p class="mb-5">Não temos controle sobre o conteúdo inserido pelo usuário no site.</p>
+				<p class="mb-5">A utilização das informações aqui presentes são de total responsabilidade do usuário.</p>
+			</div>
+
+			<div class='mb-5'>
+				<p class="fs-4 mb-5">Informações geradas por esta ferramenta</p>
+				<p class="mb-5">Este formulário tem caráter meramente informativo e não realiza qualquer tipo de transação financeira.</p>
+			</div>
+
+			<div class='mb-5'>
+				<p class="fs-4 mb-5">Outras informações</p>
+				<p class="mb-5">Os critérios aqui utilizados obedecem aos padrões da <a class="link-externo" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Conven%C3%A7%C3%A3o%20da%20Cobran%C3%A7a%20-%2005_02_2021_f.pdf" target="_blank" rel="nofollow">Federação Brasileira de Bancos - FEBRABAN</a> e do <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="nofollow">Banco Central do Brasil - BCB</a>.</p>
+				<p class="mb-5">Este formulário é válido somente para conversão de Boletos Bancários de pagamentos de produtos e serviços (não é válido para Boletos de Concessionárias: luz, água, etc.).</p>
+				<p class="mb-5">Para converter Boletos de Concessionárias (pagamento de luz, água, gás, telefone, impostos, etc.), observe os critérios do <a class="link-externo" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Layout%20-%20C%C3%B3digo%20de%20Barras%20-%20Vers%C3%A3o%207%20-%2001_03_2023_mn.pdf" target="_blank" rel="nofollow">Layout Padrão de Arrecadação/Recebimento com Utilização do Código de Barras</a> da Febraban, em vigência a partir de 01.03.2023.</p>
+			</div>
+
+			<div class='mb-5'>
+				<p class="fs-4 mb-5">Segunda via de Boleto Bancário</p>
+				<p class="mb-5">Veja abaixo links de algumas instituições bancárias para a emissão da 2a via do Boleto Bancário.</p>
+				<p class="mb-5">O serviço de <a class="link-externo" href="https://portal.febraban.org.br/AtendimentoBancos" target="_blank" rel="nofollow">Atendimento dos Bancos</a>, no portal da <a class="link-externo" href="https://portal.febraban.org.br/?idioma=pt-br" target="_blank" rel="nofollow">Febraban</a>, tem informações de como entrar em contato com, praticamente, todos os bancos e instituições financeiras do Brasil.</p>
+			</div>
+
+			<div class='mb-5'>
+				<div class="py-3">
+					<svg class="me-2" width="15px" height="15px" fill="#da3458" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z"></path>
+					</svg>
+					<a class='link-externo justify-content-right w-25 me-auto mb-4' rel='nofollow' target='_blank' href='https://www63.bb.com.br/portalbb/boleto/boletos/hc21e,802,3322,10343.bbx'>
+						<span class="align-middle">Banco do Brasil </span>
+						<svg xmlns="http://www.w3.org/2000/svg" height="20px" width="20px" fill="currentcolor" viewBox="0 -960 960 960"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg>
+					</a>
+				</div>
+
+				<div class="py-3">
+    		   	  	<svg class="me-2" width="15px" height="15px" fill="#da3458" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z"></path>
+					</svg>
+     		   	 	<a class='link-externo justify-content-right w-25 me-auto mb-4' rel='nofollow' target='_blank' href='https://banco.bradesco/html/classic/produtos-servicos/mais-produtos-servicos/segunda-via-boleto.shtm'>
+						<span class="align-middle">Bradesco </span>
+						<svg xmlns="http://www.w3.org/2000/svg" height="20px" width="20px" viewBox="0 -960 960 960" fill="currentcolor"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg>
+					</a>
+				</div>
+
+				<div class="py-3">
+       			   	<svg class="me-2" width="15px" height="15px" fill="#da3458" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z"></path>
+					</svg>
+					<a class='link-externo justify-content-right w-25 me-auto mb-4' href='https://www.caixa.gov.br/atendimento/2-via-boleto/Paginas/default.aspx'>
+						<span class="align-middle">Caixa </span>
+						<svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentcolor" viewBox="0 -960 960 960"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg>
+					</a>
+				</div>
+
+				<div class="py-3">
+					<svg class="me-2" width="15px" height="15px" fill="#da3458" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z"></path>
+					</svg>
+					<a class='link-externo justify-content-right w-25 me-auto mb-4' href='https://www.itau.com.br/servicos/boletos/'>
+						<span class="align-middle">Itaú </span>
+						<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentcolor"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg>
+					</a>
+				</div>
+
+				<div class="py-3">
+      		    	<svg class="me-2" width="15px" height="15px" fill="#da3458" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z"></path>
+					</svg>
+					<a class='link-externo justify-content-right w-25 me-auto mb-4' href='https://www.safra.com.br/pessoa-juridica/cash-management-servicos/2-via-de-boletos.htm#'>
+						<span class="align-middle">Safra </span>
+						<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentcolor"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg>
+      			   	</a>
+				</div>
+
+				<div class="py-3 mb-5">
+    		      	<svg class="me-2" width="15px" height="15px" fill="#da3458" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z"></path>
+					</svg>
+					<a class='link-externo justify-content-right w-25 me-auto mb-4' href='https://www.santander.com.br/atendimento-para-voce/boletos/emissao-2-via-boleto'>
+						<span class="align-middle">Santander </span>
+						<svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentcolor"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg>
+        		  	</a>
+				</div>
+			</div>
+
+			<div class='mb-5'>
+				<p class="text-danger">Em caso de dúvidas sobre um Boleto, entre em contato com o seu banco antes de efetuar qualquer pagamento.</p>
+			</div>
+
+			<div class='mb-5'>
+				<p class="mb-5">Fontes: 
+      				<a class='link-externo justify-content-right w-25 me-auto' href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="nofollow">Banco do Brasil</a>, 
+      				<a class='link-externo justify-content-right w-25 me-auto' href="https://download.itau.com.br/bankline/layout_cobranca_400bytes_cnab_itau.pdf" target="_blank" rel="nofollow">Itaú</a>, 
+					<a class='link-externo justify-content-right w-25 me-auto' href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" target="_blank" rel="nofollow">Banpará</a>, 
+					<a class='link-externo justify-content-right w-25 me-auto' href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" target="_blank" rel="nofollow">Banco Mercantil</a>, 
+					<a class='link-externo justify-content-right w-25 me-auto' href="https://www.bcb.gov.br/pre/normativos/c_circ/2000/pdf/c_circ_2926_v1_O.pdf" target="_blank" rel="nofollow">Banco Central do Brasil</a> e 
+					<a class='link-externo justify-content-right w-25 me-auto' href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Layout%20padrao%20CNAB240%20V%2010%2011%20-%2021_08_2023.pdf" target="_blank" rel="nofollow">Febraban</a>
+				</p>
+			</div>
+
+		</div>
+    </div>
+</div>
+<!-- ================================================================================================================== -->
