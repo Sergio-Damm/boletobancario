@@ -7,8 +7,8 @@ permalink: /formulario-conversao/
 <section class="container">
 	<div class="row">
 		<div class="col-10 mx-auto pt-5">
-				<h1 class="fs-2 fw-bold mb-5">ForConversor da Linha Digitável e do Código de Barras de Boleto Bancário</h1>
-				<h2 class="fs-6 fw-normal lh-base mb-4">Este formulário online permite <strong>converter a Linha Digitável de um Boleto Bancário em Código de Barras</strong> e também realizar o processo inverso, seguindo os padrões da <strong>Febraban</strong>.</h2>
+				<h1 class="fs-2 fw-bold mb-4">Conversor da Linha Digitável e do Código de Barras de Boleto Bancário</h1>
+				<h2 class="fs-5 lh-base text-muted mb-5">Converta rapidamente a Linha Digitável em Código de Barras (e vice-versa), de acordo com o padrão Febraban.</h2>
 		</div>
 	</div>
 </section>
@@ -23,7 +23,7 @@ permalink: /formulario-conversao/
 			</div>
 			<div id="vencimento-alerta" class="alert alert-warning" style="display: none;">
 				<p><strong>Atenção:</strong></p>
-				<p>A linha digitável é válida, mas o fator de vencimento <span id="fator-valor-1"></span> resulta em vencimento: <span id="dataVencimento"></span>.</p>
+				<p>A Linha Digitável é válida, mas o fator de vencimento <span id="fator-valor-1"></span> resulta em vencimento: <span id="dataVencimento"></span>.</p>
 				<p>O fator de vencimento foi reiniciado em 22/02/2025 com valor 1000. Portanto, um fator de vencimento <span id="fator"></span> é estranho e indica um vencimento muito distante. Confirme se o Boleto realmente tem vencimento superior a 90 dias.</p>
 				<p>Se o vencimento for anterior a 21/02/2025, utilize o <a class="link-externo" href="https://www.boletobancario-codigodebarras.com/2024/08/formulario-de-conversao-antigo.html" target="_blank">formulário antigo</a>.</p>
 				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
@@ -36,7 +36,7 @@ permalink: /formulario-conversao/
 					<div class="mb-3">
 						<label class="fw-bold form-label mb-3" for="linhadigitavel1">Linha Digitável = 47 números</label>
 							<div class="input-container mb-4">
-								<input type="text" class="form-control p-3" id="linhadigitavel1" name="linha" maxlength="47" placeholder="Digite aqui a linha digitável" onblur="fullCheck(this)">
+								<input type="text" class="form-control p-3" id="linhadigitavel1" name="linha" maxlength="47" placeholder="Digite aqui a Linha Digitável" onblur="fullCheck(this)">
 								<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" class="copy-icon-linha" onclick="copyToClipboard('linhadigitavel1')">
 								<title>Copiar a Linha Digitável</title>
         						<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
@@ -44,14 +44,14 @@ permalink: /formulario-conversao/
 							</div>
 					</div>
 					<div class="d-grid gap-2 d-md-flex justify-content-center mb-4">
-						<button type="button" class="col p-2 rounded-2 btn btn-info shadow-sm rounded" onclick="f_barra();">Calcular o código de barras</button>
+						<button type="button" class="col p-2 rounded-2 btn btn-info shadow-sm rounded" onclick="f_barra();">Calcular o Código de Barras</button>
 						<button type="button" class="col-md-2 p-2 rounded-2 btn btn-danger shadow-sm rounded" onclick="limparCampo('linhadigitavel1');">Limpar</button>
 					</div>
 
 					<div class="mb-3">
-                   	    <label class="fw-bold form-label py-3" for="codigodebarras1">Código de barras = 44 números</label>
+                   	    <label class="fw-bold form-label py-3" for="codigodebarras1">Código de Barras = 44 números</label>
 							<div class="input-container mb-4">
-    							<input type="text" class="form-control p-3" id="codigodebarras1" name="barra" maxlength="44" placeholder="Informe aqui o código de barras" onblur="validarCodigoBarras(this)">
+    							<input type="text" class="form-control p-3" id="codigodebarras1" name="barra" maxlength="44" placeholder="Informe aqui o Código de Barras" onblur="validarCodigoBarras(this)">
     							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" class="copy-icon-barra" onclick="copyToClipboard('codigodebarras1')">
         						<title>Copiar o Código de Barras</title>
         						<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
@@ -59,11 +59,11 @@ permalink: /formulario-conversao/
 							</div>
 					</div>
 					<div class="d-grid gap-2 d-md-flex justify-content-center mb-5">
-						<button type="button" class="col p-2 rounded-2 btn btn-info shadow-sm rounded" onclick="f_linha();">Calcular a linha digitável</button>
+						<button type="button" class="col p-2 rounded-2 btn btn-info shadow-sm rounded" onclick="f_linha();">Calcular a Linha Digitável</button>
 						<button type="button" class="col-md-2 p-2 rounded-2 btn btn-danger shadow-sm rounded" onclick="limparCampo('codigodebarras1');">Limpar</button>
 					</div>
 					<div id="barcode-container" class="form-control p-3 mb-4 rounded border text-center auto-mx" role="alert">
-						<p>O código de barras aparecerá aqui</p>
+						<p>O Código de Barras aparecerá aqui</p>
 					</div>
 					<div class="mb-3">
 						<label for="vencimento1" class="fw-bold form-label">Vencimento</label>
@@ -90,13 +90,11 @@ permalink: /formulario-conversao/
 	<div class="row">
 		<div class="col-lg-10 mx-auto pt-3 mb-5">
 
-			<p class="small text-muted mb-4"><a class="link-externo" href="https://www.boletobancario-codigodebarras.com/2024/08/formulario-de-conversao-antigo.html">Para vencimentos <span class="">até</span> 21/02/2025 utilize o Formulário de Conversão - Antigo</a></p>
-
-			<div class='pt-5 mb-5'>
+			<div class="pt-5 mb-5">
 
 				<h2 class="fs-4 fw-bold mb-5">Converta a Linha Digitável em Código de Barras (e vice-versa)</h2>
-					<p class="mb-5">Este formulário online permite <strong>converter a Linha Digitável de um Boleto Bancário em Código de Barras</strong> e também <strong>converter o Código de Barras nos números da Linha Digitável</strong>, de forma rápida, gratuita e segura, seguindo rigorosamente os padrões da <strong><a class="link-azul" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Conven%C3%A7%C3%A3o%20da%20Cobran%C3%A7a%20-%2005_02_2021_f.pdf" rel="nofollow noopener noreferrer" target="_blank">Febraban</a></strong></p>
-					<p class="mb-5">A ferramenta foi desenvolvida para facilitar o pagamento de boletos, a conferência de dados e a recuperação de informações, especialmente quando o boleto está danificado, ilegível ou precisa ser digitado manualmente em aplicativos bancários.</p>
+
+					<p class="mb-5">Este formulário online foi desenvolvido para facilitar a <strong>conversão da Linha Digitável de um Boleto Bancário em Código de Barras</strong> e também o processo inverso, permitindo a <strong>conferência de dados e a recuperação de informações</strong>, especialmente quando o boleto está danificado, ilegível ou precisa ser inserido manualmente em sistemas bancários, sempre seguindo rigorosamente os padrões definidos pela <strong>Febraban</strong>.</p>
 
 				<h2 class="fs-5 fw-bold mb-5">Para que serve o formulário de conversão de boleto?</h2>
 					<p class="mb-5">O formulário converte os números de um boleto bancário — conhecidos como <a class="link-externo" href="https://www.boletobancario-codigodebarras.com/2016/04/linha-digitavel.html" title="Link para a página Linha Digitável">Linha Digitável</a> — em sua representação gráfica, o Código de Barras, e realiza o processo inverso quando necessário.</p>
@@ -108,14 +106,14 @@ permalink: /formulario-conversao/
   						<li class="mb-4">A inserção correta dos dados em sistemas financeiros e programas de gestão</li>
 					</ul>
 
-					<p class="mb-5">O processo ajuda a <strong>reduzir erros de digitação, prevenir fraudes</strong> e garantir que os dados sejam transferidos corretamente para os sistemas de pagamento.</p>
+					<p class="mb-5">O processo ajuda a <strong>reduzir erros de digitação</strong>, <strong>prevenir fraudes</strong> e garantir que os dados sejam transferidos corretamente para os sistemas de pagamento.</p>
 
 				<h2 class="fs-4 fw-bold mb-5">Quando usar este conversor de Linha Digitável e Código de Barras</h2>
 					<p class="mb-4">Você pode utilizar este conversor sempre que precisar:</p>
 					<ul class="mb-5 ps-3">
-  						<li class="mb-4">Converter linha digitável em código de barras</li>
-  						<li class="mb-4">Converter código de barras em linha digitável</li>
-  						<li class="mb-4">Recuperar informações de um boleto com código de barras danificado</li>
+  						<li class="mb-4">Converter a Linha Digitável em Código de Barras</li>
+  						<li class="mb-4">Converter o Código de Barras em Linha Digitável</li>
+  						<li class="mb-4">Recuperar informações de um boleto com Código de Barras danificado</li>
   						<li class="mb-4">Conferir valor, vencimento ou banco emissor de um boleto</li>
   						<li class="mb-4">Validar dados antes de efetuar o pagamento</li>
 					</ul>
@@ -124,7 +122,7 @@ permalink: /formulario-conversao/
 					<p class="mb-4">Este conversor de boletos é útil em situações como:</p>
 					<ul class="mb-5 ps-3">
   						<li class="mb-4">Digitar manualmente um boleto no aplicativo do banco</li>
-  						<li class="mb-4">Reconstruir o código de barras de um boleto rasgado ou apagado</li>
+  						<li class="mb-4">Reconstruir o Código de Barras de um boleto rasgado ou apagado</li>
   						<li class="mb-4">Conferir se o valor do boleto foi alterado indevidamente</li>
   						<li class="mb-4">Validar boletos recebidos por e-mail ou aplicativos de mensagem</li>
   						<li class="mb-4">Utilizar ou importar os dados corretos para sistemas financeiros ou ERPs</li>
@@ -150,7 +148,7 @@ permalink: /formulario-conversao/
 				<h2 class="fs-4 fw-bold mb-5">Como converter Linha Digitável em Código de Barras</h2>
 						<ol class="mb-5">
   							<li class="mb-4">Digite a <strong>Linha Digitável</strong> (47 números, sem espaços, pontos ou vírgulas) no campo indicado.</li>
-  							<li class="mb-4">Clique em "<strong>Código de Barras</strong>".</li>
+  							<li class="mb-4">Clique em "<strong>Calcular o Código de Barras</strong>".</li>
   							<li class="mb-4">O sistema exibirá:
 								<ul class="pt-4 mb-5">
   									<li class="mb-4">O Código de Barras convertido (44 números)</li>
@@ -161,8 +159,8 @@ permalink: /formulario-conversao/
 
 				<h2 class="fs-4 fw-bold mb-5">Como converter Código de Barras em Linha Digitável</h2>
 						<ol class="mb-5">
-  							<li class="mb-4">Clique no campo "<strong>Informe aqui o código de barras</strong>".</li>
-  							<li class="mb-4">Escaneie o código de barras com um leitor (<a class="link-externo" href="https://amzn.to/4gSl8mL" rel="noreferrer" target="_blank" title="Link para o site da Amazon.com.br">scanner</a>) ou digite os <strong>44 dígitos</strong>.</li>
+  							<li class="mb-4">Clique no campo "<strong>Informe aqui o Código de Barras</strong>".</li>
+  							<li class="mb-4">Escaneie o Código de Barras com um leitor (<a class="link-externo" href="https://amzn.to/4gSl8mL" rel="noreferrer" target="_blank" title="Link para o site da Amazon.com.br">scanner</a>) ou digite os <strong>44 dígitos</strong>.</li>
   							<li class="mb-4">Clique em "<strong>Calcular a Linha Digitável</strong>".</li>
   							<li class="mb-4">O sistema exibirá a Linha Digitável completa (47 números).</li>
 						</ol>
@@ -173,7 +171,7 @@ permalink: /formulario-conversao/
 					<h3 class="fs-6 fw-bold mb-2"><strong>O Código de Barras e a Linha Digitável possuem os mesmos dados?</strong></h3>
 						<p class="mb-4">Sim. Ambos representam exatamente as mesmas informações do boleto, apenas em formatos diferentes.</p>
 					<h3 class="fs-6 fw-bold mb-2"><strong>Este conversor funciona para qualquer tipo de boleto?</strong></h3>
-						<p class="mb-4">Este formulário é válido apenas para <strong>boletos bancários padrão Febraban</strong>, utilizados para pagamento de produtos e serviços.</h3>
+						<p class="mb-4">Este formulário é válido apenas para <strong>boletos bancários padrão Febraban</strong>, utilizados para pagamento de produtos e serviços.</p>
 					<h3 class="fs-6 fw-bold mb-2"><strong>O site armazena os dados informados?</strong></h3>
 						<p class="mb-5">Não. Nenhuma informação digitada é armazenada, registrada ou compartilhada.</p>
 
@@ -198,6 +196,7 @@ permalink: /formulario-conversao/
   						<li class="mb-4">Os critérios utilizados seguem os padrões da <a class="link-externo" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Conven%C3%A7%C3%A3o%20da%20Cobran%C3%A7a%20-%2005_02_2021_f.pdf" rel="nofollow noopener noreferrer" target="_blank">Federação Brasileira de Bancos (Febraban)</a> e do <a class="link-externo" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Conven%C3%A7%C3%A3o%20da%20Cobran%C3%A7a%20-%2005_02_2021_f.pdf" rel="nofollow noopener noreferrer" target="_blank">Banco Central do Brasil (BCB)</a>.</li>
   						<li class="mb-4">Este formulário <strong>não é válido para boletos de concessionárias</strong> (água, luz, gás, telefone, impostos, etc.).</li>
   						<li class="mb-4">Para boletos de concessionárias, utilize o <a class="link-externo" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Layout%20-%20C%C3%B3digo%20de%20Barras%20-%20Vers%C3%A3o%207%20-%2001_03_2023_mn.pdf" rel="nofollow noopener noreferrer" target="_blank">Layout Padrão de Arrecadação com Código de Barras</a>, vigente desde 01/03/2023.</li>
+						<li class="mb-4"><strong>Para vencimentos até 21/02/2025</strong> utilize o <a class="link-externo" href="https://www.boletobancario-codigodebarras.com/2024/08/formulario-de-conversao-antigo.html">Formulário de Conversão - Antigo</a>.</li>
 					</ul>
 
 				<h2 class="fs-4 fw-bold mb-5">Benefícios do conversor de boleto</h2>
@@ -220,18 +219,18 @@ permalink: /formulario-conversao/
 
 			<div class="mb-5">
 				<ul>
-					<li class="mb-4"><a class='link-externo' rel='nofollow' target='_blank' rel="nofollow noopener noreferrer"
- href='https://www.bb.com.br/site/pra-voce/contas/todos-os-produtos-e-servicos/'>Banco do Brasil</a></li>
-     		 		<li class="mb-4"><a class='link-externo' rel='nofollow' target='_blank' rel="nofollow noopener noreferrer"
- href='https://banco.bradesco/html/classic/produtos-servicos/mais-produtos-servicos/segunda-via-boleto.shtm'>Bradesco</a></li>
-					<li class="mb-4"><a class='link-externo' rel='nofollow' target='_blank' rel="nofollow noopener noreferrer"
- href='https://www.caixa.gov.br/atendimento/2-via-boleto/Paginas/default.aspx'>Caixa</a></li>
-					<li class="mb-4"><a class='link-externo' rel='nofollow' target='_blank' rel="nofollow noopener noreferrer"
- href='https://www.itau.com.br/servicos/boletos/'>Itaú</a></li>
-					<li class="mb-4"><a class='link-externo' rel='nofollow' target='_blank' rel="nofollow noopener noreferrer"
- href='https://www.safra.com.br/pessoa-juridica/cash-management-servicos/2-via-de-boletos.htm#'>Safra</a></li>
-					<li class="mb-4"><a class='link-externo' rel='nofollow' target='_blank' rel="nofollow noopener noreferrer"
- href='https://www.santander.com.br/atendimento-para-voce/boletos/emissao-2-via-boleto'>Santander</a></li>
+					<li class="mb-4"><a class="link-externo" rel="nofollow" target="_blank" rel="nofollow noopener noreferrer"
+ href="https://www.bb.com.br/site/pra-voce/contas/todos-os-produtos-e-servicos/">Banco do Brasil</a></li>
+     		 		<li class="mb-4"><a class="link-externo" rel="nofollow" target="_blank" rel="nofollow noopener noreferrer"
+ href="https://banco.bradesco/html/classic/produtos-servicos/mais-produtos-servicos/segunda-via-boleto.shtm">Bradesco</a></li>
+					<li class="mb-4"><a class="link-externo" rel="nofollow" target="_blank" rel="nofollow noopener noreferrer"
+ href="https://www.caixa.gov.br/atendimento/2-via-boleto/Paginas/default.aspx">Caixa</a></li>
+					<li class="mb-4"><a class="link-externo" rel="nofollow" target="_blank" rel="nofollow noopener noreferrer"
+ href="https://www.itau.com.br/servicos/boletos/">Itaú</a></li>
+					<li class="mb-4"><a class="link-externo" rel="nofollow" target="_blank" rel="nofollow noopener noreferrer"
+ href="https://www.safra.com.br/pessoa-juridica/cash-management-servicos/2-via-de-boletos.htm#">Safra</a></li>
+					<li class="mb-4"><a class="link-externo" rel="nofollow" target="_blank" rel="nofollow noopener noreferrer"
+ href="https://www.santander.com.br/atendimento-para-voce/boletos/emissao-2-via-boleto">Santander</a></li>
 			</div>
 
 			<div class="mb-5">
@@ -240,12 +239,12 @@ permalink: /formulario-conversao/
 
 			<div class="mb-5">
 				<p class="mb-5">Fontes: 
-      				<a class='link-externo justify-content-right w-25 me-auto' href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="nofollow noopener noreferrer">Banco do Brasil</a>, 
-      				<a class='link-externo justify-content-right w-25 me-auto' href="https://download.itau.com.br/bankline/layout_cobranca_400bytes_cnab_itau.pdf" target="_blank" rel="nofollow noopener noreferrer">Itaú</a>, 
-					<a class='link-externo justify-content-right w-25 me-auto' href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" target="_blank" rel="nofollow noopener noreferrer">Banpará</a>, 
-					<a class='link-externo justify-content-right w-25 me-auto' href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" target="_blank" rel="nofollow noopener noreferrer">Banco Mercantil</a>, 
-					<a class='link-externo justify-content-right w-25 me-auto' href="https://www.bcb.gov.br/pre/normativos/c_circ/2000/pdf/c_circ_2926_v1_O.pdf" target="_blank" rel="nofollow noopener noreferrer">Banco Central do Brasil</a> e 
-					<a class='link-externo justify-content-right w-25 me-auto' href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Layout%20padrao%20CNAB240%20V%2010%2011%20-%2021_08_2023.pdf" target="_blank" rel="nofollow noopener noreferrer">Febraban</a>
+      				<a class="link-externo justify-content-right w-25 me-auto" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="nofollow noopener noreferrer">Banco do Brasil</a>, 
+      				<a class="link-externo justify-content-right w-25 me-auto" href="https://download.itau.com.br/bankline/layout_cobranca_400bytes_cnab_itau.pdf" target="_blank" rel="nofollow noopener noreferrer">Itaú</a>, 
+					<a class="link-externo justify-content-right w-25 me-auto" href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" target="_blank" rel="nofollow noopener noreferrer">Banpará</a>, 
+					<a class="link-externo justify-content-right w-25 me-auto" href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" target="_blank" rel="nofollow noopener noreferrer">Banco Mercantil</a>, 
+					<a class="link-externo justify-content-right w-25 me-auto" href="https://www.bcb.gov.br/pre/normativos/c_circ/2000/pdf/c_circ_2926_v1_O.pdf" target="_blank" rel="nofollow noopener noreferrer">Banco Central do Brasil</a> e 
+					<a class="link-externo justify-content-right w-25 me-auto" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Layout%20padrao%20CNAB240%20V%2010%2011%20-%2021_08_2023.pdf" target="_blank" rel="nofollow noopener noreferrer">Febraban</a>
 				</p>
 			</div>
 		</div>
