@@ -1,5 +1,10 @@
 title: Boleto Bancário
 email: boletobancario.contato@gmail.com
-description: Formulário para conversão da linha digitável em código de barras e conversão do código de barras em linha digitável.
-baseurl: "" 
-url: ""
+description: Formulário para conversão da linha digitável em código de barras e conversão do código de barras em linha digitável
+baseurl: ""
+url: "https://www.boletobancario-codigodebarras.com"
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+include: ["assets/data"]
+keep_files: ["assets/data"]
