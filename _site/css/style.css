@@ -15,6 +15,7 @@ h1, h2, h3, p, .card-text {
     color: #373a40 !important;
 }
 
+/*
 .btn-secondary {
     --bs-btn-color: #fff;
     --bs-btn-bg: #da3458;
@@ -52,6 +53,44 @@ btn.btn-warning {
     background-color: #ffcbdb !important;
     color: #000 !important;
     border-color: #ffcbdb !important;
+}
+*/
+
+/* PADRÃO SECUNDÁRIO (Seu rosa forte) */
+.btn-secondary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #da3458;
+    --bs-btn-border-color: #da3458;
+    --bs-btn-hover-bg: #c02e4f;
+    --bs-btn-hover-border-color: #ae2a46;
+}
+
+/* PADRÃO DANGER (Rosa pastel - Agora com borda definida e sem !important) */
+.btn-danger {
+    --bs-btn-color: #000;
+    --bs-btn-bg: #ffe4e1;
+    --bs-btn-border-color: #ffc1bd; /* Borda levemente mais escura que o fundo */
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #ffcbdb;
+    --bs-btn-hover-border-color: #ffb6c1;
+}
+
+/* PADRÃO INFO (Azul pastel) */
+.btn-info {
+    --bs-btn-color: #000;
+    --bs-btn-bg: #e0ffff;
+    --bs-btn-border-color: #b2eeee; /* Borda levemente mais escura */
+    --bs-btn-hover-bg: #afeeee;
+    --bs-btn-hover-border-color: #98d8d8;
+}
+
+/* PADRÃO WARNING (Amarelo pastel) */
+.btn-warning {
+    --bs-btn-color: #000;
+    --bs-btn-bg: #ffefd5;
+    --bs-btn-border-color: #ffe0b2; /* Borda levemente mais escura */
+    --bs-btn-hover-bg: #ffe4c4;
+    --bs-btn-hover-border-color: #f5d1a0;
 }
 
 a, .nav-link, .link-navbar, .link-interno {
@@ -267,7 +306,7 @@ position: relative;
 display: inline-block;
 }
 .input-container input {
-padding-right: 30px; /* Espaço para o ícone */
+padding-right: 30px;
 }
 .input-container svg {
 position: absolute;
@@ -328,11 +367,11 @@ height: 150px;
 }
 .input-container {
 position: relative;
-display: flex; /* Alterado para flexbox */
-align-items: center; /* Alinha verticalmente os itens */
+display: flex;
+align-items: center;
 }
 .input-container input {
-flex-grow: 1; /* Permite que o input cresça para ocupar o espaço disponível */
+flex-grow: 1;
 }
 .copy-icon {
 position: absolute;
@@ -345,13 +384,12 @@ cursor: pointer;
 cursor: pointer;
 }
 input::placeholder {
-color: #888; /* Cor cinza claro */
+color: #888;
 }
 input:focus::placeholder {
-color: #ccc; /* Cor cinza mais claro quando o campo está em foco */
+color: #ccc; 
 }
 
-/* para textos/colunas principais */
 .container .row > div {
   padding-left: 16px;
   padding-right: 16px;
@@ -362,4 +400,22 @@ color: #ccc; /* Cor cinza mais claro quando o campo está em foco */
     padding-left: 24px;
     padding-right: 24px;
   }
+}
+
+.card-gray60x60 {
+    background-color: #f9f9f9;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.display-7 {
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+@media (max-width: 576px) {
+    .display-7 {
+        font-size: 1.6rem;
+    }
 }
