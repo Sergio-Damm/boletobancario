@@ -262,7 +262,7 @@ function generateBarcode(codigo) {
         });
     } else if (container.innerHTML === '') {
         // Exibe a mensagem de espaço reservado apenas se o contêiner estiver vazio
-        container.innerHTML = '<span class="fw-bold">O código de barras aparecerá aqui</span>';
+        container.innerHTML = '<span class="fw-semibold">O código de barras aparecerá aqui</span>';
     }
 }
 
