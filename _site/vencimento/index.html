@@ -247,7 +247,10 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 
 					<p class="mb-5">A <a class="link-externo" href="https://www.caixa.gov.br/Downloads/cobranca-caixa/ESP_COD_BARRAS_SIGCB_COBRANCA_CAIXA.pdf" title="Link para o site da Caixa - CEF" target="_blank" rel="noopener noreferrer">primeira data-base</a> é 07/10/1997 e a <a class="link-externo" href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" title="Link para o site do Banco Banpará" target="_blank" rel="noopener noreferrer">segunda data-base</a> é 29/05/2022.</p>
 					
-					<p class="mb-5">Em 21/02/2025 os 4 dígitos/números no campo destinado à Data de Vencimento na Linha Digitável atingiram o seu limite, que é de 9999 dias (07/10/1997 + 9999 dias = 21/02/2025).</p>
+					<p class="mb-5">Por que temos duas Datas-base?</p>
+					
+					<p class="mb-5">Porque em 21/02/2025 o campo destinado ao Fator de Vencimento na Linha Digitável, considerando a primeira data-base (07/10/1997), composto por 4 dígitos, atingiu o seu limite de 9999 dígitos (07/10/1997 + 9999 dias = 21/02/2025).</p>
+
 					<p class="mb-5">Em razão desse limite, a primeira data-base, 07/10/1997, foi atualizada para 29/05/2022 (29/05/2022 + 1000 dias = 22/02/2025), e o fator de vencimento foi reiniciado em 1000 a partir de 22/02/2025.</p>
 
 						<div class="table-responsive mb-5">
@@ -313,7 +316,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 	<div class="row">
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
-				<h2 class="h2-title-content mb-5">Como calcular um Fator de Vencimento</h2>
+				<h2 class="h2-title-content mb-5">Como calcular um novo Fator de Vencimento</h2>
 					<p class="mb-5">Considerando a nova regra, a partir de 22/02/2025, para calcular um novo Fator de Vencimento é necessário observar o seguinte:</p>
 						
 					<ul class="mb-5">
@@ -322,7 +325,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 						<li class="mb-3">O Fator de Vencimento</li>
 					</ul>
 
-					<p class="mb-5">Considerando que a Data-base atual é 29/05/2022, o Fator de Vencimento é o resultado da subtração entre a Data de Vencimento desejada do Boleto Bancário e a data-base.</p>
+					<p class="mb-5">Considerando que a data-base atual é 29/05/2022, o Fator de Vencimento é o resultado da subtração entre a Data de Vencimento desejada e a data-base.</p>
 						
 					<p class="mb-5">A fórmula é: Data de Vencimento desejada - Data-base = Fator de Vencimento.</p>
 					
@@ -330,7 +333,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
   							<table class="table table-striped">
 								<tbody>
 									<tr>
-										<td class="text-nowrap">Data de Vencimento desejada</td>
+										<td class="text-nowrap">Data de Vencimento desejada (exemplo)</td>
 										<td>31/12/2026</td>
 									</tr>
 									<tr>
