@@ -11,7 +11,7 @@ permalink: /vencimento/
 			<h1 class="h1-title-content">A Data de Vencimento e o Valor do Boleto Bancário</h1>
 		</div>
 		<div class="col-12 col-md-10 mx-auto">
-			<p class="h1-subtitle-content">A Data de Vencimento na Linha Digitável do Boleto Bancário é representada por 4 dígitos/números (o Fator de Vencimento), e não no formato padrão DD/MM/AAAA (dia, mês e ano). Já o Valor de um Boleto Bancário corresponde aos últimos 10 dígitos da Linha Digitável</p>
+			<p class="h1-subtitle-content">Na Linha Digitável, a data de vencimento do Boleto Bancário é representada por 4 dígitos/números (o fator de vencimento), e não no formato padrão DD/MM/AAAA (dia, mês e ano). Já o valor de um Boleto Bancário corresponde aos últimos 10 dígitos da Linha Digitável</p>
 		</div>
 	</div>
 </section>
@@ -66,35 +66,176 @@ permalink: /vencimento/
 </section>
 <!-- ============================================================================================= -->
 <section class="container">
-		<div class="row">
-			<div class="col-12 col-md-10 mx-auto">
+	<div class="row">
+		<div class="col-12 col-md-10 mx-auto">
 
-				<div class="adsense-spacer">
-					<!-- display_topo -->
-					<ins class="adsbygoogle" 
-						style="display:block;" 
-						data-ad-client="ca-pub-8613196241841104" 
-						data-ad-slot="6886391758" 
-						data-ad-format="auto" 
-						data-full-width-responsive="true"></ins>
+			<div class="adsense-spacer">
+				<!-- display_topo -->
+				<ins class="adsbygoogle" 
+					style="display:block;" 
+					data-ad-client="ca-pub-8613196241841104" 
+					data-ad-slot="6886391758" 
+					data-ad-format="auto" 
+					data-full-width-responsive="true"></ins>
 				<script>
 					(adsbygoogle = window.adsbygoogle || []).push({});
 				</script>
-				</div>
-
 			</div>
+
 		</div>
+	</div>
 </section>
 <!-- ============================================================================================= -->
 <section class="container my-3">
 	<div class="row">
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
-				<h2 class="h2-title-content mb-5">A Data de vencimento</h2>
-                    <p class="mb-5">A data de vencimento de um Boleto Bancário corresponde ao número de dias decorridos entre a "data base" e a "data de vencimento".</p>
-				    <p class="mb-0">A antiga "data base" foi "fixada" em 07/10/1997 e a nova "data base" foi "fixada" em 29/05/2022.</p>
+				<h2 class="h2-title-content mb-5">A Data de Vencimento</h2>
+					<p class="mb-5">No Boleto Bancário, na Linha Digitável, a Data de Vencimento é substituída pelo Fator de Vencimento.</p>
+						
+					<div class="mb-5 text-center">
+						<img 
+							src="/img/BoletoBBvecto31122007.png" 
+							alt="Boleto com Linha Digitável e Código de Barras" 
+							class="rounded mx-auto img-fluid my-3" 
+						>	
+					</div>
+
+					<p class="mb-5">Como se vê no exemplo acima, o campo "Fator de Vencimento" é composto por 4 dígitos que ficam à esquerda do campo "Valor".</p>
+					<p class="mb-5">Em um Boleto Bancário com um Fator de Vencimento 3737 a Data de Vencimento é 31/12/2007.</p>
+					<p class="mb-5">Exemplo de linha digitável com vencimento em 31/12/2007:</p>
+					<p class="mb-5 text-break">00190.50095.40144.816069.06809.350314.3.<span class="fw-semibold text-cerise">3737</span>.0000000100</p>
+
 			</div>
 		</div>
 	</div>
 </section>
 <!-- ============================================================================================= -->
+<section class="container my-3">
+	<div class="row">
+        <div class="col-12 col-md-10 mx-auto">
+      		<div class="mb-5">
+				<h2 class="h2-title-content mb-5">O Fator de Vencimento</h2>
+					<p class="mb-5">O Fator de Vencimento é o número de dias corridos entre a "Data Base" e a "Data de Vencimento" e prevalece sobre a informação contida no campo "Data de Vencimento" do Boleto Bancário.</p>
+						
+						<div class="table-responsive mb-5">
+  							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<td class="text-nowrap">Data-base</td>
+										<td>07/10/1997</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">Fator de vencimento</td>
+										<td>3737</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">Vencimento</td>
+										<td>31/12/2007</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ============================================================================================= -->
+<section class="container my-3">
+	<div class="row">
+        <div class="col-12 col-md-10 mx-auto">
+      		<div class="mb-5">
+				<h2 class="h2-title-content mb-5">As Datas-Base (antiga e nova)</h2>
+
+					<p class="mb-5">A <a class="link-externo" href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" title="Link para o site do Banco Mercantil" target="_blank" rel="noopener noreferrer">Circular FB 125/2000 da Febraban</a>, publicada em 2 de maio de 2000, em reunião para tratar do "Fator de Vencimento", determinou que:</p>
+
+					<p class="mb-5">A <a class="link-externo" href="https://www.caixa.gov.br/Downloads/cobranca-caixa/ESP_COD_BARRAS_SIGCB_COBRANCA_CAIXA.pdf" title="Link para o site da Caixa - CEF" target="_blank" rel="noopener noreferrer">primeira data-base</a> é 07/10/1997 e a <a class="link-externo" href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" title="Link para o site do Banco Banpará" target="_blank" rel="noopener noreferrer">segunda data-base</a> é 29/05/2022.</p>
+					
+					<p class="mb-5">Em 21/02/2025 os 4 dígitos/números no campo destinado à Data de Vencimento na Linha Digitável atingiram o seu limite, que é de 9999 dias (07/10/1997 + 9999 dias = 21/02/2025).</p>
+					<p class="mb-5">Em razão desse limite, a primeira data base, 07/10/1997, foi atualizada para 29/05/2022 (29/05/2022 + 1000 dias = 22/02/2025), e o fator de vencimento foi reiniciado em 1000 a partir de 22/02/2025.</p>
+
+						<div class="table-responsive mb-5">
+  							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<td class="text-nowrap">Data base</td>
+										<td>29/05/2022</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">Fator de vencimento</td>
+										<td>1000</td>
+									</tr>
+          			            				<tr>
+											<td class="text-nowrap">Vencimento</td>
+											<td>22/02/2025</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					<p class="mb-5">Veja abaixo mais alguns exemplos de novos fatores de vencimentos:</p>
+
+						<div class="table-responsive">
+  							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th class="text-nowrap">Fator</th>
+										<th>Vencimento</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-nowrap">1000</td>
+										<td>22/02/2025</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">1002</td>
+										<td>24/02/2025</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">1667</td>
+										<td>21/12/2026</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">4789</td>
+										<td>09/07/2035</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">9999</td>
+										<td>13/10/2049</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ============================================================================================= -->
+<section class="container my-3">
+	<div class="row">
+        <div class="col-12 col-md-10 mx-auto">
+      		<div class="mb-5">
+				<h2 class="h2-title-content mb-5">O Valor de um Boleto Bancário</h2>
+					<p class="mb-5">O valor de um Boleto Bancário corresponde aos últimos 10 dígitos da Linha Digitável.</p>
+						
+					<div class="mb-5 text-center">
+						<img 
+							src="/img/BoletoBBvalor100.png" 
+							alt="Boleto com Linha Digitável e Código de Barras" 
+							class="rounded mx-auto img-fluid my-3" 
+						>	
+					</div>
+
+					<p class="mb-5">Por exemplo, se um Boleto Bancário é de R$ 1,00 o número que deve constar no campo "valor" é: 100.</p>
+					<p class="mb-5">Exemplo de linha digitável com valor R$ 1,00:</p>
+					<p class="mb-5 text-break">00190.50095.40144.816069.06809.350314.3.3737.<span class="fw-semibold text-cerise">0000000100</span></p>
+
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ============================================================================================= -->
+
