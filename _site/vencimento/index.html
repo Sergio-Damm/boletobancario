@@ -196,7 +196,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 						>	
 					</div>
 
-					<p class="mb-5">Como se vê no exemplo acima, o campo "Fator de Vencimento" é composto por 4 dígitos que ficam à esquerda do campo "Valor".</p>
+					<p class="mb-5">Como se vê na imagem acima, o campo "Fator de Vencimento" é composto por 4 dígitos que ficam à esquerda do campo "Valor".</p>
 					<p class="mb-5">Em um Boleto Bancário com um Fator de Vencimento 3737 a Data de Vencimento é 31/12/2007.</p>
 					<p class="mb-5">Exemplo de linha digitável com vencimento em 31/12/2007:</p>
 					<p class="mb-5 text-break">00190.50095.40144.816069.06809.350314.3.<span class="fw-semibold text-cerise">3737</span>.0000000100</p>
@@ -248,13 +248,13 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 					<p class="mb-5">A <a class="link-externo" href="https://www.caixa.gov.br/Downloads/cobranca-caixa/ESP_COD_BARRAS_SIGCB_COBRANCA_CAIXA.pdf" title="Link para o site da Caixa - CEF" target="_blank" rel="noopener noreferrer">primeira data-base</a> é 07/10/1997 e a <a class="link-externo" href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" title="Link para o site do Banco Banpará" target="_blank" rel="noopener noreferrer">segunda data-base</a> é 29/05/2022.</p>
 					
 					<p class="mb-5">Em 21/02/2025 os 4 dígitos/números no campo destinado à Data de Vencimento na Linha Digitável atingiram o seu limite, que é de 9999 dias (07/10/1997 + 9999 dias = 21/02/2025).</p>
-					<p class="mb-5">Em razão desse limite, a primeira data base, 07/10/1997, foi atualizada para 29/05/2022 (29/05/2022 + 1000 dias = 22/02/2025), e o fator de vencimento foi reiniciado em 1000 a partir de 22/02/2025.</p>
+					<p class="mb-5">Em razão desse limite, a primeira data-base, 07/10/1997, foi atualizada para 29/05/2022 (29/05/2022 + 1000 dias = 22/02/2025), e o fator de vencimento foi reiniciado em 1000 a partir de 22/02/2025.</p>
 
 						<div class="table-responsive mb-5">
   							<table class="table table-striped">
 								<tbody>
 									<tr>
-										<td class="text-nowrap">Data base</td>
+										<td class="text-nowrap">Data-base</td>
 										<td>29/05/2022</td>
 									</tr>
 									<tr>
@@ -313,6 +313,49 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 	<div class="row">
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
+				<h2 class="h2-title-content mb-5">Como calcular um Fator de Vencimento</h2>
+					<p class="mb-5">Considerando a nova regra, a partir de 22/02/2025, para calcular um novo Fator de Vencimento é necessário observar o seguinte:</p>
+						
+					<ul class="mb-5">
+						<li class="mb-3">A Data-base (29/5/2022)</li>
+                  		<li class="mb-3">A Data de Vencimento desejada do Boleto Bancário</li>
+						<li class="mb-3">O Fator de Vencimento</li>
+					</ul>
+
+					<p class="mb-5">Considerando que a Data-base atual é 29/05/2022, o Fator de Vencimento é o resultado da subtração entre a Data de Vencimento desejada do Boleto Bancário e a data-base.</p>
+						
+					<p class="mb-5">A fórmula é: Data de Vencimento desejada - Data-base = Fator de Vencimento.</p>
+					
+						<div class="table-responsive mb-5">
+  							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<td class="text-nowrap">Data de Vencimento desejada</td>
+										<td>31/12/2026</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">Data-base</td>
+										<td>29/05/2022</td>
+									</tr>
+  			                    	<tr>
+										<td class="text-nowrap">Fator de Vencimento</td>
+										<td>1677</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					<p class="mb-5">Utilize uma planilha, do Excel ou do Google Sheets, para efetuar os cálculos.</p>
+
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ============================================================================================= -->
+<section class="container my-3">
+	<div class="row">
+        <div class="col-12 col-md-10 mx-auto">
+      		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">O Valor de um Boleto Bancário</h2>
 					<p class="mb-5">O valor de um Boleto Bancário corresponde aos últimos 10 dígitos da Linha Digitável.</p>
 						
@@ -328,6 +371,24 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 					<p class="mb-5">Exemplo de linha digitável com valor R$ 1,00:</p>
 					<p class="mb-5 text-break">00190.50095.40144.816069.06809.350314.3.3737.<span class="fw-semibold text-cerise">0000000100</span></p>
 
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ============================================================================================= -->
+<section class="container my-3">
+	<div class="row">
+        <div class="col-12 col-md-10 mx-auto">
+      		<div class="mb-5">
+				<p class="mb-5">Fontes: 
+					<a class="link-externo" href="https://www.caixa.gov.br/Downloads/cobranca-caixa/ESP_COD_BARRAS_SIGCB_COBRANCA_CAIXA.pdf" title="Link para o site da Caixa - CEF" target="_blank" rel="noopener noreferrer">Caixa</a>, 
+					<a class="link-externo" href="https://download.itau.com.br/bankline/itaubba/cobranca_400_itaubba.pdf" title="Link para o site do Banco Itaú" target="_blank" rel="noopener noreferrer">Itaú</a>, 
+					<a class="link-externo" href="https://banco.bradesco/assets/pessoajuridica/pdf/MPO-Troca-Arquivos-Layout-240P.pdf" title="Link para o site do Banco Bradesco" target="_blank" rel="noopener noreferrer">Bradesco</a>, 
+					<a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" title="Link para o site do Banco do Brasil" target="_blank" rel="noopener noreferrer">Banco do Brasil</a>, 
+					<a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/2000/pdf/c_circ_2926_v1_O.pdf" title="Link para o site do Banco Central do Brasil" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a>, 
+					<a class="link-externo" href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" title="Link para o site do Banco Banpará" target="_blank" rel="noopener noreferrer">Banpará</a> e 
+					<a class="link-externo" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Conven%C3%A7%C3%A3o%20da%20Cobran%C3%A7a%20-%2005_02_2021_f.pdf" title="Link para o site da Febraban" target="_blank" rel="noopener noreferrer">Febraban</a>
+				</p>
 			</div>
 		</div>
 	</div>
