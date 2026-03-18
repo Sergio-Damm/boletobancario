@@ -132,7 +132,7 @@ async function carregarFeed(config) {
 
 // --- Feed - execucao das chamadas ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Autoesporte
+    // Valor Econômico
     carregarFeed({
         listaId: 'lista1', 
         loadingId: 'loading1', 
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         letras: 'VE'
     });
 
-    // NewsMotor
+    // Infomoney
     carregarFeed({
         listaId: 'lista3', 
         loadingId: 'loading3', 
@@ -150,13 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
         letras: 'IM'
     });
 
-    // Estadao (Jornal do Carro)
+    // Contabeis
     carregarFeed({
         listaId: 'lista5', 
         loadingId: 'loading5', 
-        rss: 'https://www.estadao.com.br/arc/outboundfeeds/feeds/rss/sections/jornal-do-carro/', 
-        nome: 'Estadão', 
-        letras: 'ES', 
+        rss: 'https://www.contabeis.com.br/rss/conteudo/', 
+        nome: 'Contabeis', 
+        letras: 'CO', 
         filtroPaywall: true
     });
 });
