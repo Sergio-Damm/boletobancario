@@ -11,7 +11,7 @@ permalink: /vencimento/
 			<h1 class="h1-title-content">A Data de Vencimento e o Valor do Boleto Bancário</h1>
 		</div>
 		<div class="col-12 col-md-10 mx-auto">
-			<p class="h1-subtitle-content">Na Linha Digitável, a data de vencimento do Boleto Bancário é representada por 4 dígitos/números (o fator de vencimento), e não no formato padrão DD/MM/AAAA (dia, mês e ano). Já o valor de um Boleto Bancário corresponde aos últimos 10 dígitos da Linha Digitável</p>
+			<p class="h1-subtitle-content">Na Linha Digitável, a data de vencimento do Boleto Bancário é representada por 4 dígitos/números, conhecidos como Fator de Vencimento, e não pelo formato padrão DD/MM/AAAA (dia, mês e ano). Já o valor de um Boleto Bancário corresponde aos últimos 10 dígitos da Linha Digitável</p>
 		</div>
 	</div>
 </section>
@@ -91,7 +91,7 @@ permalink: /vencimento/
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">A Data de Vencimento</h2>
-					<p class="mb-5">No Boleto Bancário, na Linha Digitável, a Data de Vencimento é substituída pelo Fator de Vencimento.</p>
+					<p class="mb-5">No Boleto Bancário, na Linha Digitável, a Data de Vencimento (31/12/2007) é substituída pelo Fator de Vencimento de 4 dígitos/números (3737).</p>
 						
 					<div class="mb-5 text-center">
 						<img 
@@ -101,10 +101,10 @@ permalink: /vencimento/
 						>	
 					</div>
 
-					<p class="mb-5">Como se vê na imagem acima, o campo "Fator de Vencimento" é composto por 4 dígitos que ficam à esquerda do campo "Valor".</p>
+					<p class="mb-5">Como se vê na imagem acima, o campo "Fator de Vencimento" é composto por 4 dígitos/números que ficam à esquerda do campo "Valor".</p>
 					<p class="mb-5">Em um Boleto Bancário com um Fator de Vencimento 3737 a Data de Vencimento é 31/12/2007.</p>
 					<p class="mb-5">Exemplo de linha digitável com vencimento em 31/12/2007:</p>
-					<p class="mb-5 text-break">00190.50095.40144.816069.06809.350314.3.<span class="fw-semibold text-cerise">3737</span>.0000000100</p>
+					<p class="mb-5 text-break fw-semibold">00190.50095.40144.816069.06809.350314.3.<span class="fw-semibold text-cerise">3737</span>.0000000100</p>
 
 			</div>
 		</div>
@@ -116,17 +116,17 @@ permalink: /vencimento/
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">O Fator de Vencimento</h2>
-					<p class="mb-5">O Fator de Vencimento é o número de dias corridos entre a "Data Base" e a "Data de Vencimento" e prevalece sobre a informação contida no campo "Data de Vencimento" do Boleto Bancário.</p>
+					<p class="mb-5">O Fator de Vencimento é o número de dias corridos desde a "Data Base" até a "Data de Vencimento".</p>
 						
 						<div class="table-responsive mb-5">
   							<table class="table table-striped">
 								<tbody>
 									<tr>
-										<td class="text-nowrap">Data-base</td>
+										<td class="text-nowrap">Data-base Antiga</td>
 										<td>07/10/1997</td>
 									</tr>
 									<tr>
-										<td class="text-nowrap">Fator de vencimento</td>
+										<td class="text-nowrap">Fator de Vencimento</td>
 										<td>3737</td>
 									</tr>
 									<tr>
@@ -150,28 +150,68 @@ permalink: /vencimento/
 
 					<p class="mb-5">A <a class="link-externo" href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" title="Link para o site do Banco Mercantil" target="_blank" rel="noopener noreferrer">Circular FB 125/2000 da Febraban</a>, publicada em 2 de maio de 2000, em reunião para tratar do "Fator de Vencimento", determinou que:</p>
 
-					<p class="mb-5">A <a class="link-externo" href="https://www.caixa.gov.br/Downloads/cobranca-caixa/ESP_COD_BARRAS_SIGCB_COBRANCA_CAIXA.pdf" title="Link para o site da Caixa - CEF" target="_blank" rel="noopener noreferrer">primeira data-base</a> é 07/10/1997 e a <a class="link-externo" href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" title="Link para o site do Banco Banpará" target="_blank" rel="noopener noreferrer">segunda data-base</a> é 29/05/2022.</p>
-					
-					<p class="mb-5">Por que temos duas Datas-base?</p>
-					
-					<p class="mb-5">Porque em 21/02/2025 o campo destinado ao Fator de Vencimento na Linha Digitável, considerando a primeira data-base (07/10/1997), composto por 4 dígitos, atingiu o seu limite de 9999 dígitos (07/10/1997 + 9999 dias = 21/02/2025).</p>
+					<p class="mb-5">A <a class="link-externo" href="https://www.caixa.gov.br/Downloads/cobranca-caixa/ESP_COD_BARRAS_SIGCB_COBRANCA_CAIXA.pdf" title="Link para o site da Caixa - CEF" target="_blank" rel="noopener noreferrer">Data-base antiga</a> é 07/10/1997 e a <a class="link-externo" href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" title="Link para o site do Banco Banpará" target="_blank" rel="noopener noreferrer">Data-base nova</a> é 29/05/2022.</p>
 
-					<p class="mb-5">Em razão desse limite, a primeira data-base, 07/10/1997, foi atualizada para 29/05/2022 (29/05/2022 + 1000 dias = 22/02/2025), e o fator de vencimento foi reiniciado em 1000 a partir de 22/02/2025.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ============================================================================================= -->
+<section class="container my-3">
+	<div class="row">
+        <div class="col-12 col-md-10 mx-auto">
+      		<div class="mb-5">
+
+				<h2 class="h2-title-content mb-5">Por que temos duas Datas-base?</h2>
+					
+					<p class="mb-5">Porque em 21/02/2025 o campo destinado ao Fator de Vencimento na Linha Digitável, considerando a Data-base antiga (07/10/1997), composto por 4 dígitos/números, atingiu o seu limite de 9999 dígitos (07/10/1997 + 9999 dias = 21/02/2025).</p>
+
+					<p class="mb-5">Em razão desse limite de 4 dígitos/números, a Data-base antiga, 07/10/1997, foi <span class="fw-semibold">atualizada</span> para 29/05/2022 (29/05/2022 + 1000 dias = 22/02/2025), e o fator de vencimento foi <span class="fw-semibold">reiniciado</span> em 1000 a partir de 22/02/2025.</p>
 
 						<div class="table-responsive mb-5">
   							<table class="table table-striped">
 								<tbody>
 									<tr>
-										<td class="text-nowrap">Data-base</td>
+										<td class="text-nowrap">Data-base Nova</td>
 										<td>29/05/2022</td>
 									</tr>
 									<tr>
-										<td class="text-nowrap">Fator de vencimento</td>
+										<td class="text-nowrap">Fator de Vencimento</td>
 										<td>1000</td>
 									</tr>
           			            				<tr>
 											<td class="text-nowrap">Vencimento</td>
 											<td>22/02/2025</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					<p class="mb-5">Como consequência dessa mudança, todos os Boletos Bancários com vencimento a partir de 22/02/2025 passaram a utilizar a Data-base nova para cálculo do novo Fator de Vencimento.</p>
+					
+					<p class="mb-5">Em nossos exemplos utilizamos o Fator de Vencimento 3737 que, na época da Data-base antiga, correspondia ao vencimento em 31/12/2007. Atualmente, com o advento da Data-base nova e o reinício do Fator de Vencimento para 1000, o Fator de Vencimento 3737 corresponde ao vencimento em 21/08/2032.</p>
+					
+					<p class="mb-5">Exemplo de diferentes datas de vencimento considerando o Fator de Vencimento 3737:</p>
+
+						<div class="table-responsive mb-5">
+  							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th class="text-nowrap">Datas-base</th>
+										<th>Fator</th>
+										<th>Vencimento</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-nowrap">07/10/1997</td>
+										<td>3737</td>
+                                        <td>31/12/2007</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">29/05/2022</td>
+										<td>3737</td>
+										<td>21/08/2032</td>
 									</tr>
 								</tbody>
 							</table>
@@ -225,14 +265,14 @@ permalink: /vencimento/
 					<p class="mb-5">Considerando a nova regra, a partir de 22/02/2025, para calcular um novo Fator de Vencimento é necessário observar o seguinte:</p>
 						
 					<ul class="mb-5">
-						<li class="mb-3">A Data-base (29/5/2022)</li>
+						<li class="mb-3">A Data-base nova (29/5/2022)</li>
                   		<li class="mb-3">A Data de Vencimento desejada do Boleto Bancário</li>
 						<li class="mb-3">O Fator de Vencimento</li>
 					</ul>
 
-					<p class="mb-5">Considerando que a data-base atual é 29/05/2022, o Fator de Vencimento é o resultado da subtração entre a Data de Vencimento desejada e a data-base.</p>
+					<p class="mb-5">Considerando que a Data-base nova é 29/05/2022, o Fator de Vencimento é o resultado da subtração entre a Data de Vencimento desejada e a Data-base nova.</p>
 						
-					<p class="mb-5">A fórmula é: Data de Vencimento desejada - Data-base = Fator de Vencimento.</p>
+					<p class="mb-5">A fórmula é: Data de Vencimento desejada - Data-base nova = Fator de Vencimento.</p>
 					
 						<div class="table-responsive mb-5">
   							<table class="table table-striped">
@@ -242,7 +282,7 @@ permalink: /vencimento/
 										<td>31/12/2026</td>
 									</tr>
 									<tr>
-										<td class="text-nowrap">Data-base</td>
+										<td class="text-nowrap">Data-base nova</td>
 										<td>29/05/2022</td>
 									</tr>
   			                    	<tr>
@@ -277,7 +317,30 @@ permalink: /vencimento/
 
 					<p class="mb-5">Por exemplo, se um Boleto Bancário é de R$ 1,00 o número que deve constar no campo "valor" é: 100.</p>
 					<p class="mb-5">Exemplo de linha digitável com valor R$ 1,00:</p>
-					<p class="mb-5 text-break">00190.50095.40144.816069.06809.350314.3.3737.<span class="fw-semibold text-cerise">0000000100</span></p>
+					<p class="mb-5 text-break fw-semibold">00190.50095.40144.816069.06809.350314.3.3737.<span class="fw-semibold text-cerise">0000000100</span></p>
+
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ============================================================================================= -->
+<section class="container my-3">
+	<div class="row">
+        <div class="col-12 col-md-10 mx-auto">
+      		<div class="mb-5">
+				<h2 class="h2-title-content mb-5">Curiosidades sobre o Boleto Bancário</h2>
+
+					<p class="mb-5">Apesar de ter uma natureza jurídica um pouco diferente, a Duplicata pode ser considerada a antecessora do Boleto Bancário. A Duplicata foi criada pela <a class="link-externo" href="https://www.planalto.gov.br/ccivil_03/leis/l5474.htm" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Lei nº 5.474 de 18 de julho de 1968</a>, do Governo Federal Brasileiro.</p>
+
+					<p class="mb-5">O Código de Barras do Boleto Bancário foi criado pela <a class="link-externo" href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/43524/C_Circ_2414_v5_L.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular n° 2.414 de 7 de outubro de 1993</a>, do Banco Central do Brasil.</p>
+
+					<p class="mb-5">A Linha Digitável do Boleto Bancário foi criada pela <a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/1995/pdf/c_circ_2531_v2_l.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular nº 2.531 de 24 de fevereiro de 1995</a>, do Banco Central do Brasil.</p>
+
+					<p class="mb-5">O Fator de Vencimento do Boleto Bancário foi criado pela <a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/2000/pdf/c_circ_2926_v1_O.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular n° 2.926 de 24 de julho de 2000</a>, do Banco Central do Brasil.</p>
+
+					<p class="mb-5">Atualmente, o pagamento através de Boleto Bancário é disciplinado pela <a class="link-externo" href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=443" title="Link para o site do Banco Central do Brasil" target="_blank" rel="noopener noreferrer">Resolução BCB n° 443 de 12 de dezembro de 2024</a>, do Banco Central do Brasil.</p>
+
+					<p class="mb-5">Mais informações sobre o Boleto Bancário estão disponíveis no sites do <a class="link-externo" href="https://www.bcb.gov.br/meubc/faqs/s/boleto" title="Link para o site do Banco Central do Brasil" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a> e da  <a class="link-externo" href="https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos" title="Link para o site da FEBRABAN" target="_blank" rel="noopener noreferrer">FEBRABAN - Federação Brasileira de Bancos</a>.</p>
 
 			</div>
 		</div>

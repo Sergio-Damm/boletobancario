@@ -106,7 +106,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 			<h1 class="h1-title-content">A Linha Digitável e o Código de Barras</h1>
 		</div>
 		<div class="col-12 col-md-10 mx-auto">
-			<p class="h1-subtitle-content">A Linha Digitável é a representação numérica do Código de Barras. Já o Código de Barras é a representação gráfica do conteúdo do boleto bancário (código do banco, código da moeda, dígito verificador, fator de vencimento, valor do documento e campo livre)</p>
+			<p class="h1-subtitle-content">A Linha Digitável é a representação numérica do Código de Barras. Já o Código de Barras é a representação gráfica do conteúdo do boleto bancário (código do banco, código da moeda, dígitos verificadores, vencimento, valor e campo livre)</p>
 		</div>
 	</div>
 </section>
@@ -214,10 +214,12 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 				<h2 class="h2-title-content mb-5">O que é a Linha Digitável?</h2>
                     <p class="mb-5">A Linha Digitável é composta por 47 números, localizada na parte superior do Boleto Bancário, que contém informações importantes do boleto, como:</p>
 					<ul>
-						<li class="mb-3">Banco emissor</li>
-                  		<li class="mb-3">Valor a ser pago</li>
-						<li class="mb-3">Data de vencimento</li>
-						<li class="mb-3">Dígitos verificadores</li>
+						<li class="mb-3">Identificação do Banco</li>
+						<li class="mb-3">Código da Moeda</li>
+						<li class="mb-3">Campos de Controle e Identificação do Beneficiário</li>
+						<li class="mb-3">Fator de Vencimento</li>
+                  		<li class="mb-3">Valor a ser Pago</li>
+						<li class="mb-3">Dígitos Verificadores</li>
 					</ul>
 			</div>
 		</div>
@@ -232,9 +234,9 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 					<p class="mb-5">A Linha Digitável é utilizada para pagamentos manuais via internet banking, aplicativos ou caixas eletrônicos quando a leitura automática do Código de Barras não é possível.</p>
 					<p class="mb-5">Principais funções da Linha Digitável:</p>
 				<ul>
-                  	<li class="mb-4"><span class="fw-semibold">Pagamento manual</span>: Permite digitar as informações do boleto em caixas eletrônicos, internet banking ou aplicativos de bancos.</li>
-					<li class="mb-4"><span class="fw-semibold">Verificação de dados</span>: O sistema bancário verifica se as informações estão corretas antes de processar o pagamento.</li>
-					<li class="mb-0"><span class="fw-semibold">Prevenção de erros e fraudes</span>: Os dígitos verificadores ajudam a evitar erros de digitação e fraudes.</li>
+                  	<li class="mb-4"><span class="fw-semibold">Pagamento Manual</span>: Permite digitar as informações do boleto em caixas eletrônicos, internet banking ou aplicativos de bancos.</li>
+					<li class="mb-4"><span class="fw-semibold">Verificação de Dados</span>: O sistema bancário verifica se as informações estão corretas antes de processar o pagamento.</li>
+					<li class="mb-0"><span class="fw-semibold">Prevenção de Erros e Fraudes</span>: Os dígitos verificadores ajudam a evitar erros de digitação e fraudes.</li>
 				</ul>
 			</div>
 		</div>
@@ -246,12 +248,13 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">O que é o Código de Barras?</h2>
-					<p class="mb-5">O Código de Barras é uma sequência de 44 barras verticais de diferentes espessuras.</p>
+					<p class="mb-5">O Código de Barras é composto por 44 faixas verticais pretas e brancas de diferentes espessuras, que, quando lidas por um leitor óptico (scanner), são convertidas em números ou letras.
+
 				<h2 class="h2-title-content mb-5">Para que serve o Código de Barras?</h2>
 					<ul>
-                  		<li class="mb-4"><span class="fw-semibold">Pagamento rápido e prático</span>: A leitura eletrônica das barras agiliza o processo de pagamento.</li>
-						<li class="mb-4"><span class="fw-semibold">Redução de erros</span>: A leitura eletrônica reduz a chance de erros de digitação.</li>
-						<li class="mb-0"><span class="fw-semibold">Automatização do pagamento</span>: Os dados são enviados diretamente para o sistema bancário.</li>
+                  		<li class="mb-4"><span class="fw-semibold">Pagamento Rápido e Prático</span>: A leitura eletrônica das barras agiliza o processo de pagamento.</li>
+						<li class="mb-4"><span class="fw-semibold">Redução de Erros</span>: A leitura eletrônica reduz a chance de erros de digitação.</li>
+						<li class="mb-0"><span class="fw-semibold">Automatização do Pagamento</span>: Os dados são enviados diretamente para o sistema bancário.</li>
 					</ul>
 			</div>
 		</div>
@@ -274,7 +277,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 							<li class="mb-5"><span class="fw-semibold">Código de Barras</span>: 001 9 3 3737 0000000100 0500 9 401448 1606 06809350 31</li>
 						</ul>
 					<p class="mb-5">A diferença de 3 dígitos são os dígitos verificadores, que são adicionados à Linha Digitável para garantir a integridade das informações e evitar erros durante a digitação.</p>
-					<p class="mb-5">Tanto a Linha Digitável quanto o Código de Barras seguem as especificações técnicas, incluindo a fórmula de cálculo do dígito verificador da Linha Digitável, do <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="noopener noreferrer">Manual Técnico do Banco do Brasil - BB</a>.</p>
+					<p class="mb-5">Tanto a Linha Digitável quanto o Código de Barras seguem as especificações técnicas, incluindo a fórmula de cálculo do dígitos verificadores da Linha Digitável, do <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="noopener noreferrer">Manual Técnico do Banco do Brasil - BB</a>.</p>
 			</div>
 		</div>
 	</div>
