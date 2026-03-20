@@ -212,7 +212,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">O que é a Linha Digitável?</h2>
-                    <p class="mb-5">A Linha Digitável é composta por 47 números, localizada na parte superior do Boleto Bancário, que contém informações importantes do boleto, como:</p>
+                    <p class="mb-5">A Linha Digitável é composta por 47 números, localizada na parte superior do boleto bancário, que contém informações importantes do boleto, como:</p>
 					<ul>
 						<li class="mb-3">Identificação do Banco</li>
 						<li class="mb-3">Código da Moeda</li>
@@ -266,7 +266,14 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">Qual a relação entre a Linha Digitável e o Código de Barras?</h2>
-					<p class="mb-5">A Linha Digitável e o Código de Barras contêm as mesmas informações, mas em formatos diferentes:</p>
+
+					<p class="mb-5">O Boleto Bancário (Bloqueto de Cobrança) foi instituído em 1993, através da <a class="link-externo" href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/43524/C_Circ_2414_v5_L.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular n° 2.414 de 7 de outubro de 1993</a>, do Banco Central do Brasil. Esse normativo criou também a Ficha de Compensação e o Código de Barras, ambos fundamentais para a implantação da Compensação Eletrônica de Cobrança.</p>
+
+					<p class="mb-5">Mais tarde, em 1995, para "aprimoramento do Bloqueto de Cobrança", a Linha Digitável do Boleto Bancário foi instituída pela <a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/1995/pdf/c_circ_2531_v2_l.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular nº 2.531 de 24 de fevereiro de 1995</a>, também do Banco Central do Brasil.</p>
+
+					<p class="mb-5">Originalmente, o Boleto Bancário utilizava apenas o Código de Barras. A Linha Digitável foi criada depois para que o usuário pudesse digitar a sequência numérica caso o leitor do Código de Barras não funcionasse.</p>
+
+					<p class="mb-5">No entanto, é sempre bom lembrar que a Linha Digitável e o Código de Barras contêm as mesmas informações, mas em formatos diferentes:</p>
 						<ul>
                   			<li class="mb-4"><span class="fw-semibold">Linha Digitável</span>: 47 números (44 números do Código de Barras + 3 dígitos verificadores).</li>
 							<li class="mb-5"><span class="fw-semibold">Código de Barras</span>: 44 barras verticais.</li>
@@ -288,7 +295,16 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">Os números da Linha Digitável</h2>
-					<p class="mb-5">Exemplo de uma Linha Digitável e de um Código de Barras com o mesmo significado:</p>
+					<p class="mb-5">A Linha Digitável é a representação numérica do Código de Barras. Ambos, a Linha Digitável e o Código de Barras, contém as mesmas informações, mas são apresentados em formatos e sequências diferentes.</p>
+
+					<p class="mb-5">A Linha Digitável (47 dígitos), sem espaços, pontos, vírgulas ou qualquer outro caractere:</p>
+
+					<p class="mb-5">00190500954014481606906809350314337370000000100</p>
+
+					<p class="mb-5">A Linha Digitável é distribuída em 5 campos (partes), sendo os 3 primeiros consistidos por Dígito Verificador – DV (calculado através do Módulo 10) e, entre cada campo, espaço equivalente a uma posição. No quarto campo é indicado, isoladamente, o DV (calculado através do Módulo 11) do Código de Barras: </p>
+
+					<p class="mb-5">A Linha Digitável separada por campos:</p>
+
 					<p class="mb-5">
 						<span style="color: #e1055d;">001</span>
 						<span style="color: orange;">9</span>
@@ -305,10 +321,11 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 						<span style="color: black;">(</span>
 						<span style="color: black;">4</span>
 						<span style="color: black;">)</span>
-						<span style="color: purple;">337370000000100</span>
+						<span style="color: purple;">3</span>
+						<span style="color: purple;">37370000000100</span>
 						<span style="color: black;"> (47 dígitos)</span>
 					</p>
-					<p class="mb-5">Observe que os números com cores roxas acima também constam no Código de Barras abaixo, mas em ordem diferente (<span style="color: purple;">337370000000100</span>).</p>
+					<p class="mb-5">Observe que os números com cores roxas acima também constam no Código de Barras abaixo, mas em ordem diferente (<span style="color: purple;">3 37370000000100</span>).</p>
 				<h2 class="h2-title-content mb-5">Os "números" do Código de Barras</h2>
 					<p class="mb-5">Exemplo do Código de Barras com o mesmo significado da Linha Digitável acima:</p>
 					<p class="mb-5">
