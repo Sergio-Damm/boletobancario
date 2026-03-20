@@ -178,7 +178,7 @@ permalink: /linha-digitavel/
 
 					<p class="mb-5">Originalmente, o Boleto Bancário utilizava apenas o Código de Barras. A Linha Digitável foi criada depois para que o usuário pudesse digitar a sequência numérica caso o leitor do Código de Barras não funcionasse.</p>
 
-					<p class="mb-5">No entanto, é sempre bom lembrar que a Linha Digitável e o Código de Barras contêm as mesmas informações, mas em formatos diferentes:</p>
+					<p class="mb-5">No entanto, é sempre bom lembrar que tanto a Linha Digitável quanto o Código de Barras contêm as mesmas informações, mas em formatos diferentes:</p>
 						<ul>
                   			<li class="mb-4"><span class="fw-semibold">Linha Digitável</span>: 47 números (44 números do Código de Barras + 3 dígitos verificadores).</li>
 							<li class="mb-5"><span class="fw-semibold">Código de Barras</span>: 44 barras verticais.</li>
@@ -200,16 +200,13 @@ permalink: /linha-digitavel/
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">Os números da Linha Digitável</h2>
-					<p class="mb-5">A Linha Digitável é a representação numérica do Código de Barras. Ambos, a Linha Digitável e o Código de Barras, contém as mesmas informações, mas são apresentados em formatos e sequências diferentes.</p>
 
-					<p class="mb-5">A Linha Digitável (47 dígitos), sem espaços, pontos, vírgulas ou qualquer outro caractere:</p>
-
-					<p class="mb-5">00190500954014481606906809350314337370000000100</p>
-
+					<p class="mb-5">A Linha Digitável é a representação numérica do Código de Barras.</p>
+					<p class="mb-5">Ambos, a Linha Digitável e o Código de Barras, contém as mesmas informações, mas são apresentados em formatos e sequências diferentes.</p>
+					<p class="mb-5">Exemplo de uma Linha Digitável com 47 dígitos, sem espaços, pontos, vírgulas ou qualquer outro caractere:</p>
+					<p class="mb-5 text-nowrap fw-semibold">00190500954014481606906809350314337370000000100</p>
 					<p class="mb-5">A Linha Digitável é distribuída em 5 campos (partes), sendo os 3 primeiros consistidos por Dígito Verificador – DV (calculado através do Módulo 10) e, entre cada campo, espaço equivalente a uma posição. No quarto campo é indicado, isoladamente, o DV (calculado através do Módulo 11) do Código de Barras: </p>
-
 					<p class="mb-5">A Linha Digitável separada por campos:</p>
-
 					<p class="mb-5">
 						<span style="color: #e1055d;">001</span>
 						<span style="color: orange;">9</span>
@@ -231,12 +228,17 @@ permalink: /linha-digitavel/
 						<span style="color: black;"> (47 dígitos)</span>
 					</p>
 					<p class="mb-5">Observe que os números com cores roxas acima também constam no Código de Barras abaixo, mas em ordem diferente (<span style="color: purple;">3 37370000000100</span>).</p>
+
 				<h2 class="h2-title-content mb-5">Os "números" do Código de Barras</h2>
-					<p class="mb-5">Exemplo do Código de Barras com o mesmo significado da Linha Digitável acima:</p>
+					<p class="mb-5">O Código de Barras é a representação gráfica do conteúdo do Boleto Bancário.</p>
+					<p class="mb-5">Exemplo de um Código de Barras com 44 dígitos, o mesmo significado da Linha Digitável acima, sem espaços, pontos, vírgulas ou qualquer outro caractere:</p>
+					<p class="mb-5 text-nowrap fw-semibold">00193373700000001000500940144816060680935031</p>
+					<p class="mb-5">O Código de Barras separado por campos:</p>
 					<p class="mb-5">
 						<span style="color: #e1055d;">001</span>
 						<span style="color: orange;">9</span>
-						<span style="color: purple;">337370000000100</span>
+						<span style="color: purple;">3</span>
+						<span style="color: purple;">37370000000100</span>
 						<span style="color: blue;">05009</span>
 						<span style="color: #38761d;">401448</span>
 						<span style="color: #e1055d;">16060680935031</span> (44 dígitos)
