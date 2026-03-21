@@ -47,6 +47,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // --- 6. feed de noticias (rss) ---
+function gerarIniciais(nome) {
+    if (!nome) return 'XX';
+
+    // remove números e caracteres especiais
+    const limpo = nome.replace(/[^a-zA-Z\s]/g, '').trim();
+
+    const partes = limpo.split(' ').filter(Boolean);
+
+    if (partes.length === 1) {
+        // ex: "Motor1" → "MO"
+        return partes[0].substring(0, 2).toUpperCase();
+    }
+
+    // ex: "Quatro Rodas" → "QR"
+    return (partes[0][0] + partes[1][0]).toUpperCase();
+}
+
 async function carregarFeed(config) {
     const lista = document.getElementById(config.listaId);
     const loading = document.getElementById(config.loadingId);
@@ -55,12 +72,18 @@ async function carregarFeed(config) {
     lista.innerHTML = ''; 
     loading.style.display = 'block';
 
-    const placeholders = {
-        'VE': 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDA2NmNjIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5BRTwvdGV4dD48L3N2Zz4=',
-        'AB': 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDA2NDAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5OTTwvdGV4dD48L3N2Zz4=',
-        'ES': 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjY2MwMDAwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5FUzwvdGV4dD48L3N2Zz4='
-    };
-    const placeholder = placeholders[config.letras] || placeholders['SD'];
+    const iniciais = gerarIniciais(config.nome);
+
+const svg = `
+<svg xmlns='http://www.w3.org/2000/svg' width='400' height='200'>
+<rect width='100%' height='100%' fill='#333'/>
+<text x='50%' y='50%' font-size='40' fill='white' text-anchor='middle' dy='.3em'>
+${iniciais}
+</text>
+</svg>
+`;
+
+const placeholder = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
 
     try {
         const controller = new AbortController();
@@ -132,13 +155,13 @@ async function carregarFeed(config) {
 
 // --- Feed - execucao das chamadas ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Valor Econômico
+    // Investing Brasil
     carregarFeed({
         listaId: 'lista1', 
         loadingId: 'loading1', 
-        rss: 'https://pox.globo.com/rss/valor', 
-        nome: 'Valor Econômico', 
-        letras: 'VE'
+        rss: 'https://agenciabrasil.ebc.com.br/rss/economia/feed.xml', 
+        nome: 'TESTE', 
+        letras: 'TESTE'
     });
 
     // Infomoney
