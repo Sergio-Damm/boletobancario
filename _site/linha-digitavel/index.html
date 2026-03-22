@@ -248,8 +248,36 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">O que é o Código de Barras?</h2>
-					<p class="mb-5">O Código de Barras é composto por 44 faixas verticais pretas e brancas de diferentes espessuras, que, quando lidas por um leitor óptico (scanner), são convertidas em números ou letras.
-
+					<p class="mb-5">O Código de Barras é a representação gráfica do conteúdo do Boleto Bancário.</p>
+					<p class="mb-5">É o formato criado para ser lido com rapidez e precisão por scanners e aplicativos, transformando as barras verticais (a representação gráfica) nos 44 números que identificam o Boleto Bancário.</p>
+					<p class="mb-5">As barras verticais pretas e brancas de diferentes espessuras são do tipo "2 de 5 intercalado" <a class="link-externo" href="https://en.wikipedia.org/wiki/Interleaved_2_of_5" title="Link para o site da Wikipédia" target="_blank" rel="noopener noreferrer">(Intercalado 2 de 5 - ITF)</a>.
+					<p class="mb-5">O termo "2 de 5" significa que 5 barras (pretas ou brancas) definem 1 dígito, sendo que duas delas são sempre largas. O termo "intercalado" indica que os espaços entre as barras pretas também carregam informação, de maneira análoga às barras.</p>
+					<p class="mb-5">O resultado visual é um bloco de 10 elementos (5 barras pretas + 5 espaços brancos) que, intercalados, representam sempre um par de dígitos.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ============================================================================================= -->
+<section class="container my-3">
+	<div class="row">
+        <div class="col-12 col-md-10 mx-auto">
+      		<div class="mb-5">
+				<h2 class="h2-title-content mb-5">Como o leitor sabe onde o Código de Barras começa e termina?</h2>
+					<p class="mb-5">Para que os scanners e os aplicativos não se confundam com outras impressões no papel, o padrão Intercalado 2 de 5 utiliza marcas de início e fim, chamadas de caracteres de guarda:</p>
+						<ul>
+                  			<li class="mb-4"><span class="fw-semibold">Início (Start)</span>: O código sempre começa com duas barras pretas finas e dois espaços brancos finos (sequência NNNN). Isso avisa ao leitor: "Atenção, os próximos blocos são números".</li>
+							<li class="mb-4"><span class="fw-semibold">Fim (Stop)</span>: O código termina com uma barra preta larga, um espaço branco fino e uma barra preta fina (sequência WNN). Isso indica ao leitor: "O código acabou, pode parar de ler".</li>
+						</ul>
+					<p class="mb-5">Sem esses sinais, o leitor óptico não saberia se está lendo o Boleto Bancário da esquerda para a direita ou vice-versa, nem onde exatamente a informação numérica começa.</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- ============================================================================================= -->
+<section class="container my-3">
+	<div class="row">
+        <div class="col-12 col-md-10 mx-auto">
+      		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">Para que serve o Código de Barras?</h2>
 					<ul>
                   		<li class="mb-4"><span class="fw-semibold">Pagamento Rápido e Prático</span>: A leitura eletrônica das barras agiliza o processo de pagamento.</li>
@@ -267,23 +295,23 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">Qual a relação entre a Linha Digitável e o Código de Barras?</h2>
 
-					<p class="mb-5">O Boleto Bancário (Bloqueto de Cobrança) foi instituído em 1993, através da <a class="link-externo" href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/43524/C_Circ_2414_v5_L.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular n° 2.414 de 7 de outubro de 1993</a>, do Banco Central do Brasil. Esse normativo criou também a Ficha de Compensação e o Código de Barras, ambos fundamentais para a implantação da Compensação Eletrônica de Cobrança.</p>
+					<p class="mb-5">O Boleto Bancário (Bloqueto de Cobrança) foi criado em 1993, através da <a class="link-externo" href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/43524/C_Circ_2414_v5_L.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular n° 2.414, de 7 de outubro de 1993</a>, do Banco Central do Brasil. Esse normativo criou também a Ficha de Compensação e o Código de Barras, ambos fundamentais para a implantação da Compensação Eletrônica de Cobrança.</p>
 
-					<p class="mb-5">Mais tarde, em 1995, para "aprimoramento do Bloqueto de Cobrança", a Linha Digitável do Boleto Bancário foi instituída pela <a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/1995/pdf/c_circ_2531_v2_l.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular nº 2.531 de 24 de fevereiro de 1995</a>, também do Banco Central do Brasil.</p>
+					<p class="mb-5">Mais tarde, em 1995, para "aprimoramento do Bloqueto de Cobrança", a Linha Digitável do Boleto Bancário foi criada (<a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/1995/pdf/c_circ_2531_v2_l.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular nº 2.531, de 24 de fevereiro de 1995</a>).</p>
 
-					<p class="mb-5">Originalmente, o Boleto Bancário utilizava apenas o Código de Barras. A Linha Digitável foi criada depois para que o usuário pudesse digitar a sequência numérica caso o leitor do Código de Barras não funcionasse.</p>
+					<p class="mb-5">A Linha Digitável foi criada depois do Código de Barras, para que o usuário pudesse digitar a sequência numérica caso o leitor do Código de Barras não funcionasse.</p>
 
-					<p class="mb-5">No entanto, é sempre bom lembrar que tanto a Linha Digitável quanto o Código de Barras contêm as mesmas informações, mas em formatos diferentes:</p>
+					<p class="mb-5">No entanto, é importante lembrar que a Linha Digitável e o Código de Barras contêm as mesmas informações essenciais, mas organizadas de formas diferentes:</p>
 						<ul>
                   			<li class="mb-4"><span class="fw-semibold">Linha Digitável</span>: 47 números (44 números do Código de Barras + 3 dígitos verificadores).</li>
-							<li class="mb-5"><span class="fw-semibold">Código de Barras</span>: 44 barras verticais.</li>
+							<li class="mb-5"><span class="fw-semibold">Código de Barras</span>: 44 números que representam as barras verticais.</li>
 						</ul>
 					<p class="mb-5">Exemplo:</p>
 						<ul>
                   			<li class="mb-4"><span class="fw-semibold">Linha Digitável</span>: 001 9 0500 9 5 4014481606 9 0680935031 4 3 3737 0000000100</li>
 							<li class="mb-5"><span class="fw-semibold">Código de Barras</span>: 001 9 3 3737 0000000100 0500 9 401448 1606 06809350 31</li>
 						</ul>
-					<p class="mb-5">A diferença de 3 dígitos são os dígitos verificadores, que são adicionados à Linha Digitável para garantir a integridade das informações e evitar erros durante a digitação.</p>
+					<p class="mb-5">A diferença de 3 dígitos, entre a Linha Digitável e o Código de Barras, são os dígitos verificadores, que são adicionados à Linha Digitável para garantir a integridade das informações e evitar erros durante a digitação.</p>
 					<p class="mb-5">Tanto a Linha Digitável quanto o Código de Barras seguem as especificações técnicas, incluindo a fórmula de cálculo do dígitos verificadores da Linha Digitável, do <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="noopener noreferrer">Manual Técnico do Banco do Brasil - BB</a>.</p>
 			</div>
 		</div>
@@ -348,8 +376,8 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 	<div class="row">
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
-				<h2 class="h2-title-content mb-5">Composição da Linha digitável</h2>
-					<p class="mb-5">001 9 0500 9 5 4014481606 9 0680935031 4 3 3737 0000000100 (47 números)</p>
+				<h2 class="h2-title-content mb-5">Composição da Linha digitável  (47 dígitos)</h2>
+					<p class="mb-5">001 9 0500 9 5 4014481606 9 0680935031 4 3 3737 0000000100</p>
 			</div>
 			<div class="table-responsive mb-5">
 				<table class="table table-striped">
@@ -419,8 +447,8 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 	<div class="row">
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
-				<h2 class="h2-title-content mb-5">Composição do Código de Barras</h2>
-					<p class="mb-5">001 9 3 3737 0000000100 0500 9401448 1606 06809350 31 (44 números)</p>
+				<h2 class="h2-title-content mb-5">Composição do Código de Barras (44 dígitos)</h2>
+					<p class="mb-5">001 9 3 3737 0000000100 0500 9401448 1606 06809350 31</p>
 			</div>
 			<div class="table-responsive mb-5">
   				<table class="table table-striped">
@@ -453,27 +481,37 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 				</tr>
 				<tr>
 					<td class="text-nowrap">20 a 23</td>
-					<td>Número do Convênio fornecido pelo Banco</td>
+					<td>Campo Livre - Número do Convênio fornecido pelo Banco</td>
 				</tr>
 				<tr>
 					<td class="text-nowrap">24 a 30</td>
-					<td>Complemento do Nosso Número, sem DV</td>
+					<td>Campo Livre - Complemento do Nosso Número, sem DV</td>
 				</tr>
 				<tr>
 					<td class="text-nowrap">31 a 34</td>
-					<td>Número da Agência de Relacionamento, sem DV</td>
+					<td>Campo Livre - Número da Agência de Relacionamento, sem DV</td>
 				</tr>
 				<tr>
 					<td class="text-nowrap">35 a 42</td>
-					<td>Conta Corrente de Relacionamento, sem DV</td>
+					<td>Campo Livre - Conta Corrente de Relacionamento, sem DV</td>
 				</tr>
 				<tr>
 					<td class="text-nowrap">43 a 44</td>
-					<td>Tipo de Carteira/Modalidade de Cobrança</td>
+					<td>Campo Livre - Tipo de Carteira/Modalidade de Cobrança</td>
 				</tr>
 				</tbody>
 				</table>
 			</div>
+
+			<div class="">
+				<p class="mb-5">A Linha Digitável e o Código de Barras são compostos por 2 Campos: o "Campo Obrigatório" e o "Campo Livre".</p>
+					<ul>
+                  		<li class="mb-4"><span class="fw-semibold">Campo Obrigatório</span>: Determinado pela FEBRABAN e comum a todos dos
+bancos.</li>
+						<li class="mb-5"><span class="fw-semibold">Campo Livre</span>: Determinado por cada banco de acordo com a modalidade de Cobrança utilizada pelo cliente.</li>
+					</ul>
+			</div>
+
 		</div>
 	</div>
 </section>
