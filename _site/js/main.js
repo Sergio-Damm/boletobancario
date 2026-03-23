@@ -159,9 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarFeed({
         listaId: 'lista1', 
         loadingId: 'loading1', 
-        rss: 'https://agenciabrasil.ebc.com.br/rss/economia/feed.xml', 
-        nome: 'TESTE', 
-        letras: 'TESTE'
+        rss: 'https://pox.globo.com/rss/valor', 
+        nome: 'Valor Econômico', 
+        letras: 'VE'
     });
 
     // Infomoney

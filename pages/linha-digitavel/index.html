@@ -117,7 +117,7 @@ permalink: /linha-digitavel/
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">O que é a Linha Digitável?</h2>
-                    <p class="mb-5">A Linha Digitável é composta por 47 números, localizada na parte superior do boleto bancário, que contém informações importantes do boleto, como:</p>
+                    <p class="mb-5">A Linha Digitável é composta por 47 dígitos (números), localizada na parte superior direita do boleto bancário, que contém informações importantes do boleto, como:</p>
 					<ul>
 						<li class="mb-3">Identificação do Banco</li>
 						<li class="mb-3">Código da Moeda</li>
@@ -154,7 +154,7 @@ permalink: /linha-digitavel/
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">O que é o Código de Barras?</h2>
 					<p class="mb-5">O Código de Barras é a representação gráfica do conteúdo do Boleto Bancário.</p>
-					<p class="mb-5">É o formato criado para ser lido com rapidez e precisão por scanners e aplicativos, transformando as barras verticais (a representação gráfica) nos 44 números que identificam o Boleto Bancário.</p>
+					<p class="mb-5">É o formato criado para ser lido com rapidez e precisão por scanners e aplicativos, transformando as barras verticais (a representação gráfica) nos 44 dígitos (números) que identificam o Boleto Bancário.</p>
 					<p class="mb-5">As barras verticais pretas e brancas de diferentes espessuras são do tipo "2 de 5 intercalado" <a class="link-externo" href="https://en.wikipedia.org/wiki/Interleaved_2_of_5" title="Link para o site da Wikipédia" target="_blank" rel="noopener noreferrer">(Intercalado 2 de 5 - ITF)</a>.
 					<p class="mb-5">O termo "2 de 5" significa que 5 barras (pretas ou brancas) definem 1 dígito, sendo que duas delas são sempre largas. O termo "intercalado" indica que os espaços entre as barras pretas também carregam informação, de maneira análoga às barras.</p>
 					<p class="mb-5">O resultado visual é um bloco de 10 elementos (5 barras pretas + 5 espaços brancos) que, intercalados, representam sempre um par de dígitos.</p>
@@ -170,7 +170,7 @@ permalink: /linha-digitavel/
 				<h2 class="h2-title-content mb-5">Como o leitor sabe onde o Código de Barras começa e termina?</h2>
 					<p class="mb-5">Para que os scanners e os aplicativos não se confundam com outras impressões no papel, o padrão Intercalado 2 de 5 utiliza marcas de início e fim, chamadas de caracteres de guarda:</p>
 						<ul>
-                  			<li class="mb-4"><span class="fw-semibold">Início (Start)</span>: O código sempre começa com duas barras pretas finas e dois espaços brancos finos (sequência NNNN). Isso avisa ao leitor: "Atenção, os próximos blocos são números".</li>
+                  			<li class="mb-4"><span class="fw-semibold">Início (Start)</span>: O código sempre começa com duas barras pretas finas e dois espaços brancos finos (sequência NNNN). Isso avisa ao leitor: "Atenção, os próximos blocos são dígitos".</li>
 							<li class="mb-4"><span class="fw-semibold">Fim (Stop)</span>: O código termina com uma barra preta larga, um espaço branco fino e uma barra preta fina (sequência WNN). Isso indica ao leitor: "O código acabou, pode parar de ler".</li>
 						</ul>
 					<p class="mb-5">Sem esses sinais, o leitor óptico não saberia se está lendo o Boleto Bancário da esquerda para a direita ou vice-versa, nem onde exatamente a informação numérica começa.</p>
@@ -208,8 +208,8 @@ permalink: /linha-digitavel/
 
 					<p class="mb-5">No entanto, é importante lembrar que a Linha Digitável e o Código de Barras contêm as mesmas informações essenciais, mas organizadas de formas diferentes:</p>
 						<ul>
-                  			<li class="mb-4"><span class="fw-semibold">Linha Digitável</span>: 47 números (44 números do Código de Barras + 3 dígitos verificadores).</li>
-							<li class="mb-5"><span class="fw-semibold">Código de Barras</span>: 44 números que representam as barras verticais.</li>
+                  			<li class="mb-4"><span class="fw-semibold">Linha Digitável</span>: 47 dígitos (44 dígitos do Código de Barras + 3 dígitos verificadores).</li>
+							<li class="mb-5"><span class="fw-semibold">Código de Barras</span>: 44 dígitos que representam o conteúdo do boleto em formato de barras verticais.</li>
 						</ul>
 					<p class="mb-5">Exemplo:</p>
 						<ul>
@@ -217,7 +217,7 @@ permalink: /linha-digitavel/
 							<li class="mb-5"><span class="fw-semibold">Código de Barras</span>: 001 9 3 3737 0000000100 0500 9 401448 1606 06809350 31</li>
 						</ul>
 					<p class="mb-5">A diferença de 3 dígitos, entre a Linha Digitável e o Código de Barras, são os dígitos verificadores, que são adicionados à Linha Digitável para garantir a integridade das informações e evitar erros durante a digitação.</p>
-					<p class="mb-5">Tanto a Linha Digitável quanto o Código de Barras seguem as especificações técnicas, incluindo a fórmula de cálculo do dígitos verificadores da Linha Digitável, do <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="noopener noreferrer">Manual Técnico do Banco do Brasil - BB</a>.</p>
+					<p class="mb-5">Tanto a Linha Digitável quanto o Código de Barras seguem as especificações técnicas, incluindo a fórmula de cálculo do dígitos verificadores da Linha Digitável (módulos 10 e 11), do <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="noopener noreferrer">Manual Técnico do Banco do Brasil - BB</a>.</p>
 			</div>
 		</div>
 	</div>
@@ -227,7 +227,7 @@ permalink: /linha-digitavel/
 	<div class="row">
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
-				<h2 class="h2-title-content mb-5">Os números da Linha Digitável</h2>
+				<h2 class="h2-title-content mb-5">Os dígitos da Linha Digitável</h2>
 
 					<p class="mb-5">A Linha Digitável é a representação numérica do Código de Barras.</p>
 					<p class="mb-5">Ambos, a Linha Digitável e o Código de Barras, contém as mesmas informações, mas são apresentados em formatos e sequências diferentes.</p>
@@ -255,9 +255,9 @@ permalink: /linha-digitavel/
 						<span style="color: purple;">37370000000100</span>
 						<span style="color: black;"> (47 dígitos)</span>
 					</p>
-					<p class="mb-5">Observe que os números com cores roxas acima também constam no Código de Barras abaixo, mas em ordem diferente (<span style="color: purple;">3 37370000000100</span>).</p>
+					<p class="mb-5">Observe que os dígitos com cores roxas acima também constam no Código de Barras abaixo, mas em ordem diferente (<span style="color: purple;">3 37370000000100</span>).</p>
 
-				<h2 class="h2-title-content mb-5">Os "números" do Código de Barras</h2>
+				<h2 class="h2-title-content mb-5">Os "dígitos" do Código de Barras</h2>
 					<p class="mb-5">O Código de Barras é a representação gráfica do conteúdo do Boleto Bancário.</p>
 					<p class="mb-5">Exemplo de um Código de Barras com 44 dígitos, o mesmo significado da Linha Digitável acima, sem espaços, pontos, vírgulas ou qualquer outro caractere:</p>
 					<p class="mb-5 text-nowrap fw-semibold">00193373700000001000500940144816060680935031</p>
@@ -271,7 +271,7 @@ permalink: /linha-digitavel/
 						<span style="color: #38761d;">401448</span>
 						<span style="color: #e1055d;">16060680935031</span> (44 dígitos)
 					</p>
-					<p class="mb-5">Observe que os números com cores azuis, por exemplo, são os mesmos, tanto na Linha Digitável quanto no Código de Barras (<span style="color: blue;">05009</span>).</p>
+					<p class="mb-5">Observe que os dígitos com cores azuis, por exemplo, são os mesmos, tanto na Linha Digitável quanto no Código de Barras (<span style="color: blue;">05009</span>).</p>
 			</div>
 		</div>
 	</div>
