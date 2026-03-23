@@ -211,22 +211,23 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">O Fator de Vencimento</h2>
-					<p class="mb-5">O Fator de Vencimento é o número de dias corridos desde a "Data Base" até a "Data de Vencimento".</p>
-						
+					<p class="mb-5">O "Fator de Vencimento" é o número de dias corridos desde a "Data-base" até a "Data de Vencimento".</p>
+					<p class="mb-5">Exemplo:</p>
+
 						<div class="table-responsive mb-5">
   							<table class="table table-striped">
 								<tbody>
 									<tr>
-										<td class="text-nowrap">Data-base Antiga</td>
+										<td class="text-nowrap">(a) Data de Vencimento</td>
+										<td>31/12/2007</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">(b) Data-base</td>
 										<td>07/10/1997</td>
 									</tr>
 									<tr>
-										<td class="text-nowrap">Fator de Vencimento</td>
+										<td class="text-nowrap">(c) Fator de Vencimento = a - b</td>
 										<td>3737</td>
-									</tr>
-									<tr>
-										<td class="text-nowrap">Vencimento</td>
-										<td>31/12/2007</td>
 									</tr>
 								</tbody>
 							</table>
@@ -241,7 +242,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 	<div class="row">
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
-				<h2 class="h2-title-content mb-5">As Datas-Base (antiga e nova)</h2>
+				<h2 class="h2-title-content mb-5">As Datas-base (antiga e nova)</h2>
 
 					<p class="mb-5">A <a class="link-externo" href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" title="Link para o site do Banco Mercantil" target="_blank" rel="noopener noreferrer">Circular FB 125/2000 da Febraban</a>, publicada em 2 de maio de 2000, em reunião para tratar do "Fator de Vencimento", determinou que:</p>
 
@@ -260,23 +261,44 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 				<h2 class="h2-title-content mb-5">Por que temos duas Datas-base?</h2>
 					
 					<p class="mb-5">Porque em 21/02/2025 o campo destinado ao Fator de Vencimento na Linha Digitável, considerando a Data-base antiga (07/10/1997), composto por 4 dígitos/números, atingiu o seu limite de 9999 dígitos (07/10/1997 + 9999 dias = 21/02/2025).</p>
-
-					<p class="mb-5">Em razão desse limite de 4 dígitos/números, a Data-base antiga, 07/10/1997, foi <span class="fw-semibold">atualizada</span> para 29/05/2022 (29/05/2022 + 1000 dias = 22/02/2025), e o fator de vencimento foi <span class="fw-semibold">reiniciado</span> em 1000 a partir de 22/02/2025.</p>
+					<p class="mb-5">Exemplo:</p>
 
 						<div class="table-responsive mb-5">
   							<table class="table table-striped">
 								<tbody>
 									<tr>
-										<td class="text-nowrap">Data-base Nova</td>
+										<td class="text-nowrap">(a) Data-base Antiga</td>
+										<td>07/10/1997</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">(b) Fator de Vencimento</td>
+										<td>9999</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">(c) Vencimento = a + b</td>
+										<td>21/02/2025</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					<p class="mb-5">Em razão desse limite de 4 dígitos/números, a Data-base antiga, 07/10/1997, foi <span class="fw-semibold">atualizada</span> para 29/05/2022 (29/05/2022 + 1000 dias = 22/02/2025), e o fator de vencimento foi <span class="fw-semibold">reiniciado</span> em 1000 a partir de 22/02/2025.</p>
+					<p class="mb-5">Exemplo:</p>
+
+						<div class="table-responsive mb-5">
+  							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<td class="text-nowrap">(a) Data-base Nova</td>
 										<td>29/05/2022</td>
 									</tr>
 									<tr>
-										<td class="text-nowrap">Fator de Vencimento</td>
+										<td class="text-nowrap">(b) Fator de Vencimento</td>
 										<td>1000</td>
 									</tr>
-          			            				<tr>
-											<td class="text-nowrap">Vencimento</td>
-											<td>22/02/2025</td>
+									<tr>
+										<td class="text-nowrap">(c) Vencimento = a + b</td>
+										<td>22/02/2025</td>
 									</tr>
 								</tbody>
 							</table>
@@ -366,22 +388,22 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 					</ul>
 
 					<p class="mb-5">Considerando que a Data-base nova é 29/05/2022, o Fator de Vencimento é o resultado da subtração entre a Data de Vencimento desejada e a Data-base nova.</p>
-						
 					<p class="mb-5">A fórmula é: Data de Vencimento desejada - Data-base nova = Fator de Vencimento.</p>
-					
+					<p class="mb-5">Exemplo:</p>
+
 						<div class="table-responsive mb-5">
   							<table class="table table-striped">
 								<tbody>
 									<tr>
-										<td class="text-nowrap">Data de Vencimento desejada (exemplo)</td>
+										<td class="text-nowrap">(a) Data de Vencimento desejada</td>
 										<td>31/12/2026</td>
 									</tr>
 									<tr>
-										<td class="text-nowrap">Data-base nova</td>
+										<td class="text-nowrap">(b) Data-base nova</td>
 										<td>29/05/2022</td>
 									</tr>
   			                    	<tr>
-										<td class="text-nowrap">Fator de Vencimento</td>
+										<td class="text-nowrap">(c) Fator de Vencimento = a - b</td>
 										<td>1677</td>
 									</tr>
 								</tbody>
