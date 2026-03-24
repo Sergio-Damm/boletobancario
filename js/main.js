@@ -118,7 +118,8 @@ const placeholder = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg
             } else if (item.thumbnail) {
                 thumb = item.thumbnail;
             } else if (item.description) {
-                const m = item.description.match(/src=["']([^"']+\.(jpe?g|png|gif|webp))["']/i);
+      /*          const m = item.description.match(/src=["']([^"']+\.(jpe?g|png|gif|webp))["']/i); */
+                const m = item.description.match(/<img[^>]+src=["']([^"']+)["']/i);
                 if (m) thumb = m[1];
             }
 
@@ -159,9 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarFeed({
         listaId: 'lista1', 
         loadingId: 'loading1', 
-        rss: 'https://pox.globo.com/rss/valor', 
-        nome: 'Valor Econômico', 
-        letras: 'VE'
+        rss: 'https://neofeed.com.br/feed/', 
+        nome: 'NeoFeed', 
+        letras: 'NF'
     });
 
     // Infomoney

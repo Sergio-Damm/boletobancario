@@ -102,8 +102,8 @@ permalink: /vencimento/
 					</div>
 
 					<p class="mb-5">Como se vê na imagem acima, o campo "Fator de Vencimento" é composto por 4 dígitos/números que ficam à esquerda do campo "Valor".</p>
-					<p class="mb-5">Em um Boleto Bancário com um Fator de Vencimento 3737 a Data de Vencimento é 31/12/2007.</p>
-					<p class="mb-5">Exemplo de linha digitável com vencimento em 31/12/2007:</p>
+					<p class="mb-5">Com um Fator de Vencimento 3737, em um Boleto Bancário, a Data de Vencimento é 31/12/2007.</p>
+					<p class="mb-5">Exemplo de linha digitável com vencimento 31/12/2007:</p>
 					<p class="mb-5 text-break fw-semibold">00190.50095.40144.816069.06809.350314.3.<span class="fw-semibold text-cerise">3737</span>.0000000100</p>
 
 			</div>
@@ -123,15 +123,15 @@ permalink: /vencimento/
   							<table class="table table-striped">
 								<tbody>
 									<tr>
-										<td class="text-nowrap">(a) Data de Vencimento</td>
-										<td>31/12/2007</td>
-									</tr>
-									<tr>
-										<td class="text-nowrap">(b) Data-base</td>
+										<td class="text-nowrap">(a) Data-base</td>
 										<td>07/10/1997</td>
 									</tr>
 									<tr>
-										<td class="text-nowrap">(c) Fator de Vencimento = a - b</td>
+										<td class="text-nowrap">(b) Data de Vencimento</td>
+										<td>31/12/2007</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">(c) Fator de Vencimento = b - a</td>
 										<td>3737</td>
 									</tr>
 								</tbody>
@@ -211,7 +211,7 @@ permalink: /vencimento/
 
 					<p class="mb-5">Como consequência dessa mudança, todos os Boletos Bancários com vencimento a partir de 22/02/2025 passaram a utilizar a Data-base nova para cálculo do novo Fator de Vencimento.</p>
 					
-					<p class="mb-5">Em nossos exemplos utilizamos o Fator de Vencimento 3737 que, na época da Data-base antiga, correspondia ao vencimento em 31/12/2007. Atualmente, com o advento da Data-base nova e o reinício do Fator de Vencimento para 1000, o Fator de Vencimento 3737 corresponde ao vencimento em 21/08/2032.</p>
+					<p class="mb-5">Em nossos exemplos utilizamos o Fator de Vencimento 3737 que, na época da Data-base antiga, correspondia ao vencimento 31/12/2007. Atualmente, com o advento da Data-base nova e o reinício do Fator de Vencimento para 1000, o Fator de Vencimento 3737 corresponde ao vencimento 21/08/2032.</p>
 					
 					<p class="mb-5">Exemplo de diferentes datas de vencimento considerando o Fator de Vencimento 3737:</p>
 
@@ -226,12 +226,12 @@ permalink: /vencimento/
 								</thead>
 								<tbody>
 									<tr>
-										<td class="text-nowrap">07/10/1997</td>
+										<td class="text-nowrap">07/10/1997 (antiga)</td>
 										<td>3737</td>
                                         <td>31/12/2007</td>
 									</tr>
 									<tr>
-										<td class="text-nowrap">29/05/2022</td>
+										<td class="text-nowrap">29/05/2022 (nova)</td>
 										<td>3737</td>
 										<td>21/08/2032</td>
 									</tr>
@@ -315,7 +315,7 @@ permalink: /vencimento/
 							</table>
 						</div>
 
-					<p class="mb-5">Utilize uma planilha, do Excel ou do Google Sheets, para efetuar os cálculos.</p>
+					<p class="mb-5">Dica: utilize uma planilha, do Excel ou do Google Sheets, para calcular o Fator de Vencimento.</p>
 
 			</div>
 		</div>
@@ -352,7 +352,11 @@ permalink: /vencimento/
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">Curiosidades sobre o Boleto Bancário</h2>
 
-					<p class="mb-5">Apesar de ter uma natureza jurídica um pouco diferente, a Duplicata pode ser considerada a antecessora do Boleto Bancário. A Duplicata foi criada pela <a class="link-externo" href="https://www.planalto.gov.br/ccivil_03/leis/l5474.htm" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Lei nº 5.474 de 18 de julho de 1968</a>, do Governo Federal Brasileiro.</p>
+					<p class="mb-5">Apesar de terem naturezas jurídicas diferentes, a Duplicata pode ser considerada a antecessora do Boleto Bancário. A Duplicata foi criada pela <a class="link-externo" href="https://www.planalto.gov.br/ccivil_03/leis/l5474.htm" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Lei nº 5.474 de 18 de julho de 1968</a>, do Governo Federal Brasileiro. Tanto a Duplicata quanto o Boleto Bancário contém: nome do beneficiário/sacador, devedor/sacado, CPF/CNPJ, valor, vencimento, etc.</p>
+
+					<p class="mb-5">No entanto, a Duplicata é um título de crédito (formal, regulado por lei, representa uma dívida concreta e permite protesto). Já o Boleto Bancário é uma forma de cobrança. Em resumo: o Boleto é uma ferramenta utilizada para cobrar o valor de uma Duplicata.</p>
+
+					<p class="mb-5">A Duplicata foi o principal instrumento de cobrança nas vendas a prazo entre empresas no Brasil até o início dos anos 90. Em 1993, como parte da popularização da informatização bancária, foi criado o Boleto Bancário (Bloqueto de Cobrança), através da <a class="link-externo" href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/43524/C_Circ_2414_v5_L.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular n° 2.414, de 7 de outubro de 1993</a>, do Banco Central do Brasil. Esse normativo criou também a Ficha de Compensação e o Código de Barras, ambos fundamentais para a implantação da Compensação Eletrônica de Cobrança.</p></p>
 
 					<p class="mb-5">O Código de Barras do Boleto Bancário foi criado pela <a class="link-externo" href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/43524/C_Circ_2414_v5_L.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular n° 2.414 de 7 de outubro de 1993</a>, do Banco Central do Brasil.</p>
 
