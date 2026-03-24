@@ -163,7 +163,7 @@ permalink: /linha-digitavel/
 							>
 						</div>
 
-					<p class="mb-5">As barras verticais pretas, juntamente com os espaços brancos entre elas, são lidas por sensores óticos como "0s" e "1s" (código binário). As barras pretas e os espaços brancos variam em espessura (finas ou largas) para representar os dígitos decimais (0-9) que compõem os números do Boleto Bancário.</p>
+					<p class="mb-5">As barras verticais pretas, juntamente com os espaços brancos entre elas, são lidas por leitores óticos como "0s" e "1s" (código binário). As barras pretas e os espaços brancos variam em espessura (finas ou largas) para representar os dígitos decimais (0-9) que compõem os números do Boleto Bancário.</p>
 					<p class="mb-5">O Código de Barras foi criado para ser lido com rapidez e precisão, transformando o conteúdo do Boleto Bancário em dígitos.</p>
 					<p class="mb-5">As barras verticais pretas e brancas de diferentes espessuras são do tipo "2 de 5 intercalado" <a class="link-externo" href="https://en.wikipedia.org/wiki/Interleaved_2_of_5" title="Link para o site da Wikipédia" target="_blank" rel="noopener noreferrer">(Intercalado 2 de 5 - ITF)</a>.
 					<p class="mb-5">O termo "2 de 5" significa que 5 barras (pretas ou brancas) definem 1 dígito, sendo que duas delas são sempre largas. O termo "intercalado" indica que os espaços entre as barras pretas também carregam informação, de maneira análoga às barras.</p>
@@ -178,7 +178,7 @@ permalink: /linha-digitavel/
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">Como o leitor sabe onde o Código de Barras começa e termina?</h2>
-					<p class="mb-5">Para que os scanners e os aplicativos não se confundam com outras impressões no papel, o padrão Intercalado 2 de 5 utiliza marcas de início e fim, chamadas de caracteres de guarda:</p>
+					<p class="mb-5">Para que os leitores óticos (scanners) e os aplicativos não se confundam com outras impressões no papel, o padrão Intercalado 2 de 5 utiliza marcas de início e fim, chamadas de caracteres de guarda:</p>
 						<ul>
                   			<li class="mb-4"><span class="fw-semibold">Início</span>: O código sempre começa com duas barras pretas finas e dois espaços brancos finos (sequência NNNN). Isso avisa ao leitor: "Atenção, os próximos blocos são dígitos".</li>
 							<li class="mb-5"><span class="fw-semibold">Fim</span>: O código termina com uma barra preta larga, um espaço branco fino e uma barra preta fina (sequência WNN). Isso indica ao leitor: "O código acabou, pode parar de ler".</li>
