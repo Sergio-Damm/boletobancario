@@ -15,7 +15,7 @@
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <meta content='KzY5E3NnqL58oL3dsoH4m_0hz87O3mwu_bCVWV3HlUQ' name='google-site-verification'/>
     <meta name="description" content="Formulário para conversão da linha digitável em código de barras e conversão do código de barras em linha digitável."/>
-    <title>Vencimento</title>
+    <title>A Data de Vencimento e o Valor do Boleto Bancário</title>
 	<link rel="canonical" href="https://www.boletobancario-codigodebarras.com/" />
     <meta content='website' property='og:type'/>
     <meta content='https://live.staticflickr.com/65535/53887811414_9e8a540caa_o.jpg' property='og:image'/>
@@ -211,22 +211,24 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">O Fator de Vencimento</h2>
-					<p class="mb-5">O <span class="fw-semibold">Fator de Vencimento</span> é o número de dias corridos desde a <span class="fw-semibold">Data-base</span> até a <span class="fw-semibold">Data de Vencimento</span>.</p>
+					<p class="mb-5">O <span class="fw-semibold">Fator de Vencimento</span> é o número de dias corridos entre uma <span class="fw-semibold">Data-base</span> e a <span class="fw-semibold">Data de Vencimento</span>.</p>
+					<p class="mb-5">Como funciona o cálculo: Data de Vencimento (-) Data-base = Fator de Vencimento</p>
+
 					<p class="mb-5">Exemplo:</p>
 
 						<div class="table-responsive mb-5">
   							<table class="table table-striped">
 								<tbody>
 									<tr>
-										<td class="text-nowrap">(a) Data-base</td>
-										<td>07/10/1997</td>
-									</tr>
-									<tr>
-										<td class="text-nowrap">(b) Data de Vencimento</td>
+										<td class="text-nowrap">(a) Data de Vencimento</td>
 										<td>31/12/2007</td>
 									</tr>
 									<tr>
-										<td class="text-nowrap">(c) Fator de Vencimento = b - a</td>
+										<td class="text-nowrap">(b) Data-base (antiga)</td>
+										<td>07/10/1997</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">(c) Fator de Vencimento = a - b</td>
 										<td>3737</td>
 									</tr>
 								</tbody>
@@ -242,9 +244,11 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 	<div class="row">
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
-				<h2 class="h2-title-content mb-5">As Datas-base (antiga e nova)</h2>
+				<h2 class="h2-title-content mb-5">A Mudança das Datas-base em 2025</h2>
 
-					<p class="mb-5">A <a class="link-externo" href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" title="Link para o site do Banco Mercantil" target="_blank" rel="noopener noreferrer">Circular FB 125/2000 da Febraban</a>, publicada em 2 de maio de 2000, em reunião para tratar do <span class="fw-semibold">Fator de Vencimento</span>, determinou que:</p>
+					<p class="mb-5">Até fevereiro de 2025, o sistema utilizava uma Data-base de 1997. Como o campo só permite 4 dígitos (máximo 9999), o <span class="fw-semibold">Fator de Vencimento</span> atingiu esse limite e precisou ser reiniciado.</p>
+
+					<p class="mb-5">Essa mudança era prevista <a class="link-externo" href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" title="Link para o site do Banco Mercantil" target="_blank" rel="noopener noreferrer">Circular FB 125/2000 da Febraban</a>, publicada em 2 de maio de 2000, em reunião para tratar do <span class="fw-semibold">Fator de Vencimento</span>, determinou que:</p>
 
 					<p class="mb-5">A <a class="link-externo" href="https://www.caixa.gov.br/Downloads/cobranca-caixa/ESP_COD_BARRAS_SIGCB_COBRANCA_CAIXA.pdf" title="Link para o site da Caixa - CEF" target="_blank" rel="noopener noreferrer">Data-base antiga</a> é 07/10/1997 e a <a class="link-externo" href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" title="Link para o site do Banco Banpará" target="_blank" rel="noopener noreferrer">Data-base nova</a> é 29/05/2022.</p>
 
@@ -258,9 +262,9 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
 
-				<h2 class="h2-title-content mb-5">Por que temos duas Datas-base?</h2>
+				<h2 class="h2-title-content mb-5">Por que o fator reiniciou?</h2>
 					
-					<p class="mb-5">Porque em 21/02/2025 o campo destinado ao Fator de Vencimento na Linha Digitável, considerando a Data-base antiga (07/10/1997), composto por 4 dígitos/números, atingiu o seu limite de 9999 dígitos (07/10/1997 + 9999 dias = 21/02/2025).</p>
+					<p class="mb-5">Em 21/02/2025, o campo destinado ao Fator de Vencimento na Linha Digitável, considerando a Data-base antiga (07/10/1997), composto por 4 dígitos/números, atingiu o seu limite de 9999 dígitos (07/10/1997 + 9999 dias = 21/02/2025).</p>
 					<p class="mb-5">Exemplo:</p>
 
 						<div class="table-responsive mb-5">
@@ -445,41 +449,13 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 	<div class="row">
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
-				<h2 class="h2-title-content mb-5">A evolução da Cobrança Bancária</h2>
-
-					<p class="mb-5"><span class="fw-semibold">Em 1968</span>, foi criada a "Duplicata", pela <a class="link-externo" href="https://www.planalto.gov.br/ccivil_03/leis/l5474.htm" title="Link para o site Gov.br" target="_blank" rel="noopener noreferrer">Lei nº 5.474, de 18 de julho de 1968</a>, do Governo Brasileiro. Baseada em uma nota fiscal de venda de produtos ou serviços, a Duplicata é um título de crédito emitido por empresas para formalizar uma venda a prazo ou prestação de serviços.</p>
-
-					<p class="mb-5"><span class="fw-semibold">Em 1974</span>, foi criada a "Ficha de Compensação", com modelo padronizado em três vias, através da <a class="link-externo" href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/40164/Circ_0238_v2_L.pdf" title="Link para o site do Banco Central do Brasil" target="_blank" rel="noopener noreferrer">Circular n° 238, de 19 de novembro de 1974</a>, do Banco Central do Brasil. A "Ficha de Compensação" permitia que a duplicata fosse paga em qualquer banco via compensação bancária.</p>
-
-					<p class="mb-5"><span class="fw-semibold">Em 1993</span>, foi criado o "Boleto Bancário" com o "Código de Barras", através da <a class="link-externo" href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/43524/C_Circ_2414_v5_L.pdf" title="Link para o site do Banco Central do Brasil" target="_blank" rel="noopener noreferrer">Carta Circular n° 2.414, de 7 de outubro de 1993</a>, do Banco Central do Brasil. A referida Circular institui o modelo CADOC 24044-4, que padronizou o "Boleto Bancário" de Cobrança, especificamente a "Ficha de Compensação", com o "Código de Barras" de 44 (quarenta e quatro) posições.</p>
-
-					<p class="mb-5"><span class="fw-semibold">Em 1995</span>, foi criada a "Linha Digitável", através da <a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/1995/pdf/c_circ_2531_v2_l.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular nº 2.531, de 24 de fevereiro de 1995</a>, do Banco Central do Brasil. A Linha Digitável foi criada para que o usuário pudesse digitar a sequência numérica, se o leitor ótico não conseguisse ler o Código de Barras.</p>
-
-					<p class="mb-5"><span class="fw-semibold">Em 2000</span>, foi criado o <span class="fw-semibold">Fator de Vencimento</span>>, através da <a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/2000/pdf/c_circ_2926_v1_o.pdf" title="Link para o site do Banco Central do Brasil" target="_blank" rel="noopener noreferrer">Carta Circular nº 2.926, de 24 de julho de 2000</a>, do Banco Central do Brasil. O <span class="fw-semibold">Fator de Vencimento</span> é um número de 4 dígitos, situado nas quatro primeiras posições do campo "Valor", que representa a quantidade de dias decorridos da Data-base até a Data de Vencimento do título.</p>
-
-					<p class="mb-5"><span class="fw-semibold">Em 2012</span>, foi criado o "Boleto de Proposta", através da <a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/circ/2012/pdf/circ_3598_v2_l.pdf" title="Link para o site do Banco Central do Brasil" target="_blank" rel="noopener noreferrer">Circular nº 3.598, de 6 de junho de 2012</a>, do Banco Central do Brasil. O "Boleto de Proposta" é utilizado para possibilitar o pagamento decorrente da eventual aceitação de uma oferta de produtos e serviços, de uma proposta de contrato civil ou de um convite para associação.</p>
-
-					<p class="mb-5"><span class="fw-semibold">Em 2018</span>, foi criado a "Duplicata Eletrônica", também conhecida como "Duplicata Escritural", através da <a class="link-externo" href="https://legislacao.presidencia.gov.br/atos/?tipo=LEI&numero=13775&ano=2018&ato=e79ATVE5UeZpWTb5c" title="Link para o site Gov.br" target="_blank" rel="noopener noreferrer">Lei nº 13.775, de 20 de dezembro de 2018</a>, do Governo Brasileiro. A "Duplicata Escritural" foi criada para ser uma duplicata na sua forma eletrônica. A adoção da Duplicata Escritural será feita em etapas, com prazos estimados até o final de 2027.</p>
-
-					<p class="mb-5">Atualmente, o pagamento através de Boleto Bancário é disciplinado pela <a class="link-externo" href="https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Resolu%C3%A7%C3%A3o%20BCB&numero=443" title="Link para o site do Banco Central do Brasil" target="_blank" rel="noopener noreferrer">Resolução BCB n° 443 de 12 de dezembro de 2024</a>, do Banco Central do Brasil.</p>
-
-					<p class="mb-5">Mais informações sobre o Boleto Bancário e Duplicata estão disponíveis no sites do <a class="link-externo" href="https://www.bcb.gov.br/meubc/faqs/s/boleto" title="Link para o site do Banco Central do Brasil" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a>, <a class="link-externo" href="https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos" title="Link para o site da FEBRABAN" target="_blank" rel="noopener noreferrer">FEBRABAN - Federação Brasileira de Bancos</a> e <a class="link-externo" href="https://cdess.gov.br/app/pdf/2025_guia_duplicata_escritural.pdf" title="Link para o site Gov.br" target="_blank" rel="noopener noreferrer">Guia de Duplicata Escritural</a>.</p>
-
-			</div>
-		</div>
-	</div>
-</section>
-<!-- ============================================================================================= -->
-<section class="container my-3">
-	<div class="row">
-        <div class="col-12 col-md-10 mx-auto">
-      		<div class="mb-5">
 				<p class="mb-5">Fontes: 
 					<a class="link-externo" href="https://www.caixa.gov.br/Downloads/cobranca-caixa/ESP_COD_BARRAS_SIGCB_COBRANCA_CAIXA.pdf" title="Link para o site da Caixa - CEF" target="_blank" rel="noopener noreferrer">Caixa</a>, 
 					<a class="link-externo" href="https://download.itau.com.br/bankline/itaubba/cobranca_400_itaubba.pdf" title="Link para o site do Banco Itaú" target="_blank" rel="noopener noreferrer">Itaú</a>, 
 					<a class="link-externo" href="https://banco.bradesco/assets/pessoajuridica/pdf/MPO-Troca-Arquivos-Layout-240P.pdf" title="Link para o site do Banco Bradesco" target="_blank" rel="noopener noreferrer">Bradesco</a>, 
 					<a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" title="Link para o site do Banco do Brasil" target="_blank" rel="noopener noreferrer">Banco do Brasil</a>, 
 					<a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/2000/pdf/c_circ_2926_v1_O.pdf" title="Link para o site do Banco Central do Brasil" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a>, 
+					<a class="link-externo" href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" title="Link para o site do Banco Mercantil" target="_blank" rel="noopener noreferrer">Banco Mercantil</a>, 
 					<a class="link-externo" href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" title="Link para o site do Banco Banpará" target="_blank" rel="noopener noreferrer">Banpará</a> e 
 					<a class="link-externo" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Conven%C3%A7%C3%A3o%20da%20Cobran%C3%A7a%20-%2005_02_2021_f.pdf" title="Link para o site da Febraban" target="_blank" rel="noopener noreferrer">Febraban</a>
 				</p>
