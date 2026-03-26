@@ -102,7 +102,7 @@ permalink: /vencimento/
 					</div>
 
 					<p class="mb-5">Como se vê na imagem acima, o campo <span class="fw-semibold">Fator de Vencimento</span> é composto por 4 dígitos/números que ficam à esquerda do campo <span class="fw-semibold">Valor</span>.</p>
-					<p class="mb-5">Com um Fator de Vencimento 3737, em um Boleto Bancário, a Data de Vencimento é 31/12/2007.</p>
+					<p class="mb-5">Com base nas regras antigas, com um Fator de Vencimento 3737, em um Boleto Bancário, a Data de Vencimento era 31/12/2007.</p>
 					<p class="mb-5">Exemplo de linha digitável com vencimento 31/12/2007:</p>
 					<p class="mb-5 text-break fw-semibold">00190.50095.40144.816069.06809.350314.3.<span class="fw-semibold text-cerise">3737</span>.0000000100</p>
 
@@ -151,26 +151,11 @@ permalink: /vencimento/
       		<div class="mb-5">
 				<h2 class="h2-title-content mb-5">A Mudança das Datas-base em 2025</h2>
 
-					<p class="mb-5">Até fevereiro de 2025, o sistema utilizava uma Data-base de 1997. Como o campo só permite 4 dígitos (máximo 9999), o <span class="fw-semibold">Fator de Vencimento</span> atingiu esse limite e precisou ser reiniciado.</p>
+					<p class="mb-5"><span class="fw-semibold">Até 21 de fevereiro de 2025</span>, o sistema bancário utilizava a Data-base <span class="fw-semibold">07/10/1997</span>.</p>
+						
+					<p class="mb-5">Como o campo <span class="fw-semibold">Fator de Vencimento</span> só permite 4 dígitos (máximo 9999), em 21 de fevereiro de 2025 o Fator de Vencimento atingiu seu limite (9999) e precisou ser reiniciado.</p>
 
-					<p class="mb-5">Essa mudança era prevista <a class="link-externo" href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" title="Link para o site do Banco Mercantil" target="_blank" rel="noopener noreferrer">Circular FB 125/2000 da Febraban</a>, publicada em 2 de maio de 2000, em reunião para tratar do <span class="fw-semibold">Fator de Vencimento</span>, determinou que:</p>
-
-					<p class="mb-5">A <a class="link-externo" href="https://www.caixa.gov.br/Downloads/cobranca-caixa/ESP_COD_BARRAS_SIGCB_COBRANCA_CAIXA.pdf" title="Link para o site da Caixa - CEF" target="_blank" rel="noopener noreferrer">Data-base antiga</a> é 07/10/1997 e a <a class="link-externo" href="https://www.banpara.b.br/PortalImagens/2tdgh54u/manual-de-procedimento-de-impressao-de-boletos-por-terceiros-cobranca-banpara-v1-2.pdf?mode=pad&rnd=133740022625430000" title="Link para o site do Banco Banpará" target="_blank" rel="noopener noreferrer">Data-base nova</a> é 29/05/2022.</p>
-
-			</div>
-		</div>
-	</div>
-</section>
-<!-- ============================================================================================= -->
-<section class="container my-3">
-	<div class="row">
-        <div class="col-12 col-md-10 mx-auto">
-      		<div class="mb-5">
-
-				<h2 class="h2-title-content mb-5">Por que o fator reiniciou?</h2>
-					
-					<p class="mb-5">Em 21/02/2025, o campo destinado ao Fator de Vencimento na Linha Digitável, considerando a Data-base antiga (07/10/1997), composto por 4 dígitos/números, atingiu o seu limite de 9999 dígitos (07/10/1997 + 9999 dias = 21/02/2025).</p>
-					<p class="mb-5">Exemplo:</p>
+					<p class="mb-5">Exemplo de cálculo com a Data-base antiga:</p>
 
 						<div class="table-responsive mb-5">
   							<table class="table table-striped">
@@ -191,61 +176,13 @@ permalink: /vencimento/
 							</table>
 						</div>
 
-					<p class="mb-5">Em razão desse limite de 4 dígitos/números, a Data-base antiga, 07/10/1997, foi <span class="fw-semibold">atualizada</span> para 29/05/2022 (29/05/2022 + 1000 dias = 22/02/2025), e o fator de vencimento foi <span class="fw-semibold">reiniciado</span> em 1000 a partir de 22/02/2025.</p>
-					<p class="mb-5">Exemplo:</p>
+					<p class="mb-5">Essa ocorrência já era prevista pelas normas da <a class="link-externo" href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" title="Link para o site do Banco Mercantil" target="_blank" rel="noopener noreferrer">Febraban</a>, <a class="link-externo" href="https://www.caixa.gov.br/Downloads/cobranca-caixa/ESP_COD_BARRAS_SIGCB_COBRANCA_CAIXA.pdf" title="Link para o site do Caixa Econômica Federal" target="_blank" rel="noopener noreferrer">Caixa</a> e <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" title="Link para o site do Banco do Brasil" target="_blank" rel="noopener noreferrer">Banco do Brasil</a>.</p>
+
+					<p class="mb-5">Como consequência dessa mudança, a partir de <span class="fw-semibold">22 de fevereiro de 2025</span>, o Fator de Vencimento retornou ao contador 1000. Isso significa que o vencimento em 22 de fevereiro de 2025 tem o fator 1000, passando a utilizar a <span class="fw-semibold">nova Data-base: 29/05/2022</span>.</p>
+
+					<p class="mb-5">Exemplos de novos fatores de vencimentos:</p>
 
 						<div class="table-responsive mb-5">
-  							<table class="table table-striped">
-								<tbody>
-									<tr>
-										<td class="text-nowrap">(a) Data-base Nova</td>
-										<td>29/05/2022</td>
-									</tr>
-									<tr>
-										<td class="text-nowrap">(b) Fator de Vencimento</td>
-										<td>1000</td>
-									</tr>
-									<tr>
-										<td class="text-nowrap">(c) Vencimento = a + b</td>
-										<td>22/02/2025</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-
-					<p class="mb-5">Como consequência dessa mudança, todos os Boletos Bancários com vencimento a partir de 22/02/2025 passaram a utilizar a Data-base nova para cálculo do novo Fator de Vencimento.</p>
-					
-					<p class="mb-5">Em nossos exemplos utilizamos o Fator de Vencimento 3737 que, na época da Data-base antiga, correspondia ao vencimento 31/12/2007. Atualmente, com o advento da Data-base nova e o reinício do Fator de Vencimento para 1000, o Fator de Vencimento 3737 corresponde ao vencimento 21/08/2032.</p>
-					
-					<p class="mb-5">Exemplo de diferentes datas de vencimento considerando o Fator de Vencimento 3737:</p>
-
-						<div class="table-responsive mb-5">
-  							<table class="table table-striped">
-								<thead>
-									<tr>
-										<th class="text-nowrap">Datas-base</th>
-										<th>Fator</th>
-										<th>Vencimento</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td class="text-nowrap">07/10/1997 (antiga)</td>
-										<td>3737</td>
-                                        <td>31/12/2007</td>
-									</tr>
-									<tr>
-										<td class="text-nowrap">29/05/2022 (nova)</td>
-										<td>3737</td>
-										<td>21/08/2032</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-
-					<p class="mb-5">Veja abaixo mais alguns exemplos de novos fatores de vencimentos:</p>
-
-						<div class="table-responsive">
   							<table class="table table-striped">
 								<thead>
 									<tr>
@@ -278,12 +215,63 @@ permalink: /vencimento/
 							</table>
 						</div>
 
+					<p class="mb-5">Portanto, <span class="fw-semibold">a partir de 22 de fevereiro de 2025</span>, o sistema bancário utiliza a Data-base <span class="fw-semibold">29/05/2022</span>.</p>
+
+					<p class="mb-5">Exemplo de cálculo com a Data-base nova:</p>
+
+						<div class="table-responsive mb-5">
+  							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<td class="text-nowrap">(a) Data-base Nova</td>
+										<td>29/05/2022</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">(b) Fator de Vencimento</td>
+										<td>1000</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">(c) Vencimento = a + b</td>
+										<td>22/02/2025</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					<p class="mb-5">Na época da Data-base antiga, o Fator de Vencimento 3737 correspondia ao vencimento 31/12/2007. Atualmente, com o advento da Data-base nova e o reinício do Fator de Vencimento para 1000, o Fator de Vencimento 3737 corresponde ao vencimento 21/08/2032.</p>
+					
+					<p class="mb-5">Exemplo de diferentes datas de vencimento considerando o Fator de Vencimento 3737:</p>
+
+						<div class="table-responsive mb-5">
+  							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th class="text-nowrap">Datas-base</th>
+										<th>Fator</th>
+										<th>Vencimento</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-nowrap">07/10/1997 (antiga)</td>
+										<td>3737</td>
+                                        <td>31/12/2007</td>
+									</tr>
+									<tr>
+										<td class="text-nowrap">29/05/2022 (nova)</td>
+										<td>3737</td>
+										<td>21/08/2032</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
 			</div>
 		</div>
 	</div>
 </section>
 <!-- ============================================================================================= -->
-<section class="container my-3">
+<section class="container mb-5">
 	<div class="row">
         <div class="col-12 col-md-10 mx-auto">
       		<div class="mb-5">
