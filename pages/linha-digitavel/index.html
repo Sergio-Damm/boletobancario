@@ -270,7 +270,7 @@ permalink: /linha-digitavel/
 				<div class="mb-5">
 					<h2 class="h2-title-content mb-5">Qual a relação entre a Linha Digitável e o Código de Barras?</h2>
 					<p class="mb-5">O Boleto Bancário (Bloqueto de Cobrança) foi criado em 1993, através da <a class="link-externo" href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/43524/C_Circ_2414_v5_L.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular n° 2.414, de 7 de outubro de 1993</a>, do Banco Central do Brasil. Esse normativo criou também a Ficha de Compensação com o Código de Barras, ambos fundamentais para a implantação da Compensação Eletrônica de Cobrança.</p>
-					<p class="mb-5">Mais tarde, em 1995, para "aprimoramento do Bloqueto de Cobrança", a Linha Digitável do Boleto Bancário foi criada (<a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/1995/pdf/c_circ_2531_v2_l.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular nº 2.531, de 24 de fevereiro de 1995</a>).</p>
+					<p class="mb-5">Mais tarde, em 1995, para "aprimoramento do Bloqueto de Cobrança", a Linha Digitável do Boleto Bancário foi criada através da <a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/1995/pdf/c_circ_2531_v2_l.pdf" title="Link para o site planalto.gov.br" target="_blank" rel="noopener noreferrer">Carta Circular nº 2.531, de 24 de fevereiro de 1995</a>.</p>
 					<p class="mb-5">A Linha Digitável foi criada depois do Código de Barras para que o usuário pudesse digitar a sequência numérica se o leitor do Código de Barras não funcionasse.</p>
 				</div>
 
@@ -288,8 +288,8 @@ permalink: /linha-digitavel/
 
 				<div class="mb-5">
 					<h2 class="h2-title-content mb-5">Composição da Linha Digitável</h2>
-					<p class="mb-5">A Linha Digitável é dividida em 5 campos, sendo os 3 primeiros consistidos por Dígitos Verificadores – DV (calculado através do Módulo 10) e, entre cada campo, espaço equivalente a uma posição. No quarto campo é indicado, isoladamente, o DV (calculado através do Módulo 11) do Código de Barras:</p>
-					<p class="mb-4">Linha Digitável com 47 dígitos:</p>
+					<p class="mb-5">A Linha Digitável é dividida em 5 campos, sendo os 3 primeiros consistidos por Dígitos Verificadores – DV (calculado através do <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" title="Link para o site do Banco do Brasil" target="_blank" rel="noopener noreferrer">Módulo 10</a>) e, entre cada campo, espaço equivalente a uma posição. No quarto campo é indicado, isoladamente, o DV (calculado através do <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" title="Link para o site do Banco do Brasil" target="_blank" rel="noopener noreferrer">Módulo 11</a>) do Código de Barras:</p>
+					<p class="mb-4">Exemplo da composição da Linha Digitável com 47 dígitos:</p>
 					<p class="mb-5">
 						<span style="color: #0000ff;">001905009</span><span style="color: #000;"> 5</span>
 						<span style="color: #008000;">4014481606</span><span style="color: #000;"> 9</span>
@@ -359,22 +359,8 @@ permalink: /linha-digitavel/
 
       			<div class="mb-5">
 					<h2 class="h2-title-content mb-5">Composição do Código de Barras</h2>
-					<p class="mb-5">De acordo com o manual <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" title="Link para o site do Banco do Brasil" target="_blank" rel="noopener noreferrer">Banco do Brasil</a> (página 4), o Código de Barras é composto por 2 (dois) campos e deve conter 44 posições, disposto da seguinte forma:</p>
-						
-					<ul>
-						<li class="mb-4">
-							<span class="fw-semibold">Campo Obrigatório</span>: determinado pela FEBRABAN e comum a todos dos bancos 
-						</li>
-						<li class="mb-5">
-							<span class="fw-semibold">Campo Livre</span>: determinado por cada banco de acordo com a modalidade de cobrança utilizada pelo cliente
-						</li>
-					</ul>
-
-					<p class="mb-5">Ainda de acordo com o Manual do Banco do Brasil (página 20), o formato dos Campos Obrigatório e Livre podem ser divididos em 5 partes cada, totalizando 10 "sub-campos".</p>
-
-					<p class="mb-5">Para completar a estrutura dos campos do Código de Barras, conforme o Manual do Banco do Brasil, os 10 "sub-campos" que compõem o Campo Obrigatório (fixo para qualquer banco) e o Campo Livre (específico do Banco do Brasil) são organizados da seguinte forma:</p>
-
-					<p class="mb-4">Código de Barras com 44 dígitos:</p>
+					<p class="mb-5">O Código de Barras de um Boleto Bancário (padrão Febraban) é composto por uma sequência de 44 dígitos numéricos, que permite aos bancos identificar o emissor, o valor, o vencimento e os dados bancários do Beneficiário.</p>
+					<p class="mb-4">Exemplo da composição do Código de Barras com 44 dígitos:</p>
 					<p class="mb-5">
 						<span style="color: #0000ff">001</span>
 						<span style="color: #0000ff;">9</span>
@@ -393,31 +379,23 @@ permalink: /linha-digitavel/
             						<tr>
                 						<th colspan="10" class="text-center bg-light">Campos</th>
             						</tr>
-									<tr>
-										<th class="text-nowrap small">1</th>
-										<th class="text-nowrap small">2</th>
-										<th class="text-nowrap small">3</th>
-										<th class="text-nowrap small">4</th>
-										<th class="text-nowrap small">5</th>
-										<th class="text-nowrap small">6</th>
-										<th class="text-nowrap small">7</th>
-										<th class="text-nowrap small">8</th>
-										<th class="text-nowrap small">9</th>
-										<th class="text-nowrap small">10</th>
-									</tr>
+            						<tr>
+                						<th colspan="5" class="text-center bg-light">Obrigatório</th>
+                						<th colspan="5" class="text-center bg-light">Livre</th>
+            						</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td class="text-nowrap small">AAA</td>
-										<td class="text-nowrap small">B</td>
-										<td class="text-nowrap small">C</td>
-										<td class="text-nowrap small">DDDD</td>
-										<td class="text-nowrap small">EEEEEEEEEE</td>
-										<td class="text-nowrap small">FFFFFF</td>
-										<td class="text-nowrap small">GGGGG</td>
-										<td class="text-nowrap small">HHHH</td>
-										<td class="text-nowrap small">IIIIIIII</td>
-										<td class="text-nowrap small">JJ</td>
+										<td class="text-nowrap small">Banco</td>
+										<td class="text-nowrap small">Moeda</td>
+										<td class="text-nowrap small">DV</td>
+										<td class="text-nowrap small">Vencimento</td>
+										<td class="text-nowrap small">Valor</td>
+										<td class="text-nowrap small">Convênio</td>
+										<td class="text-nowrap small">Complemento</td>
+										<td class="text-nowrap small">Agência</td>
+										<td class="text-nowrap small">Conta</td>
+										<td class="text-nowrap small">Carteira</td>
 									</tr>
 									<tr>
 										<td class="text-nowrap small" style="color: #0000ff;">001</td>
@@ -434,54 +412,57 @@ permalink: /linha-digitavel/
 								</tbody>
 							</table>
 						</div>
-					<p class="fw-semibold">Campo 1: AAA</p>
+
+					<p class="fw-semibold text-cerise text-decoration-underline mb-4">Campo Obrigatório</p>
+					<p class="fw-semibold">Banco:</p>
 						<ul>
-                  			<li><span class="fw-semibold">A</span> = Número do Banco</li>
+                  			<li><span class="fw-semibold">001</span> = Identifica a instituição financeira emissora (ex: 001 = Banco do Brasil, 237 = Bradesco e 341 = Itaú, etc.)</li>
 						</ul>
-					<p class="fw-semibold">Campo 2: B</p>
+					<p class="fw-semibold">Moeda:</p>
 						<ul>
-							<li><span class="fw-semibold">B</span> = Código da Moeda (9 = Real)</li>
+							<li><span class="fw-semibold">9</span> = Indica em qual moeda o boleto foi emitido. O número 9 representa o Real (R$)</li>
 						</ul>
-					<p class="fw-semibold">Campo 3: C</p>
+					<p class="fw-semibold">DV:</p>
 						<ul>
-							<li><span class="fw-semibold">C</span> = DV do Código de Barras</li>
+							<li><span class="fw-semibold">3</span> = Dígito verificador calculado pelo módulo 11, serve para conferir se todos os outros números foram lidos corretamente</li>
 						</ul>
-					<p class="fw-semibold">Campo 4: DDDD</p>
+					<p class="fw-semibold">Vencimento:</p>
 						<ul>
-							<li><span class="fw-semibold">D</span> = Fator de Vencimento</li>
+							<li><span class="fw-semibold">3737</span> = Fator de Vencimento que representa a data de vencimento</li>
 						</ul>
-					<p class="fw-semibold">Campo 5: EEEEEEEEEE</p>
-						<ul>
-							<li><span class="fw-semibold">E</span> = Valor</li>
+					<p class="fw-semibold">Valor:</p>
+						<ul class="mb-5">
+							<li><span class="fw-semibold">0000000100</span> = Valor do boleto com 10 dígitos</li>
 						</ul>
-					<p class="fw-semibold">Campo 6: FFFFFF</p>
+					<p class="fw-semibold text-cerise text-decoration-underline mb-4">Campo Livre</p>
+					<p class="fw-semibold">Convênio:</p>
 						<ul>
-       	        	   		<li><span class="fw-semibold">F</span> = Número do Convênio</li>
+       	        	   		<li><span class="fw-semibold">050094</span> = Nosso Número / Número do Convênio fornecido pelo Banco</li>
 						</ul>
-					<p class="fw-semibold">Campo 7: GGGGG</p>
+					<p class="fw-semibold">Complemento:</p>
 						<ul>
-         	         		<li><span class="fw-semibold">G</span> = Complemento</li>
+         	         		<li><span class="fw-semibold">01448</span> = Nosso Número / Complemento do Nosso-Número, sem DV</li>
 						</ul>
-					<p class="fw-semibold">Campo 8: HHHH</p>
+					<p class="fw-semibold">Agência:</p>
 						<ul>
-         	         		<li><span class="fw-semibold">H</span> =  Agência</li>
+         	         		<li><span class="fw-semibold">1606</span> =  Número da Agência Bancária</li>
 						</ul>
-					<p class="fw-semibold">Campo 9: IIIIIIII</p>
+					<p class="fw-semibold">Conta:</p>
 						<ul>
-         	         		<li><span class="fw-semibold">I</span> = Conta</li>
+         	         		<li><span class="fw-semibold">06809350</span> = Número da Conta Bancária do Beneficiário</li>
 						</ul>
-					<p class="fw-semibold">Campo 10: JJ</p>
+					<p class="fw-semibold">Carteira</p>
 						<ul>
-         	         		<li><span class="fw-semibold">J</span> =  Carteira</li>
+         	         		<li><span class="fw-semibold">31</span> =  Número da Carteira de Cobrança</li>
 						</ul>
 				</div>
-
       			<div class="mb-5">
-                    <p class="my-5">Os números coloridos acima demonstram que os números Código de Barras e da Linha Digitável são iguais, mas em ordens diferentes. A Linha Digitável tem 3 dígitos a mais que o Código de Barras, que são os Dígitos Verificadores da Linha Digitável.</p>
-					<p class="my-5">Sem os Dígitos Verificadores, o Código de Barras e a Linha Digitável contém 43 dígitos cada.</p>
+					<h2 class="h2-title-content mb-5">A Matemática por trás dos Formatos</h2>
+                    <p class="mb-5">Os números acima demonstram que o Código de Barras e a Linha Digitável são iguais, mas se apresentam em sequências e formatos diferentes.</p>
+					<p class="mb-5">A Linha Digitável contém 3 (três) dígitos a mais que o Código de Barras, que são os Dígitos Verificadores exclusivos da Linha Digitável. Já o Código de Barras contém 1 (um) Dígito Verificador Geral. Desta forma, sem os Dígitos Verificadores, tanto o Código de Barras quanto a Linha Digitável contêm 43 dígitos de dados cada:</p>
 						<ul>
          	         		<li class="mb-4"><span class="fw-semibold">Código de Barras</span>: 43 dígitos de dados + 1 dígito verificador = 44 dígitos</li>
-							<li class="mb-4"><span class="fw-semibold">Linha Digitável</span>: 43 dígitos de dados + 1 dígito verificador (importado do Código de Barras) + 3 dígitos verificadores da própria Linha Digitável = 47 dígitos</li>
+							<li class="mb-5"><span class="fw-semibold">Linha Digitável</span>: 43 dígitos de dados + 1 dígito verificador (importado do Código de Barras) + 3 dígitos verificadores da própria Linha Digitável = 47 dígitos</li>
 						</ul>
 				</div>
 
