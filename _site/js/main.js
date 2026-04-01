@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     carregarFeed({
         listaId: 'lista3', 
         loadingId: 'loading3', 
-        rss: 'https://www.infomoney.com.br/feed/', 
+        rss: 'https://www.infomoney.com.br/economia/feed/', 
         nome: 'Infomoney', 
         letras: 'IM'
     });
@@ -183,4 +183,5 @@ document.addEventListener('DOMContentLoaded', () => {
         letras: 'CO', 
         filtroPaywall: true
     });
+
 });
