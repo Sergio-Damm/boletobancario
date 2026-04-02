@@ -107,8 +107,9 @@ permalink: /linha-digitavel/
         	<div class="col-12 col-md-10 mx-auto">
 
 				<div class="mb-5">
-					<h2 class="h2-title-content mb-5">Linha Digitável e Código de Barras: o que são e para que servem?</h2>
-					<p class="mb-5">A Linha Digitável e o Código de Barras são <span class="fw-semibold">duas formas de representar as mesmas informações</span> do Boleto Bancário, em sequências e formatos diferentes.</p>
+					<h2 class="h2-title-content mb-5">A Linha Digitável e o Código de Barras são iguais?</h2>
+					<p class="mb-5">Sim, a Linha Digitável e o Código de Barras contêm as mesmas informações do Boleto Bancário, mas são representados de formas diferentes. A Linha Digitável é a representação numérica do Código de Barras usada para a digitação manual, enquanto o Código de Barras é a representação gráfica do conteúdo do boleto lida por leitores ópticos.</p>
+					<p class="mb-5"><span class="fw-semibold"></span>São duas formas de representar as mesmas informações</span>, em sequências e formatos diferentes.</p>
 				    <p class="mb-0">Como um é a representação numérica e o outro a gráfica, podemos dizer que um é o espelho do outro.</p>
 				</div>
 
@@ -146,16 +147,18 @@ permalink: /linha-digitavel/
 
 				<div class="mb-5">
 					<h2 class="h2-title-content mb-5">O que é a Linha Digitável?</h2>
-                    <p class="mb-5"><span class="fw-semibold">A Linha Digitável é composta por 47 dígitos</span>, localizada na parte superior do boleto. Ela contém:</p>
-						<ul class="mb-5">
-							<li class="mb-3">Identificação do Banco e Código da Moeda</li>
-							<li class="mb-3">Campos de Controle e Identificação do Beneficiário</li>
-							<li class="mb-3">Dígitos Verificadores (DVs) de segurança</li>
-       		           		<li class="mb-3">Fator de Vencimento e Valor a ser pago</li>
-						</ul>
-					<p class="mb-5">Exemplo de uma Linha Digitável com 47 dígitos:</p>
-					<p class="mb-5 text-break fw-semibold">00190500954014481606906809350314337370000000100</p>
-					<p class="mb-5">A Linha Digitável acima contém cálculos válidos para o antigo Fator de Vencimento 3737 (até 21/02/2025). Para mais detalhes técnicos, consulte a página <a class="link-externo" href="/vencimento/">Data de Vencimento e Valor</a>.</p>
+                    	<p class="mb-5">A Linha Digitável do Boleto Bancário é a representação númerica do Código de Barras, composta por 47 caracteres numéricos, localizada na parte superior direita do boleto. Ela foi criada para permitir que o pagamento seja realizado manualmente (digitando os números) quando o leitor óptico do aplicativo bancário ou do caixa eletrônico não consegue ler o Código de Barras.</p>
+						<p class="mb-5">A Linha Digitável segue critérios rigorosos de elaboração definidos pela <a class="link-externo" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Conven%C3%A7%C3%A3o%20da%20Cobran%C3%A7a%20-%2005_02_2021_f.pdf" target="_blank" rel="noopener noreferrer">Febraban</a> e pelo <a class="link-externo" href="https://www.bcb.gov.br/pre/normativos/c_circ/2000/pdf/c_circ_2926_v1_O.pdf" target="_blank" rel="noopener noreferrer">Banco Central do Brasil</a>. Para garantir a segurança e a correta identificação dos dados da transação bancária, a Linha Digitável é distribuída em 5 partes, sendo as 3 primeiras consistidas por Dígitos Verificadores – DV, calculados através do Módulo 10, garantindo que o número não seja fraudado.</p>
+						<p class="mb-5">A Linha Digitável contém:</p>
+							<ul class="mb-5">
+								<li class="mb-3">Identificação do Banco e Código da Moeda</li>
+								<li class="mb-3">Campos de Controle e Identificação do Beneficiário</li>
+								<li class="mb-3">Dígitos Verificadores (DVs) de Segurança</li>
+       		           			<li class="mb-3">Fator de Vencimento e Valor a ser Pago</li>
+							</ul>
+						<p class="mb-5">Exemplo de uma Linha Digitável com 47 dígitos:</p>
+						<p class="mb-5 text-break fw-semibold">00190500954014481606906809350314337370000000100</p>
+						<p class="mb-5">A Linha Digitável acima contém cálculos válidos para o <span class="fw-semibold">antigo</span> Fator de Vencimento 3737 (data-base 07/10/1997 válida até 21/02/2025). Para mais detalhes técnicos, consulte a nossa página <a class="link-externo" href="/vencimento/">Data de Vencimento e Valor</a>.</p>
 				</div>
 
 			</div>
@@ -195,7 +198,7 @@ permalink: /linha-digitavel/
 
 				<div class="mb-5">
 					<h2 class="h2-title-content mb-5">O que é o Código de Barras?</h2>
-					<p class="mb-5">O Código de Barras é a representação gráfica, em formato de barras verticais pretas e brancas de diferentes espessuras, do conteúdo do Boleto Bancário. Dados do Boleto Bancário, como: Número do Banco, Código da Moeda, Conta Bancária, Agência, Vencimento e Valor são convertidos para o padrão Intercalado 2 de 5 (ITF).</p>
+					<p class="mb-5">O Código de Barras é a representação gráfica, em formato de barras verticais pretas e brancas de diferentes espessuras, do conteúdo do Boleto Bancário. Dados do Boleto Bancário, como: Número do Banco, Código da Moeda, Conta Bancária, Agência, Vencimento e Valor são convertidos para o padrão Intercalado 2 de 5.</p>
 						<div class="mb-5 text-center">
 							<img 
 								src="/img/codigobarras.png" 
@@ -204,7 +207,7 @@ permalink: /linha-digitavel/
 							>
 						</div>
 					<p class="mb-5">As barras verticais pretas, juntamente com os espaços brancos entre elas, são lidas por leitores óticos como "0s" e "1s" (código binário). As barras pretas e os espaços brancos variam em espessura (finas ou largas) para representar os dígitos decimais (0-9) que compõem os números do Boleto Bancário.</p>
-					<p class="mb-5">As barras verticais pretas e brancas de diferentes espessuras são do tipo "2 de 5 intercalado" <a class="link-externo" href="https://en.wikipedia.org/wiki/Interleaved_2_of_5" rel="noopener noreferrer">(Intercalado 2 de 5 - ITF)</a>.
+					<p class="mb-5">O Código de Barras utilizado é do tipo "2 de 5 intercalado" — <a class="link-externo" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Layout%20-%20C%C3%B3digo%20de%20Barras%20-%20Vers%C3%A3o%207%20-%2001_03_2023_mn.pdf" target="_blank" rel="noopener noreferrer">Febraban</a>.
 					<p class="mb-5">O termo "2 de 5" significa que 5 barras (pretas ou brancas) definem 1 dígito, sendo duas delas largas. O termo "intercalado" indica que os espaços entre as barras pretas também carregam informação, de maneira análoga às barras.</p>
 					<p class="mb-5">O resultado visual é um bloco de 10 elementos (5 barras pretas + 5 espaços brancos) que, intercalados, representam sempre um par de dígitos.</p>
                     <p class="mb-5">Dessa forma, podemos afirmar que o Código de Barras uma representação gráfica, <span class="fw-semibold">que corresponde a 44 dígitos</span>.</p>
