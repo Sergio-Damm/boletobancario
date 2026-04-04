@@ -56,11 +56,9 @@ function gerarIniciais(nome) {
     const partes = limpo.split(' ').filter(Boolean);
 
     if (partes.length === 1) {
-        // ex: "Motor1" → "MO"
         return partes[0].substring(0, 2).toUpperCase();
     }
 
-    // ex: "Quatro Rodas" → "QR"
     return (partes[0][0] + partes[1][0]).toUpperCase();
 }
 
@@ -118,7 +116,6 @@ const placeholder = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg
             } else if (item.thumbnail) {
                 thumb = item.thumbnail;
             } else if (item.description) {
-      /*          const m = item.description.match(/src=["']([^"']+\.(jpe?g|png|gif|webp))["']/i); */
                 const m = item.description.match(/<img[^>]+src=["']([^"']+)["']/i);
                 if (m) thumb = m[1];
             }
