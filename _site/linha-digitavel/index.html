@@ -212,7 +212,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 							</ul>
 						<p class="mb-5">A Linha Digitável é a representação numérica do Código de Barras usada para a digitação manual, enquanto o Código de Barras é a representação gráfica do conteúdo do boleto lida por leitores ópticos.</p>
 						<p class="mb-5">São duas formas de representar as mesmas informações, em sequências e formatos diferentes.</p>
-				    	<p class="mb-0">Como um é a representação numérica e o outro a gráfica, podemos dizer que um é o <span class="fw-semibold">espelho do outro</span>.</p>
+				    	<p class="mb-0">Como um é a representação numérica e o outro a gráfica, <span class="fw-semibold">podemos dizer que um é o espelho do outro</span>.</p>
 				</div>
 
 			</div>
@@ -258,7 +258,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
   							<table class="table table-striped">
 								<thead>
 									<tr>
-                						<th colspan="10" class="text-center bg-light">Campos da Linha Digitável</th>
+                						<th colspan="10" class="text-center bg-light">Estrutura da Linha Digitável</th>
             						</tr>
 									<tr>
 										<th class="text-nowrap small">Campo 1</th>
@@ -289,10 +289,10 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 
 						<p class="mb-5">A Linha Digitável contém:</p>
 							<ul class="mb-5">
-								<li class="mb-3">Identificação do Banco e Código da Moeda</li>
-								<li class="mb-3">Campos de Controle e Identificação do Beneficiário</li>
+								<li class="mb-3">Identificação do Banco e da Moeda</li>
+								<li class="mb-3">Dados do Beneficiário</li>
 								<li class="mb-3">Dígitos Verificadores (DVs) de Segurança</li>
-       		           			<li class="mb-3">Fator de Vencimento e Valor a ser Pago</li>
+       		           			<li class="mb-3">Fator de Vencimento e Valor</li>
 							</ul>
 						<p class="mb-5">Exemplo de uma Linha Digitável com 47 dígitos:</p>
 						<p class="mb-5 text-break fw-semibold">00190500954014481606906809350314337370000000100</p>
@@ -351,9 +351,9 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 
 				<div class="mb-5">
 					<h2 class="h2-title-content mb-5">O que é o Padrão 2 de 5 Intercalado?</h2>
-						<p class="mb-5">O termo "2 de 5 intercalado" significa que 5 barras (pretas ou brancas) definem 1 dígito, sendo duas delas largas. O termo "Intercalado" indica que os espaços entre as barras pretas também carregam informação, de maneira análoga às barras.</p>
+						<p class="mb-5">O termo "2 de 5 intercalado" significa que 5 barras (pretas ou brancas) definem um dígito, sendo duas delas largas. O termo "Intercalado" indica que os espaços entre as barras pretas também carregam informação, de maneira análoga às barras.</p>
 						<p class="mb-5">O resultado visual é um bloco de 10 elementos (5 barras pretas + 5 espaços brancos) que, intercalados, representam sempre um par de dígitos.</p>
-						<p class="mb-5">Dessa forma, verificamos que o Código de Barras é uma representação gráfica, que corresponde a 44 dígitos.</p>
+						<p class="mb-5">Assim, o Código de Barras é uma representação gráfica, que corresponde a 44 dígitos.</p>
 						<p class="mb-5">Código de Barras com 44 dígitos:</p>
 						<p class="mb-5 text-break fw-semibold">00193373700000001000500940144816060680935031</p>
 				</div>
@@ -442,7 +442,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 				<div class="mb-5">
 					<h2 class="h2-title-content mb-5">Composição da Linha Digitável</h2>
 						<p class="mb-5">A Linha Digitável é dividida em 5 campos, com os 3 primeiros campos contendo Dígitos Verificadores – DV (calculados através do <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="noopener noreferrer">Módulo 10</a>) e, entre cada campo, espaço equivalente a uma posição. No quarto campo é indicado, isoladamente, o DV (calculado através do <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="noopener noreferrer">Módulo 11</a>) do Código de Barras:</p>
-						<p class="mb-4">Exemplo da composição da Linha Digitável com 47 dígitos:</p>
+						<p class="mb-4">Detalhamento da Linha Digitável com 47 dígitos:</p>
 						<p class="mb-5">
 							<span style="color: #0000ff;">001905009</span><span style="color: #000;"> 5</span>
 							<span style="color: #008000;">4014481606</span><span style="color: #000;"> 9</span>
@@ -514,11 +514,11 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 					<h2 class="h2-title-content mb-5">Composição do Código de Barras</h2>
 						<p class="mb-5">O Código de Barras de um Boleto Bancário (padrão Febraban) é composto por dois campos:</p>
 							<ul>
-    	     	         		<li class="mb-4"><span class="fw-semibold">Campo Obrigatório</span>: determinado pela FEBRABAN e comum a todos dos bancos</li>
+    	     	         		<li class="mb-4"><span class="fw-semibold">Campo Obrigatório</span>: determinado pela FEBRABAN e comum a todos os bancos</li>
 								<li class="mb-5"><span class="fw-semibold">Campo Livre</span>: número único de identificação do boleto (nosso número, agência, etc.)</li>
 							</ul>
 						<p class="mb-5">Além dos campos obrigatório e livre, o Código de Barras deve conter 44 posições, que permite aos bancos identificar o emissor, o valor, o vencimento e os dados bancários do Beneficiário.</p>
-						<p class="mb-4">Exemplo da composição do Código de Barras com 44 posições (dígitos):</p>
+						<p class="mb-4">Detalhamento do Código de Barras com 44 posições (dígitos):</p>
 						<p class="mb-5">
 							<span style="color: #0000ff">001</span>
 							<span style="color: #0000ff;">9</span>
@@ -622,7 +622,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
          			         		<li class="mb-4"><span class="fw-semibold">Código de Barras</span>: 43 dígitos de dados + 1 dígito verificador = 44 dígitos</li>
 									<li class="mb-5"><span class="fw-semibold">Linha Digitável</span>: 43 dígitos de dados + 1 dígito verificador (importado do Código de Barras) + 3 dígitos verificadores da própria Linha Digitável = 47 dígitos</li>
 								</ul>
-							<p class="mb-5"><span class="fw-semibold">Em resumo</span>:</p>
+							<p class="mb-5"><span class="fw-semibold">Resumo</span>:</p>
 							<ul>
 								<li class="mb-4"><span class="fw-semibold">Código de Barras</span>: 44 dígitos (43 + 1 DV)</li>
 								<li class="mb-5"><span class="fw-semibold">Linha Digitável</span>: 47 dígitos (43 + 4 DVs)</li>
@@ -642,7 +642,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
         	<div class="col-12 col-md-10 mx-auto">
 
 				<div class="mb-5">
-					<p class="mb-5">Formulário de Conversão: <a class="link-externo" href="/formulario-conversao/">Use o nosso Formulário de Conversão da Linha Digitável para o Código de Barras</a></p>
+					<p class="mb-5"><span class="fw-semibold">Quer converter automaticamente?</span>: Use nosso <a class="link-externo" href="/formulario-conversao/">Formulário de Conversão</a> para converter a Linha Digitável em Código de Barras.</p>
 					<p class="mb-5">Fontes: 
 						<a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="noopener noreferrer">Banco do Brasil — BB</a> e
 						<a class="link-externo" href="https://cmsarquivos.febraban.org.br/Arquivos/documentos/PDF/Conven%C3%A7%C3%A3o%20da%20Cobran%C3%A7a%20-%2005_02_2021_f.pdf" target="_blank" rel="noopener noreferrer">Febraban</a></p>
