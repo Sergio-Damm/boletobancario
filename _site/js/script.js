@@ -240,7 +240,7 @@ function limparCodigoBarras() {
 document.addEventListener('DOMContentLoaded', () => {
     generateBarcode('');
 
-// ================= LIMPEZA ADICIONAL =================
+// ================= LIMPEZA ADICIONAL SE USER ESQUECER DE LIMPAR ERRO =================
 
 function limparCampoRelacionado(tipo) {
     if (tipo === 'linha') {
