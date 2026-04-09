@@ -1,373 +1,260 @@
-// // --- 1. Full Script (New Page - Due Dates from 22/fev/2025) ---
+// ================= UTIL =================
 function verificarEntradaNumerica(valor) {
     return /^[0-9]+$/.test(valor);
 }
 
+// ================= VALIDAÇÕES =================
 function validarCodigoBarras(obj) {
     const valor = obj.value.trim();
-    if (!valor) return false;
-    if (!verificarEntradaNumerica(valor)) return false;
-    if (valor.length !== 44) return false;
-    return true;
+    return valor && verificarEntradaNumerica(valor) && valor.length === 44;
 }
 
+// ================= LINHA → BARRA =================
 function f_barra() {
-    const input = document.getElementById('linhadigitavel1');
-    const valor = input.value.trim();
+    const valor = document.getElementById('linhadigitavel1').value.trim();
 
-    if (!valor) {
-        exibirAlertaGeral('A linha digitável é necessária para calcular o código de barras.');
-        form.barra.value = '';
-        form.venc.value = '';
-        form.valor.value = '';
-        generateBarcode('');
-        return false;
-    }
-    if (!verificarEntradaNumerica(valor)) {
-        exibirAlertaGeral('A linha digitável só aceita números.');
-        form.barra.value = '';
-        form.venc.value = '';
-        form.valor.value = '';
-        generateBarcode('');
-        return false;
-    }
-    if (valor.length !== 47) {
-        exibirAlertaGeral('A linha digitável deve ter 47 números. Você digitou ' + valor.length + ' números.');
-        form.barra.value = '';
-        form.venc.value = '';
-        form.valor.value = '';
-        generateBarcode('');
-        return false;
-    }
+    if (!valor) return exibirAlertaGeral('Informe a linha digitável');
+    if (!verificarEntradaNumerica(valor)) return exibirAlertaGeral('A linha digitável deve conter apenas números');
+    if (valor.length !== 47) return exibirAlertaGeral(`A linha digitável deve ter 47 números. Você digitou ${valor.length}.`);
 
-    var linhaNumerica = valor.replace(/[^0-9]/g, '');
-    var depois = calcula_barra(linhaNumerica);
-    if (!depois) {
-        return false;
-    }
+    const barra = calcula_barra(valor);
+    if (!barra) return;
 
-    form.barra.value = depois;
-    f_venc();
-    generateBarcode(form.barra.value);
-    return false;
+    document.getElementById('codigodebarras1').value = barra;
+    f_venc(barra);
+    generateBarcode(barra);
 }
 
+// ================= BARRA → LINHA =================
 function f_linha() {
-    const input = document.getElementById('codigodebarras1');
-    const valor = input.value.trim();
+    const valor = document.getElementById('codigodebarras1').value.trim();
 
-    if (!valor) {
-        exibirAlertaGeral('O código de barras é necessário para calcular a linha digitável.');
-        form.linha.value = '';
-        form.venc.value = '';
-        form.valor.value = '';
-        generateBarcode('');
-        return false;
-    }
-    if (!verificarEntradaNumerica(valor)) {
-        exibirAlertaGeral('O código de barras só aceita números.');
-        form.linha.value = '';
-        form.venc.value = '';
-        form.valor.value = '';
-        generateBarcode('');
-        return false;
-    }
-    if (valor.length !== 44) {
-        exibirAlertaGeral('O código de barras deve ter 44 números. Você digitou ' + valor.length + ' números.');
-        form.linha.value = '';
-        form.venc.value = '';
-        form.valor.value = '';
-        generateBarcode('');
-        return false;
-    }
+    if (!valor) return exibirAlertaGeral('Informe o código de barras');
+    if (!verificarEntradaNumerica(valor)) return exibirAlertaGeral('O código de barras deve conter apenas números');
+    if (valor.length !== 44) return exibirAlertaGeral(`O código de barras deve ter 44 números. Você digitou ${valor.length}.`);
 
-    var barraNumerica = valor.replace(/[^0-9]/g, '');
-    var depois = calcula_linha(barraNumerica);
-    if (!depois) {
-        return false;
-    }
+    const linha = calcula_linha(valor);
+    if (!linha) return;
 
-    form.linha.value = depois;
-    f_venc();
-    generateBarcode(form.barra.value);
-    return false;
+    document.getElementById('linhadigitavel1').value = linha;
+    f_venc(valor);
+    generateBarcode(valor);
 }
 
-function f_venc() {
-    if (form.barra.value.substr(5, 4) == 0) {
-        form.venc.value = 'O boleto pode ser pago em qualquer data';
+// ================= VENCIMENTO =================
+function f_venc(barra) {
+    const fator = barra.substr(5, 4);
+
+    if (fator === '0000') {
+        document.getElementById('vencimento1').value = 'Sem vencimento';
     } else {
-        var dataVencimento = fator_vencimento(form.barra.value.substr(5, 4));
-        form.venc.value = dataVencimento;
-        var dataAtual = new Date();
-        var vencimento = new Date(dataVencimento.split('.')[2], dataVencimento.split('.')[1] - 1, dataVencimento.split('.')[0]);
-        var diffDias = Math.ceil((vencimento - dataAtual) / (1000 * 60 * 60 * 24));
-        if (diffDias > 90) {
-            exibirAlerta(dataVencimento, form.barra.value.substr(5, 4));
-        }
+        const data = fator_vencimento(fator);
+        document.getElementById('vencimento1').value = data;
     }
-    form.valor.value = (form.barra.value.substr(9, 8) * 1) + ',' + form.barra.value.substr(17, 2);
-    return (false);
+
+    let inteiro = parseInt(barra.substr(9, 8), 10);
+    let centavos = barra.substr(17, 2).padStart(2, '0');
+    document.getElementById('valor1').value = `${inteiro},${centavos}`;
 }
 
+// ================= CÁLCULOS =================
 function calcula_barra(linha) {
     linha = linha.replace(/[^0-9]/g, '');
+
     if (linha.length !== 47) {
-        exibirAlertaGeral('Linha digitável inválida.');
+        exibirAlertaGeral('Linha digitável inválida');
         return '';
     }
-    linha = linha.slice(0, 4) + linha.slice(32, 47) + linha.slice(4, 9) + linha.slice(10, 20) + linha.slice(21, 31); // Usa slice()
-    if (modulo11_banco(linha.substr(0, 4) + linha.substr(5, 39)) != linha.substr(4, 1)) {
-        exibirAlertaGeral('Linha digitável inválida.');
+
+    linha = linha.slice(0, 4) + linha.slice(32, 47) + linha.slice(4, 9) + linha.slice(10, 20) + linha.slice(21, 31);
+
+    if (modulo11_banco(linha.substr(0, 4) + linha.substr(5, 39)) !== parseInt(linha.substr(4, 1))) {
+        exibirAlertaGeral('Linha digitável inválida');
         return '';
     }
-    return (linha);
+
+    return linha;
 }
 
 function calcula_linha(barra) {
     barra = barra.replace(/[^0-9]/g, '');
+
     if (barra.length !== 44) {
-        exibirAlertaGeral('Código de barras inválido. O código de barras deve ter 44 números.');
+        exibirAlertaGeral('Código de barras inválido');
         return '';
     }
-    var campo1 = barra.slice(0, 4) + barra.slice(19, 20) + '.' + barra.slice(20, 24); // Usa slice()
-    var campo2 = barra.slice(24, 29) + '.' + barra.slice(29, 34); // Usa slice()
-    var campo3 = barra.slice(34, 39) + '.' + barra.slice(39, 44); // Usa slice()
-    var campo4 = barra.slice(4, 5); // Usa slice()
-    var campo5 = barra.slice(5, 19); // Usa slice()
-    if (modulo11_banco(barra.substr(0, 4) + barra.substr(5, 99)) != campo4) {
-        exibirAlertaGeral('Código de barras inválido.');
+
+    const campo1 = barra.slice(0, 4) + barra.slice(19, 20) + '.' + barra.slice(20, 24);
+    const campo2 = barra.slice(24, 29) + '.' + barra.slice(29, 34);
+    const campo3 = barra.slice(34, 39) + '.' + barra.slice(39, 44);
+    const campo4 = barra.slice(4, 5);
+    let campo5 = barra.slice(5, 19);
+
+    if (modulo11_banco(barra.substr(0, 4) + barra.substr(5, 39)) !== parseInt(campo4)) {
+        exibirAlertaGeral('Código de barras inválido');
         return '';
     }
-    if (campo5 == 0) campo5 = '000';
-    linha = campo1 + modulo10(campo1) + ' ' + campo2 + modulo10(campo2) + ' ' + campo3 + modulo10(campo3) + ' ' + campo4 + ' ' + campo5;
-    linha = linha.replace(/[^0-9]/g, '');
-    return (linha);
+
+    if (campo5 === '0') campo5 = '000';
+
+    let linha = campo1 + modulo10(campo1) + ' ' +
+                campo2 + modulo10(campo2) + ' ' +
+                campo3 + modulo10(campo3) + ' ' +
+                campo4 + ' ' + campo5;
+
+    return linha.replace(/[^0-9]/g, '');
 }
 
+// ================= DATA =================
 function fator_vencimento(dias) {
-    var currentDate, t, mes, dia;
-    t = new Date();
-    currentDate = new Date();
-    currentDate.setFullYear(2022, 4, 29);
-    t.setTime(currentDate.getTime() + (1000 * 60 * 60 * 24 * dias));
-    mes = (t.getMonth() + 1); if (mes < 10) mes = "0" + mes;
-    dia = (t.getDate()); if (dia < 10) dia = "0" + dia;
-    return (dia + "." + mes + "." + t.getFullYear());
+    const base = new Date(2022, 4, 29);
+    const data = new Date(base.getTime() + (dias * 86400000));
+
+    let dia = String(data.getDate()).padStart(2, '0');
+    let mes = String(data.getMonth() + 1).padStart(2, '0');
+
+    return `${dia}.${mes}.${data.getFullYear()}`;
 }
 
+// ================= DV =================
 function modulo10(numero) {
     numero = numero.replace(/[^0-9]/g, '');
-    var soma = 0;
-    var peso = 2;
-    var contador = numero.length - 1;
-    while (contador >= 0) {
-        multiplicacao = (numero.substr(contador, 1) * peso);
-        if (multiplicacao >= 10) { multiplicacao = 1 + (multiplicacao - 10); }
-        soma = soma + multiplicacao;
-        if (peso == 2) {
-            peso = 1;
-        } else {
-            peso = 2;
-        }
-        contador = contador - 1;
+    let soma = 0;
+    let peso = 2;
+
+    for (let i = numero.length - 1; i >= 0; i--) {
+        let multiplicacao = numero[i] * peso;
+        if (multiplicacao >= 10) multiplicacao = 1 + (multiplicacao - 10);
+        soma += multiplicacao;
+        peso = (peso === 2) ? 1 : 2;
     }
-    var digito = 10 - (soma % 10);
-    if (digito == 10) digito = 0;
-    return digito;
+
+    let digito = 10 - (soma % 10);
+    return digito === 10 ? 0 : digito;
 }
 
 function modulo11_banco(numero) {
     numero = numero.replace(/[^0-9]/g, '');
-    var soma = 0;
-    var peso = 2;
-    var base = 9;
-    var resto = 0;
-    var contador = numero.length - 1;
-    for (var i = contador; i >= 0; i--) {
-        soma = soma + (numero.substring(i, i + 1) * peso);
-        if (peso < base) {
-            peso++;
-        } else {
-            peso = 2;
-        }
+    let soma = 0;
+    let peso = 2;
+
+    for (let i = numero.length - 1; i >= 0; i--) {
+        soma += numero[i] * peso;
+        peso = (peso < 9) ? peso + 1 : 2;
     }
-    var digito = 11 - (soma % 11);
+
+    let digito = 11 - (soma % 11);
     if (digito > 9) digito = 0;
-    if (digito == 0) digito = 1;
+    if (digito === 0) digito = 1;
+
     return digito;
 }
 
-function exibirAlerta(dataVencimento, fator) {
-    var alertaDiv = document.getElementById('vencimento-alerta');
-    alertaDiv.classList.add('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show');
-    document.getElementById('dataVencimento').textContent = dataVencimento;
-    document.getElementById('fator').textContent = fator;
-    document.getElementById('fator-valor-1').textContent = fator;
-    alertaDiv.style.display = 'block';
-    var closeButton = alertaDiv.querySelector('.btn-close');
-    closeButton.style.position = 'absolute';
-    closeButton.style.top = '0';
-    closeButton.style.right = '0';
-
-    // Função para remover o ouvinte de eventos
-    function removerOuvinte() {
-        alertaDiv.style.display = 'none';
-        alertaDiv.classList.remove('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show');
-        closeButton.removeEventListener('click', removerOuvinte); // Remove o ouvinte de eventos
-    }
-
-    closeButton.addEventListener('click', removerOuvinte); // Adiciona o ouvinte de eventos
+// ================= ALERTA =================
+function exibirAlertaGeral(mensagem, tipo = 'danger') {
+    const container = document.getElementById('alert-container');
+    container.innerHTML = `<div class="alert alert-${tipo} alert-dismissible fade show">
+        ${mensagem}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>`;
 }
 
-function exibirAlertaGeral(mensagem, tipo = 'danger', campoErro = null) {
-    var alerta = document.createElement('div');
-    alerta.classList.add('alert', 'alert-' + tipo, 'alert-dismissible', 'fade', 'show');
-    alerta.innerHTML = `<p>${mensagem}</p><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>`;
-
-    // Adiciona um ID único ao alerta
-    var alertaId = 'alerta-' + Date.now();
-    alerta.setAttribute('id', alertaId);
-
-    document.getElementById('alert-container').innerHTML = '';
-    document.getElementById('alert-container').appendChild(alerta);
-
-    if (campoErro) {
-        document.getElementById(campoErro).focus();
-    }
-}
-
-function generateBarcode(codigo) {
-    var container = document.getElementById('barcode-container');
-    container.innerHTML = ''; // Limpa o conteúdo existente
-
-    if (codigo && codigo.length === 44) {
-        // Cria o elemento SVG do código de barras
-        var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute("id", "barcode");
-        svg.setAttribute("style", "max-width: 100%; height: auto;");
-
-        // Adiciona o SVG ao contêiner
-        container.appendChild(svg);
-
-        // Gera o código de barras usando JsBarcode
-        JsBarcode("#barcode", codigo, {
-            format: "ITF",
-            width: 2,
-            height: 100,
-            displayValue: true,
-            lineColor: "#000",
-            margin: 10,
-            fontOptions: "font-size: 20px"
-        });
-    } else if (container.innerHTML === '') {
-        // Exibe a mensagem de espaço reservado apenas se o contêiner estiver vazio
-        container.innerHTML = '<span class="fw-semibold">O código de barras aparecerá aqui</span>';
-    }
-}
-
-function limparCodigoBarras() {
-    // Limpa os campos de entrada
-    form.linha.value = '';
-    form.barra.value = '';
-    form.venc.value = '';
-    form.valor.value = '';
-
-    // Limpa o código de barras gerado
-    var container = document.getElementById('barcode-container');
-    container.innerHTML = ''; // Remove o conteúdo existente
-
-    // Exibe a mensagem de espaço reservado usando a função generateBarcode()
-    generateBarcode('');
-
-    // Remove o alerta geral, se existir
-    var alertaGeral = document.querySelector('#alert-container .alert');
-    if (alertaGeral) {
-        alertaGeral.remove();
-    }
-
-    // Remove o alerta de vencimento, se existir
-    var alertaVencimento = document.getElementById('vencimento-alerta');
-    if (alertaVencimento) {
-        alertaVencimento.remove();
-    }
-
-    // Recarrega a página após um pequeno atraso
-    setTimeout(function() {
-        location.reload();
-    }, 100); // 100 milissegundos de atraso
-}
-
-function removerOuvinte() {
-    var alertaDiv = document.getElementById('vencimento-alerta');
-    alertaDiv.style.display = 'none';
-    alertaDiv.classList.remove('alert', 'alert-warning', 'alert-dismissible', 'fade', 'show');
-}
-
-function fullCheck(obj) {
-    const valor = obj.value.trim();
-    if (!valor) return false;
-    if (!verificarEntradaNumerica(valor)) return false;
-    if (valor.length !== 47) return false;
-    return true;
-}
-
+// ================= COPIAR =================
 async function copyToClipboard(elementId) {
     try {
-        var inputField = document.getElementById(elementId);
-        if (!inputField) {
-            throw new Error('Campo não encontrado: ' + elementId);
-        }
-        if (!inputField.value) {
-            const fieldNames = {
-                'linhadigitavel1': 'Digite aqui a linha digitável',
-                'codigodebarras1': 'Informe aqui o código de barras'
-            };
-            const fieldName = fieldNames[elementId] || 'desconhecido';
-            throw new Error(`O campo "${fieldName}" está vazio!`);
+        const input = document.getElementById(elementId);
+
+        if (!input || !input.value) {
+            return exibirAlertaGeral('Nada para copiar');
         }
 
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(inputField.value);
+            await navigator.clipboard.writeText(input.value);
         } else {
-            inputField.select();
+            input.select();
             document.execCommand('copy');
         }
 
-        var message = document.createElement('div');
+        const message = document.createElement('div');
         message.textContent = 'Copiado para a área de transferência!';
         message.style.position = 'fixed';
         message.style.top = '50%';
         message.style.left = '50%';
         message.style.transform = 'translate(-50%, -50%)';
-        message.style.backgroundColor = '#da3458';
+        message.style.backgroundColor = '#198754';
         message.style.color = '#fff';
         message.style.padding = '10px 20px';
         message.style.borderRadius = '5px';
         message.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
         message.style.zIndex = '9999';
+
         document.body.appendChild(message);
 
-        setTimeout(function() {
-            document.body.removeChild(message);
+        setTimeout(() => {
+            message.remove();
         }, 2000);
+
     } catch (err) {
-        console.error('Erro ao copiar: ', err.message);
-        exibirAlertaGeral('Não foi possível copiar: ' + err.message);
+        exibirAlertaGeral('Erro ao copiar.');
     }
 }
 
-function limparCampo(campo) {
-    document.getElementById(campo).value = '';
-    document.getElementById(campo).focus(); // Adiciona esta linha
+// ================= BARCODE =================
+function generateBarcode(codigo) {
+    const container = document.getElementById('barcode-container');
+    container.innerHTML = '';
 
-    // Remove todos os alertas
-    var alertas = document.querySelectorAll('#alert-container .alert');
-    alertas.forEach(function(alerta) {
-        alerta.remove();
-    });
+    if (codigo && codigo.length === 44) {
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.id = "barcode";
+        container.appendChild(svg);
+
+        JsBarcode("#barcode", codigo, {
+            format: "ITF",
+            width: 2,
+            height: 100,
+            displayValue: true
+        });
+    } else {
+        container.innerHTML = '<span>O código de barras aparecerá aqui</span>';
+    }
 }
 
-  document.addEventListener('DOMContentLoaded', function() {
+// ================= LIMPEZA =================
+function limparCampo(id) {
+    document.getElementById(id).value = '';
+    document.getElementById(id).focus();
+    document.getElementById('alert-container').innerHTML = '';
+}
+
+function limparCodigoBarras() {
+    document.getElementById('linhadigitavel1').value = '';
+    document.getElementById('codigodebarras1').value = '';
+    document.getElementById('vencimento1').value = '';
+    document.getElementById('valor1').value = '';
+    document.getElementById('alert-container').innerHTML = '';
     generateBarcode('');
+}
+
+// ================= INIT =================
+document.addEventListener('DOMContentLoaded', () => {
+    generateBarcode('');
+
+// ================= LIMPEZA ADICIONAL =================
+
+function limparCampoRelacionado(tipo) {
+    if (tipo === 'linha') {
+        document.getElementById('codigodebarras1').value = '';
+    } else {
+        document.getElementById('linhadigitavel1').value = '';
+    }
+
+    // limpa resultados também (evita inconsistência)
+    document.getElementById('vencimento1').value = '';
+    document.getElementById('valor1').value = '';
+    document.getElementById('alert-container').innerHTML = '';
+
+    generateBarcode('');
+}
+
 });

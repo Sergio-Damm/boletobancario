@@ -112,13 +112,6 @@ redirect_from:
 				<!-- ALERTAS -->
 				<div id="alert-container">
 				</div>
-				<div id="vencimento-alerta" class="alert alert-warning" style="display: none;">
-					<p class="fw-semibold">Atenção:</p>
-					<p>A Linha Digitável é válida, mas o fator de vencimento <span id="fator-valor-1"></span> resulta em vencimento: <span id="dataVencimento"></span>.</p>
-					<p>O fator de vencimento foi reiniciado em 22/02/2025 com valor 1000. Portanto, um fator de vencimento <span id="fator"></span> é estranho e indica um vencimento muito distante. Confirme se o Boleto realmente tem vencimento superior a 90 dias.</p>
-					<p>Se o vencimento for anterior a 21/02/2025, utilize o <a class="link-externo" href="/formulario-antigo/" target="_blank">formulário antigo</a>.</p>
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-				</div>
 				<!-- ALERTAS -->
 
 				<div class="mb-0">
@@ -127,7 +120,7 @@ redirect_from:
 					<div class="mb-3">
 						<label class="fw-semibold form-label mb-3" for="linhadigitavel1">Linha Digitável = 47 números</label>
 							<div class="input-container mb-4">
-								<input type="text" class="form-control p-3" id="linhadigitavel1" name="linha" maxlength="47" placeholder="Digite aqui a Linha Digitável" onblur="fullCheck(this)">
+								<input type="text" class="form-control p-3" id="linhadigitavel1" name="linha" maxlength="47" placeholder="Digite aqui a Linha Digitável" oninput="limparCampoRelacionado('linha')" onblur="fullCheck(this)">
 								<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" class="copy-icon-linha" onclick="copyToClipboard('linhadigitavel1')">
 								<title>Copiar a Linha Digitável</title>
         						<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
@@ -142,7 +135,7 @@ redirect_from:
 					<div class="mb-3">
                    	    <label class="fw-semibold form-label py-3" for="codigodebarras1">Código de Barras = 44 números</label>
 							<div class="input-container mb-4">
-    							<input type="text" class="form-control p-3" id="codigodebarras1" name="barra" maxlength="44" placeholder="Informe aqui o Código de Barras" onblur="validarCodigoBarras(this)">
+    							<input type="text" class="form-control p-3" id="codigodebarras1" name="barra" maxlength="44" placeholder="Informe aqui o Código de Barras" oninput="limparCampoRelacionado('barra')" onblur="validarCodigoBarras(this)">
     							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" class="copy-icon-barra" onclick="copyToClipboard('codigodebarras1')">
         						<title>Copiar o Código de Barras</title>
         						<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
