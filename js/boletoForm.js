@@ -1,4 +1,4 @@
-    // Inicializa a data de hoje
+// Inicializa a data de hoje
     document.getElementById('vencimento').valueAsDate = new Date();
 
     // --- FUNÇÃO MÁSCARA DE MOEDA ---
@@ -122,3 +122,4 @@
         document.getElementById('sumVenc').innerText = vencimento.split('-').reverse().join('/');
         document.getElementById('resultado').classList.remove('d-none');
     }
+    

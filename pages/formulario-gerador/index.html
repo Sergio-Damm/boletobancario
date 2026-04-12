@@ -1,6 +1,6 @@
 ---
 layout: default
-title: A História do Boleto Bancário
+title: Formulário Gerador de Linha Digitável e Código de Barras
 permalink: /formulario-gerador/
 ---
 
@@ -13,7 +13,7 @@ permalink: /formulario-gerador/
 
 				<div class="mb-5">
 					<h1 class="h1-title-content">Formulário Gerador de Linha Digitável e Código de Barras</h1>
-					<p class="h1-subtitle-content">Gere rapidamente a Linha Digitável em Código de Barras, de acordo com o padrão Febraban</p>
+					<p class="h1-subtitle-content">Gere rapidamente uma Linha Digitável ou um Código de Barras, de acordo com o padrão Febraban</p>
 				</div>
 
 			</div>
@@ -25,17 +25,27 @@ permalink: /formulario-gerador/
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <div class="card p-4">
+            <div class="card p-4 mb-5">
                 <div class="text-center mb-4">
-                    <h2 class="fw-bold text-dark">Simulador de Boletos Bancários</h2>
+                    <h2 class="fw-semibold text-dark">Simulador de Boletos Bancários</h2>
                     <p class="text-muted">Gere dados válidos para testes de sistemas de pagamento</p>
                 </div>
-                
+
+                <style>
+        body { background-color: #fff; padding-top: 50px; }
+        .card { background-color: #f5f5f5; border: none; border-radius: 0px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .result-box { background-color: #ffffff; font-family: monospace; border: 1px solid #dee2e6; border-radius: 10px; padding: 15px; position: relative; min-height: 55px; }
+        .btn-copy { position: absolute; top: 5px; right: 5px; font-size: 0.8rem; }
+        .summary-box { background-color: #f8f9fa; border-left: 5px solid #0d6efd; padding: 15px; border-radius: 8px; }
+        .alerta-valor { color: #dc3545; font-size: 0.85rem; font-weight: bold; margin-top: 5px; display: none; }
+        .d-none { display: none !important; }
+                </style>
+
                 <form id="boletoForm" class="row g-3">
                     <div class="col-md-5">
-                        <label class="form-label fw-bold">Banco</label>
+                        <label class="form-label fw-semibold">Banco</label>
                         <select id="banco" class="form-select">
-                            <option value="">Selecione</option>
+                            <option value="">Selecione ...</option>
                             <option value="aleatorio">Aleatório</option>
                             <option value="001">001 - Banco do Brasil</option>
                             <option value="033">033 - Santander</option>
@@ -43,29 +53,34 @@ permalink: /formulario-gerador/
                             <option value="237">237 - Bradesco</option>
                             <option value="260">260 - Nubank</option>
                             <option value="341">341 - Itaú</option>
-                            <option value="077">077 - Inter</option>
                         </select>
                     </div>
                     
                     <div class="col-md-4">
-                        <label class="form-label fw-bold">Valor (R$)</label>
+                        <label class="form-label fw-semibold">Valor (R$)</label>
                         <input type="text" id="valor" class="form-control" placeholder="0,00" oninput="mascaraMoeda(this)">
                         <div id="msgErroValor" class="alerta-valor">⚠️ Limite máximo: R$ 99.999.999,99</div>
                     </div>
 
                     <div class="col-md-3">
-                        <label class="form-label fw-bold">Vencimento</label>
+                        <label class="form-label fw-semibold">Vencimento</label>
                         <input type="date" id="vencimento" class="form-control">
                     </div>
 
-                    <div class="col-12 mt-4">
-                        <button type="button" onclick="gerarBoletoFinal()" class="btn btn-primary btn-lg w-100">Gerar Boleto Agora</button>
+                    <div class="my-3">
+                        <p class="small pt-3 mb-0">Selecione um banco ou deixe em branco para um banco aleatório</p>
+                        <p class="small mb-0">Digite um valor ou deixe em branco para um valor aleatório</p>
+                        <p class="small">Selecione uma data de vencimento clicando no ícone calendário</p>
+                    </div>
+
+                    <div class="d-grid gap-2 col-12 mx-auto mb-3">
+                        <button type="reset" class="p-3 btn btn-danger shadow-sm rounded mt-3" onclick="gerarBoletoFinal();">Gerar Boleto Agora</button>
                     </div>
                 </form>
 
                 <div id="resultado" class="mt-5 d-none">
                     <div class="mb-4">
-                        <label class="fw-bold mb-2 text-primary">Linha Digitável (47 dígitos):</label>
+                        <label class="fw-semibold mb-2">Linha Digitável (47 dígitos):</label>
                         <div class="result-box">
                             <span id="resLinha" class="fs-5 text-break text-dark"></span>
                             <button class="btn btn-outline-secondary btn-sm btn-copy" onclick="copiarTexto('resLinha', this)">Copiar</button>
@@ -73,7 +88,7 @@ permalink: /formulario-gerador/
                     </div>
                     
                     <div class="mb-4">
-                        <label class="fw-bold mb-2 text-secondary">Código de Barras (44 dígitos):</label>
+                        <label class="fw-semibold mb-2">Código de Barras (44 dígitos):</label>
                         <div class="result-box">
                             <span id="resBarras" class="text-break text-dark"></span>
                             <button class="btn btn-outline-secondary btn-sm btn-copy" onclick="copiarTexto('resBarras', this)">Copiar</button>
@@ -81,7 +96,7 @@ permalink: /formulario-gerador/
                     </div>
 
                     <div class="summary-box">
-                        <h5 class="fw-bold mb-3 text-dark">Dados Identificados:</h5>
+                        <h5 class="fw-semibold mb-3 text-dark">Dados Identificados:</h5>
                         <div class="row">
                             <div class="col-sm-4"><strong>Banco:</strong> <br><span id="sumBanco"></span></div>
                             <div class="col-sm-4"><strong>Valor do Título:</strong> <br><span id="sumValor"></span></div>
