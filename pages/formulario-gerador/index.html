@@ -12,8 +12,8 @@ permalink: /formulario-gerador/
 			<div class="col-12 col-md-10 mx-auto">
 
 				<div class="mb-5">
-					<h1 class="h1-title-content">Formulário Gerador de Linha Digitável e Código de Barras</h1>
-					<p class="h1-subtitle-content">Gere rapidamente uma Linha Digitável ou um Código de Barras, de acordo com o padrão Febraban</p>
+					<h1 class="h1-title-content">Simulador de Linha Digitável e Código de Barras</h1>
+					<p class="h1-subtitle-content">Crie rapidamente Linhas Digitáveis e Códigos de Barras para testes em sistemas de pagamentos, de acordo com o padrão Febraban</p>
 				</div>
 
 			</div>
@@ -27,8 +27,8 @@ permalink: /formulario-gerador/
         <div class="col-md-10">
             <div class="card p-4 mb-5">
                 <div class="text-center mb-4">
-                    <h2 class="fw-semibold text-dark">Simulador de Boletos Bancários</h2>
-                    <p class="text-muted">Gere dados válidos para testes de sistemas de pagamento</p>
+                    <h2 class="fw-semibold text-dark">Simulador de Linhas Digitáveis</h2>
+                    <p class="small text-muted mb-3">Novo Fator de Vencimento: 22/02/2025</p>
                 </div>
 
                 <style>
@@ -38,7 +38,6 @@ permalink: /formulario-gerador/
         .btn-copy { position: absolute; top: 5px; right: 5px; font-size: 0.8rem; }
         .summary-box { background-color: #f8f9fa; border-left: 5px solid #0d6efd; padding: 15px; border-radius: 8px; }
         .alerta-valor { color: #dc3545; font-size: 0.85rem; font-weight: bold; margin-top: 5px; display: none; }
-        .d-none { display: none !important; }
                 </style>
 
                 <form id="boletoForm" class="row g-3">
@@ -78,7 +77,7 @@ permalink: /formulario-gerador/
                     </div>
                 </form>
 
-                <div id="resultado" class="mt-5 d-none">
+                <div id="resultado" class="mt-5">
                     <div class="mb-4">
                         <label class="fw-semibold mb-2">Linha Digitável (47 dígitos):</label>
                         <div class="result-box">
@@ -95,8 +94,8 @@ permalink: /formulario-gerador/
                         </div>
                     </div>
 
-                    <div class="summary-box">
-                        <h5 class="fw-semibold mb-3 text-dark">Dados Identificados:</h5>
+                    <div class="my-5">
+                        <h5 class="fs-4 fw-semibold mb-3 text-dark mb-5">Resultado</h5>
                         <div class="row">
                             <div class="col-sm-4"><strong>Banco:</strong> <br><span id="sumBanco"></span></div>
                             <div class="col-sm-4"><strong>Valor do Título:</strong> <br><span id="sumValor"></span></div>
