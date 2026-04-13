@@ -1,5 +1,11 @@
 // Inicializa a data de hoje
-    document.getElementById('vencimento').valueAsDate = new Date();
+document.addEventListener('DOMContentLoaded', () => {
+    const campoVenc = document.getElementById('vencimento');
+    if (campoVenc) {
+        // O "if" garante que isso só rode se o campo existir na tela
+        campoVenc.valueAsDate = new Date();
+    }
+});
 
     // --- FUNÇÃO MÁSCARA DE MOEDA ---
     function mascaraMoeda(campo) {
@@ -24,19 +30,60 @@
         campo.value = (valor === "NaN" || valor === "0,00") ? "" : "R$ " + valor;
     }
 
-    function copiarTexto(id, btn) {
-        const texto = document.getElementById(id).innerText;
-        if(!texto) return;
-        navigator.clipboard.writeText(texto).then(() => {
-            const originalText = btn.innerText;
-            btn.innerText = "Copiado!";
-            btn.classList.replace('btn-outline-secondary', 'btn-success');
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.classList.replace('btn-success', 'btn-outline-secondary');
-            }, 1200);
-        });
+// FUNÇÃO LIMPAR (Reset de campos)
+function limparCampo(id) {
+    const el = document.getElementById(id);
+    if (el) {
+        el.value = ''; // Funciona para todos os seus Inputs
+        el.focus();
     }
+    const containerAlerta = document.getElementById('alert-container');
+    if (containerAlerta) containerAlerta.innerHTML = '';
+}
+
+async function copyToClipboard(elementId) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+
+    // Detecta se é INPUT (Conversor) ou TEXTO (Gerador)
+    const textToCopy = (el.tagName === 'INPUT') ? el.value : el.innerText;
+
+    if (!textToCopy || textToCopy.trim() === "" || textToCopy.includes("aparecerá aqui")) {
+        alert("Nada para copiar ainda!");
+        return;
+    }
+
+    try {
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(textToCopy.trim());
+            mostrarToastCopiado();
+        } else {
+            // Fallback para navegadores antigos ou conexões não seguras
+            const textArea = document.createElement("textarea");
+            textArea.value = textToCopy.trim();
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            mostrarToastCopiado();
+        }
+    } catch (err) {
+        console.error('Erro ao copiar', err);
+    }
+}
+
+// Mensagem visual de sucesso
+function mostrarToastCopiado() {
+    const toast = document.createElement('div');
+    toast.textContent = 'Copiado!';
+    Object.assign(toast.style, {
+        position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
+        backgroundColor: '#198754', color: '#fff', padding: '10px 20px',
+        borderRadius: '5px', zIndex: '9999', boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
+    });
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 1200);
+}
 
     function calcularFatorVencimento(dataVencimento) {
         const dataBase = new Date('2022-05-29T00:00:00Z');

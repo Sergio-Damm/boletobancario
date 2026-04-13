@@ -204,6 +204,11 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 
         	<div class="col-12 col-md-10 mx-auto">
 
+                <div class="text-center mb-4">
+                    <h2 class="fw-semibold text-dark">Conversor</h2>
+                    <p class="small text-muted mb-3">Novo Fator de Vencimento: 22/02/2025</p>
+                </div>
+
 				<!-- ALERTAS -->
 				<div id="alert-container">
 				</div>
@@ -213,30 +218,32 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 					<form action="" name="form" id="formlinhaebarra">
                   
 					<div class="mb-3">
-						<label class="fw-semibold form-label mb-3" for="linhadigitavel1">Linha Digitável = 47 números</label>
-							<div class="input-container mb-4">
-								<input type="text" class="form-control p-3" id="linhadigitavel1" name="linha" maxlength="47" placeholder="Digite aqui a Linha Digitável" oninput="limparCampoRelacionado('linha')" onblur="fullCheck(this)">
-								<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" class="copy-icon-linha" onclick="copyToClipboard('linhadigitavel1')">
-								<title>Copiar a Linha Digitável</title>
-        						<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
-    							</svg>
+						<label class="form-label fw-semibold" for="linhadigitavel1">Linha Digitável (47 números)</label>
+							<div class="input-container">
+								<input type="text" class="form-control" id="linhadigitavel1" maxlength="47" placeholder="Digite aqui a linha digitável" oninput="limparCampoRelacionado('linha')" onblur="fullCheck(this)">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" onclick="copyToClipboard('linhadigitavel1')">
+										<title>Copiar</title>
+											<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
+									</svg>
 							</div>
 					</div>
+					
 					<div class="d-grid gap-2 d-md-flex justify-content-center mb-4">
 						<button type="button" class="col p-2 btn btn-info shadow-sm rounded" onclick="f_barra();">Calcular o Código de Barras</button>
 						<button type="button" class="col-md-2 p-2 btn btn-danger rounded" onclick="limparCampo('linhadigitavel1');">Limpar</button>
 					</div>
 
 					<div class="mb-3">
-                   	    <label class="fw-semibold form-label py-3" for="codigodebarras1">Código de Barras = 44 números</label>
-							<div class="input-container mb-4">
-    							<input type="text" class="form-control p-3" id="codigodebarras1" name="barra" maxlength="44" placeholder="Informe aqui o Código de Barras" oninput="limparCampoRelacionado('barra')" onblur="validarCodigoBarras(this)">
-    							<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000" class="copy-icon-barra" onclick="copyToClipboard('codigodebarras1')">
-        						<title>Copiar o Código de Barras</title>
-        						<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
-    							</svg>
+						<label class="form-label fw-semibold" for="codigodebarras1">Código de Barras (44 números)</label>
+							<div class="input-container">
+								<input type="text" class="form-control" id="codigodebarras1" maxlength="44" placeholder="Informe aqui o código de barras" onblur="validarCodigoBarras(this)">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" onclick="copyToClipboard('codigodebarras1')">
+										<title>Copiar</title>
+											<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
+									</svg>
 							</div>
 					</div>
+
 					<div class="d-grid gap-2 d-md-flex justify-content-center mb-5">
 						<button type="button" class="col p-2 btn btn-info shadow-sm rounded" onclick="f_linha();">Calcular a Linha Digitável</button>
 						<button type="button" class="col-md-2 p-2 btn btn-danger shadow-sm rounded" onclick="limparCampo('codigodebarras1');">Limpar</button>
@@ -253,7 +260,7 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
 						<input type="text" class="form-control" id="valor1" name="valor" readonly>
 					</div>
 					<div class="d-grid gap-2 col-12 mx-auto mb-3">
-						<button type="reset" class="p-3 btn btn-danger shadow-sm rounded mt-3" onclick="limparCodigoBarras();">Limpar Tudo</button>
+						<button type="button" class="p-3 rounded-2 btn btn-danger shadow-sm rounded mt-3" onclick="limparCodigoBarras();">Limpar Tudo</button>
 					</div>
 
                 	</form>
@@ -597,8 +604,8 @@ S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill
     <script crossorigin='anonymous' defer='defer' integrity='sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy' src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js'></script>
 
     <script src="/js/main.js"></script>
-    <script src="/js/script-new-boleto.js"></script>
-    <script src="/js/boletoForm.js"></script>
+    <script src="/js/formConvert.js"></script>
+    <script src="/js/formGenerator.js"></script>
 
 </body>
 </html>

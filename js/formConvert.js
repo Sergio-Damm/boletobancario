@@ -151,34 +151,47 @@ function exibirAlertaGeral(mensagem, tipo = 'danger') {
 }
 
 async function copyToClipboard(elementId) {
-    const input = document.getElementById(elementId);
-    if (!input || !input.value) return exibirAlertaGeral('Nada para copiar', 'warning');
+    const el = document.getElementById(elementId);
+    if (!el) return;
+
+    // Detecta se é INPUT (Conversor) ou TEXTO (Gerador)
+    const textToCopy = (el.tagName === 'INPUT') ? el.value : el.innerText;
+
+    if (!textToCopy || textToCopy.trim() === "" || textToCopy.includes("aparecerá aqui")) {
+        alert("Nada para copiar ainda!");
+        return;
+    }
 
     try {
         if (navigator.clipboard && window.isSecureContext) {
-            await navigator.clipboard.writeText(input.value);
+            await navigator.clipboard.writeText(textToCopy.trim());
             mostrarToastCopiado();
         } else {
-            input.select();
-            input.setSelectionRange(0, 99999);
+            // Fallback para navegadores antigos ou conexões não seguras
+            const textArea = document.createElement("textarea");
+            textArea.value = textToCopy.trim();
+            document.body.appendChild(textArea);
+            textArea.select();
             document.execCommand('copy');
+            document.body.removeChild(textArea);
             mostrarToastCopiado();
         }
     } catch (err) {
-        exibirAlertaGeral('Erro ao copiar. Por favor, copie manualmente.');
+        console.error('Erro ao copiar', err);
     }
 }
 
+// Mensagem visual de sucesso
 function mostrarToastCopiado() {
-    const message = document.createElement('div');
-    message.textContent = 'Copiado!';
-    Object.assign(message.style, {
+    const toast = document.createElement('div');
+    toast.textContent = 'Copiado!';
+    Object.assign(toast.style, {
         position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
         backgroundColor: '#198754', color: '#fff', padding: '10px 20px',
-        borderRadius: '5px', boxShadow: '0 2px 5px rgba(0,0,0,0.2)', zIndex: '9999'
+        borderRadius: '5px', zIndex: '9999', boxShadow: '0 4px 12px rgba(0,0,0,0.15)'
     });
-    document.body.appendChild(message);
-    setTimeout(() => message.remove(), 1500);
+    document.body.appendChild(toast);
+    setTimeout(() => toast.remove(), 1200);
 }
 
 // ================= BARCODE E LIMPEZA =================
@@ -201,10 +214,15 @@ function generateBarcode(codigo) {
     }
 }
 
+// FUNÇÃO LIMPAR (Reset de campos)
 function limparCampo(id) {
     const el = document.getElementById(id);
-    if (el) { el.value = ''; el.focus(); }
-    document.getElementById('alert-container').innerHTML = '';
+    if (el) {
+        el.value = ''; // Funciona para todos os seus Inputs
+        el.focus();
+    }
+    const containerAlerta = document.getElementById('alert-container');
+    if (containerAlerta) containerAlerta.innerHTML = '';
 }
 
 function limparCampoRelacionado(tipo) {
@@ -219,14 +237,6 @@ function limparCampoRelacionado(tipo) {
     generateBarcode('');
 }
 
-function limparCodigoBarras() {
-    document.getElementById('linhadigitavel1').value = '';
-    document.getElementById('codigodebarras1').value = '';
-    document.getElementById('vencimento1').value = '';
-    document.getElementById('valor1').value = '';
-    document.getElementById('alert-container').innerHTML = '';
-    generateBarcode('');
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     generateBarcode('');

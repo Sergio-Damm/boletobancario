@@ -411,21 +411,6 @@ body.scrolled #btn-back-to-top {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* FORM BUTTONS START */
 .btn-secondary {
     --bs-btn-color: #fff;
@@ -459,95 +444,138 @@ body.scrolled #btn-back-to-top {
 /* FORM BUTTONS END */
 
 /* FORM START */
-.form-group.position-relative {
-position: relative;
+/* Garante que o código de barras (SVG ou Imagem) seja responsivo */
+#barcode, 
+#barcode-container img, 
+#barcode-container svg {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto; /* Centraliza o código de barras se ele for menor que a tela */
 }
+
+/* CONTAINER PRINCIPAL: Alinha o input e o ícone de cópia */
 .input-container {
-position: relative;
-display: inline-block;
+    display: flex !important;
+    align-items: center !important;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    overflow: hidden;
+    width: 100%;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
-.input-container input {
-padding-right: 30px;
+
+.input-container:focus-within {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
+
+/* O CAMPO DE TEXTO (INPUT): Mantém a linha única para Desktop */
+.input-container .form-control {
+    flex: 1 1 auto !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 12px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1rem;
+    min-width: 0; /* Impede que o input empurre o ícone para fora */
+}
+
+/* O ÍCONE DE CÓPIA: Fixo à direita, com área de clique clara */
 .input-container svg {
-position: absolute;
-top: 50%;
-right: 10px;
-transform: translateY(-50%);
-cursor: pointer;
+    flex: 0 0 44px !important; /* Tamanho fixo do botão de cópia */
+    height: 44px;
+    padding: 10px;
+    cursor: pointer;
+    fill: #373a40;
+    background-color: #f8f9fa;
+    border-left: 1px solid #dee2e6;
+    transition: all 0.2s ease;
 }
+
 .input-container svg:hover {
-fill: #da3458;
+    fill: #ffffff !important;
+    background-color: #da3458 !important;
 }
-.form-control {
-padding-right: 40px;
-color: #333;
+
+/* Ajuste para o código de barras (imagem) ficar centralizado e responsivo */
+#barcode-container svg {
+    max-width: 100%;
+    height: auto;
 }
-.form-control.is-valid {
-background-image: none;
-border-color: #28a745;
+
+/* O CAMPO DE TEXTO (INPUT): Mantém a linha única para Desktop */
+.input-container .form-control {
+    flex: 1 1 auto !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 12px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 1rem;
+    min-width: 0; /* Impede que o input empurre o ícone para fora */
 }
-.form-control.is-invalid {
-background-image: none;
-border-color: #dc3545;
+
+/* Ajuste específico para o Input do Conversor (permite scroll se não couber) */
+input.form-control#linhadigitavel1, 
+input.form-control#codigodebarras1 {
+    white-space: nowrap !important;
+    overflow-x: auto !important;
 }
-#barcode {
-max-width: 100%;
-height: auto;
-width: 100%;
+
+/* Específico para a DIV do Gerador: Força quebra de linha */
+div.form-control#resLinha, div.form-control#resBarras {
+    word-break: break-all !important;
+    white-space: normal !important;
+    height: auto !important;
+    min-height: 58px;
+    display: block !important; /* Divs funcionam melhor como block para quebrar linha */
 }
-#barcode-placeholder {
-min-height: 60px;
-padding: 15px;
-text-align: center;
-color: #666;
-background-color: #f8f9fa;
+
+/* Específico para o INPUT do Conversor: Permite scroll lateral se for muito grande */
+input.form-control {
+    white-space: nowrap;
+    overflow-x: auto;
 }
+
+/* Área do Ícone: Espaço reservado e fixo */
+.input-container svg, 
+.input-container .copy-icon-linha, 
+.input-container .copy-icon-barra {
+    flex: 0 0 45px !important; /* Não encolhe, mantém 45px */
+    height: auto !important;
+    padding: 10px;
+    cursor: pointer;
+    fill: #373a40;
+    transition: fill 0.2s, background 0.2s;
+    background-color: #f8f9fa; /* Leve fundo para destacar o botão */
+    border-left: 1px solid #dee2e6;
+    position: static !important; /* Remove o absolute que causava sobreposição */
+    transform: none !important;  /* Remove o translateY que tirava do centro */
+}
+
+/* Foco visual */
+.input-container:focus-within {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Responsividade para Celular */
 @media (max-width: 576px) {
-.form-control {
-font-size: 0.875rem;
-padding-right: 30px;
-}
-.copy-icon {
-width: 20px;
-height: 20px;
-right: 5px;
-}
-}
-.status-msg-hidden {
-display: none !important;
-}
-#codigoBarrasImagem {
-width: 100%;
-height: auto;
-}
-@media (max-width: 768px) {
-#codigoBarrasImagem {
-height: 150px;
-}
-}
-.input-container {
-position: relative;
-display: flex;
-align-items: center;
-}
-.input-container input {
-flex-grow: 1;
-}
-.copy-icon {
-position: absolute;
-top: 50%;
-right: 10px;
-transform: translateY(-50%);
-cursor: pointer;
-}
-.copy-icon-barra, .copy-icon-linha {
-cursor: pointer;
-}
-input::placeholder {
-color: #888;
-}
-input:focus::placeholder {
-color: #ccc; 
+    .input-container svg {
+        flex: 0 0 38px !important; /* Diminuímos de 44px para 38px */
+        padding: 8px;              /* Diminuímos o respiro interno */
+    }
 }
 /* FORM END */
+
+.alerta-valor { 
+        color: #dc3545; 
+        font-size: 0.85rem; 
+        font-weight: bold; 
+        margin-top: 5px; 
+        display: none; 
+    }
+

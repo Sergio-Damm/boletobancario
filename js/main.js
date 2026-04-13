@@ -182,3 +182,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+// Limpar campos dos formularios nas duas páginas
+function limparCodigoBarras() {
+    console.log("Limpando formulário de forma segura...");
+
+    // Lista de todos os IDs possíveis
+    const ids = [
+        'linhadigitavel1', 'codigodebarras1', 'vencimento1', 'valor1', // Conversor
+        'banco', 'valor', 'vencimento', 'resLinha', 'resBarras', 'sumBanco', 'sumValor', 'sumVenc' // Gerador
+    ];
+
+    ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            if (el.tagName === 'INPUT' || el.tagName === 'SELECT') {
+                el.value = '';
+            } else {
+                el.innerText = '';
+            }
+        }
+    });
+
+    // Limpa alertas
+    const containerAlerta = document.getElementById('alert-container');
+    if (containerAlerta) containerAlerta.innerHTML = '';
+
+    const alertaVenc = document.getElementById('vencimento-alerta');
+    if (alertaVenc) alertaVenc.style.display = 'none';
+
+    // Limpa o Código de Barras (SVG)
+    const barcodeContainer = document.getElementById('barcode-container');
+    if (barcodeContainer) {
+        barcodeContainer.innerHTML = '<p class="m-0 text-muted">O código de barras aparecerá aqui</p>';
+    }
+}
