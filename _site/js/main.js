@@ -189,7 +189,7 @@ function limparCodigoBarras() {
 
     // Lista de todos os IDs possíveis
     const ids = [
-        'linhadigitavel1', 'codigodebarras1', 'vencimento1', 'valor1', // Conversor
+        'linhadigitavel1', 'codigodebarras1', 'vencimento1', 'valor1', 'nomeBanco', // Conversor
         'banco', 'valor', 'vencimento', 'resLinha', 'resBarras', 'sumBanco', 'sumValor', 'sumVenc' // Gerador
     ];
 

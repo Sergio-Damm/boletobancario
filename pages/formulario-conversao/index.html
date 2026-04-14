@@ -125,8 +125,15 @@ redirect_from:
 					<div class="mb-3">
 						<label class="form-label fw-semibold" for="linhadigitavel1">Linha Digitável (47 números)</label>
 							<div class="input-container">
-								<input type="text" class="form-control" id="linhadigitavel1" maxlength="47" placeholder="Digite aqui a linha digitável" oninput="limparCampoRelacionado('linha')" onblur="fullCheck(this)">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" onclick="copyToClipboard('linhadigitavel1')">
+								<input 
+									type="text" 
+									class="form-control" 
+									id="linhadigitavel1" 
+									maxlength="47" 
+									placeholder="Digite aqui a linha digitável" 
+									oninput="limparCampoRelacionado('linha')" 
+								>
+									<svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" onclick="copyToClipboard('linhadigitavel1')">
 										<title>Copiar</title>
 											<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
 									</svg>
@@ -141,8 +148,15 @@ redirect_from:
 					<div class="mb-3">
 						<label class="form-label fw-semibold" for="codigodebarras1">Código de Barras (44 números)</label>
 							<div class="input-container">
-								<input type="text" class="form-control" id="codigodebarras1" maxlength="44" placeholder="Informe aqui o código de barras" onblur="validarCodigoBarras(this)">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" onclick="copyToClipboard('codigodebarras1')">
+								<input 
+									type="text" 
+									class="form-control" 
+									id="codigodebarras1" 
+									maxlength="44" 
+									placeholder="Informe aqui o código de barras" 
+									oninput="limparCampoRelacionado('barra')"
+									>
+									<svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" onclick="copyToClipboard('codigodebarras1')">
 										<title>Copiar</title>
 											<path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
 									</svg>
@@ -169,7 +183,7 @@ redirect_from:
 						<input type="text" class="form-control" id="vencimento1" name="venc" readonly>
 					</div>
 					<div class="d-grid gap-2 col-12 mx-auto mb-3">
-						<button type="button" class="p-3 rounded-2 btn btn-danger shadow-sm rounded mt-3" onclick="limparCodigoBarras();">Limpar Tudo</button>
+						<button type="button" class="p-3 rounded-2 btn btn-danger shadow-sm rounded mt-3" onclick="limparTudoGeral();">Limpar Tudo</button>
 					</div>
 
                 	</form>
