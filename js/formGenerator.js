@@ -134,7 +134,7 @@ function mostrarToastCopiado() {
         let valorFinalNumerico = 0;
         
         if (!valorInput || valorInput === "000") {
-            valorFinalNumerico = (Math.random() * (5000 - 10) + 10).toFixed(2);
+            valorFinalNumerico = (Math.random() * (50000 - 10) + 10).toFixed(2);
             valorInput = valorFinalNumerico.replace('.', '').padStart(10, '0');
         } else {
             valorFinalNumerico = (parseInt(valorInput) / 100).toFixed(2);
