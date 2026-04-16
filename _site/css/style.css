@@ -579,3 +579,8 @@ input.form-control {
         display: none; 
     }
 
+.bg-mylight {
+  background-color: #f9f9f9 !important;
+  color: #000; /* Ajuste a cor do texto se necessário */
+}
+

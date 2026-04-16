@@ -165,7 +165,10 @@ function mostrarToastCopiado() {
         document.getElementById('resLinha').innerText = linhaPura;
         document.getElementById('resBarras').innerText = codigoBarras;
         document.getElementById('sumBanco').innerText = bancoNome;
-        document.getElementById('sumValor').innerText = "R$ " + parseFloat(valorFinalNumerico).toLocaleString('pt-BR', {minimumFractionDigits: 2});
+        document.getElementById('sumValor').innerText = parseFloat(valorFinalNumerico).toLocaleString('pt-BR', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
         document.getElementById('sumVenc').innerText = vencimento.split('-').reverse().join('/');
         document.getElementById('resultado').classList.remove('d-none');
     }
