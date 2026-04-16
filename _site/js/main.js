@@ -217,3 +217,17 @@ function limparCodigoBarras() {
         barcodeContainer.innerHTML = '<p class="m-0 text-muted">O código de barras aparecerá aqui</p>';
     }
 }
+
+document.getElementById('buscaBanco').addEventListener('keyup', function() {
+    let filtro = this.value.toLowerCase();
+    let linhas = document.querySelectorAll('#tabelaBancos tbody tr');
+
+    linhas.forEach(linha => {
+        let textoLinha = linha.innerText.toLowerCase();
+        if (textoLinha.includes(filtro)) {
+            linha.style.display = '';
+        } else {
+            linha.style.display = 'none';
+        }
+    });
+});
