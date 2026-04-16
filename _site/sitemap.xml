@@ -19,7 +19,7 @@
 <loc>http://localhost:4000/formulario-antigo/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/formulario-conversao/</loc>
+<loc>http://localhost:4000/formulario-conversor/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/formulario-gerador/</loc>
@@ -49,10 +49,10 @@
 <loc>http://localhost:4000/termos-tecnicos/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/validador/</loc>
+<loc>http://localhost:4000/validador-cpf-cnpj/</loc>
 </url>
 <url>
-<loc>http://localhost:4000/vencimento/</loc>
+<loc>http://localhost:4000/vencimento-valor/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/boleto-vencido/</loc>
