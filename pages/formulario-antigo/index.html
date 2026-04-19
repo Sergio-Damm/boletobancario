@@ -11,16 +11,12 @@ redirect_from:
 <section class="py-4">
 	<div class="container">
 		<div class="row">
-
 			<div class="col-12 col-md-10 mx-auto">
-
 				<div class="mb-5">
 					<h1 class="h1-title-content">Formulário Conversor da Linha Digitável e do Código de Barras</h1>
 					<p class="h1-subtitle-content">Converta rapidamente a Linha Digitável em Código de Barras (e vice-versa), de acordo com o padrão Febraban</p>
 				</div>
-
 			</div>
-
 		</div>
 	</div>
 </section>
@@ -134,22 +130,17 @@ redirect_from:
 <section>
 	<div class="container bg-light py-5">
 		<div class="row">
-
         	<div class="col-12 col-md-10 mx-auto">
-
                 <div class="mb-5 alert alert-danger" role="alert">
                     <p class="mb-0"><span class="fw-semibold">Atenção</span>: Este formulário, o formulário antigo, foi desativado.</p>
                 </div>
-
             <div class="form-desativado-wrapper">
 				<!-- ALERTAS -->
 				<div id="alert-container">
 				</div>
 				<!-- ALERTAS -->
-
 				<div class="mb-0">
 					<form action="" name="form" id="formlinhaebarra">
-                  
 					<div class="mb-3">
 						<label class="fw-semibold form-label mb-3" for="linhadigitavel1">Linha Digitável = 47 números</label>
 							<div class="input-container mb-4">
@@ -164,7 +155,6 @@ redirect_from:
 						<button type="button" class="col p-2 btn btn-info shadow-sm rounded" onclick="f_barra();">Calcular o Código de Barras</button>
 						<button type="button" class="col-md-2 p-2 btn btn-danger rounded" onclick="limparCampo('linhadigitavel1');">Limpar</button>
 					</div>
-
 					<div class="mb-3">
                    	    <label class="fw-semibold form-label py-3" for="codigodebarras1">Código de Barras = 44 números</label>
 							<div class="input-container mb-4">
@@ -193,14 +183,10 @@ redirect_from:
 					<div class="d-grid gap-2 col-12 mx-auto mb-3">
 						<button type="reset" class="p-3 btn btn-danger shadow-sm rounded mt-3" onclick="limparCodigoBarras();">Limpar Tudo</button>
 					</div>
-
                 	</form>
 				</div>
-
             </div>
-
 			</div>
-			
 		</div>
 	</div>
 </section>
@@ -208,29 +194,17 @@ redirect_from:
 <section>
 	<div class="container">
 		<div class="row">
-
         	<div class="col-12 col-md-10 mx-auto">
-
 				<div class="my-5">
-
                     <p class="mb-5"><a class="btn btn-danger" href="/formulario-conversor/" role="button">Novo Formulário de Conversão</a></p>
-
                     <h2 class="h2-title-content mb-5">Por que este formulário foi desativado?</h2>
-
                         <p class="mb-5">O conversor acima utilizava as regras bancárias antigas (Data-base de 1997), cujo Fator de Vencimento expirou em 21/02/2025.</p>
-
-                        <p class="mb-5">Para converter boletos com vencimento a partir de 22/02/2025, você deve utilizar o <a class="link-externo" href="/formulario-conversor/">Novo Formulário de Conversão</a>, que já está atualizado com a nova Data-base (29/05/2022), determinada pela Febraban.</p>
-
+                        <p class="mb-5">Para converter boletos com vencimento a partir de 22/02/2025, utilize o <a class="link-externo" href="/formulario-conversor/">Novo Formulário de Conversão</a>, que já está atualizado com a nova Data-base (29/05/2022), determinada pela Febraban.</p>
 				</div>
-
      	 		<div class="my-5">
-
 					<h2 class="h2-title-content mb-5">Entenda a Mudança no Fator de Vencimento (Regra 2025)</h2>
-
 						<p class="mb-5">Até 21 de fevereiro de 2025, o sistema bancário utilizava a data <span class="fw-semibold">07/10/1997</span> como base para os cálculos. Como o campo destinado ao Fator de Vencimento possui apenas 4 dígitos, ele atingiu seu limite máximo (9999 dias) nesta data (21/02/2025).</p>
-
 						<p class="mb-5">O Limite de 9999 dias no Fator de Vencimento:</p>
-
 							<div class="table-responsive mb-5">
   								<table class="table table-striped">
 									<tbody>
@@ -250,15 +224,10 @@ redirect_from:
 								</table>
 							</div>
 				</div>
-
 				<div class="my-5">
-
                     <h2 class="h2-title-content mb-5">A Nova Regra</h2>
-						
 						<p class="mb-5">Para permitir que os boletos continuassem sendo emitidos, a <span class="fw-semibold">contagem foi reiniciada em 1000 no dia 22/02/2025</span>, adotando-se a nova Data-base de 29/05/2022.</p>
-                            						
 						<p class="mb-5">Exemplos de novos Fatores de Vencimentos:</p>
-
 						    <div class="table-responsive mb-5">
   	    						<table class="table table-striped">
 	    							<thead>
@@ -291,15 +260,10 @@ redirect_from:
 	    							</tbody>
 	    						</table>
 		    				</div>
-						    
                         <p class="mb-5">Essa ocorrência <span class="fw-semibold">já era prevista</span> pelas normas da <a class="link-externo" href="https://bancomercantil.com.br/Empresas/Cobranca/Documentos%20Compartilhados/CobrancaCodigoBarrasFatorVencimento.pdf" target="_blank" rel="noopener noreferrer">Febraban</a>, <a class="link-externo" href="https://www.caixa.gov.br/Downloads/cobranca-caixa/ESP_COD_BARRAS_SIGCB_COBRANCA_CAIXA.pdf" target="_blank" rel="noopener noreferrer">Caixa</a> e <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="noopener noreferrer">Banco do Brasil</a>.</p>
-
 					    <p class="mb-5">Para mais informações técnicas, consulte a página 15 do Manual de Especificações Técnicas para Confecção de Boleto de Pagamento do <a class="link-externo" href="https://www.bb.com.br/docs/pub/emp/empl/dwn/Doc5175Bloqueto.pdf" target="_blank" rel="noopener noreferrer">Banco do Brasil</a>.</p>
-
 			    </div>
-
             </div>
-
 		</div>
     </div>
 </section>
