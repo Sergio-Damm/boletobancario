@@ -183,14 +183,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// Limpar campos dos formularios nas duas páginas
+// --- 7. Limpar campos dos formularios nas duas páginas ---
 function limparCodigoBarras() {
-    console.log("Limpando formulário de forma segura...");
-
-    // Lista de todos os IDs possíveis
     const ids = [
-        'linhadigitavel1', 'codigodebarras1', 'vencimento1', 'valor1', 'nomeBanco', // Conversor
-        'banco', 'valor', 'vencimento', 'resLinha', 'resBarras', 'sumBanco', 'sumValor', 'sumVenc' // Gerador
+        'linhadigitavel1', 'codigodebarras1', 'vencimento1', 'valor1', 'nomeBanco', 
+        'banco', 'valor', 'vencimento', 'resLinha', 'resBarras', 'sumBanco', 'sumValor', 'sumVenc'
     ];
 
     ids.forEach(id => {
@@ -204,30 +201,205 @@ function limparCodigoBarras() {
         }
     });
 
-    // Limpa alertas
     const containerAlerta = document.getElementById('alert-container');
     if (containerAlerta) containerAlerta.innerHTML = '';
 
     const alertaVenc = document.getElementById('vencimento-alerta');
     if (alertaVenc) alertaVenc.style.display = 'none';
 
-    // Limpa o Código de Barras (SVG)
     const barcodeContainer = document.getElementById('barcode-container');
     if (barcodeContainer) {
         barcodeContainer.innerHTML = '<p class="m-0 text-muted">O código de barras aparecerá aqui</p>';
     }
 }
 
-document.getElementById('buscaBanco').addEventListener('keyup', function() {
-    let filtro = this.value.toLowerCase();
-    let linhas = document.querySelectorAll('#tabelaBancos tbody tr');
+// --- 8. Inicialização de Componentes Específicos (Busca e Contador) ---
+document.addEventListener('DOMContentLoaded', function () {
+    
+    // --- Lógica da Busca de Bancos ---
+    const campoBusca = document.getElementById('buscaBanco');
+    if (campoBusca) {
+        campoBusca.addEventListener('keyup', function () {
+            let filtro = this.value.toLowerCase();
+            let linhas = document.querySelectorAll('#tabelaBancos tbody tr');
 
-    linhas.forEach(linha => {
-        let textoLinha = linha.innerText.toLowerCase();
-        if (textoLinha.includes(filtro)) {
-            linha.style.display = '';
-        } else {
-            linha.style.display = 'none';
+            linhas.forEach(linha => {
+                let textoLinha = linha.innerText.toLowerCase();
+                linha.style.display = textoLinha.includes(filtro) ? '' : 'none';
+            });
+        });
+    }
+
+    // --- Lógica do Contador de Caracteres ---
+    const campoTexto = document.getElementById('texto');
+    if (campoTexto) {
+        campoTexto.addEventListener('input', function () {
+            const texto = this.value;
+
+            // Atualiza os campos de resultados
+            document.getElementById('total').textContent = texto.length;
+            document.getElementById('numeros').textContent = texto.replace(/[^0-9]/g, '').length;
+            document.getElementById('letras').textContent = texto.replace(/[^A-Za-z]/g, '').length;
+            document.getElementById('palavras').textContent = (texto.match(/[A-Za-z]+/g) || []).length;
+            document.getElementById('espacos').textContent = (texto.match(/ /g) || []).length;
+            document.getElementById('linhas').textContent = texto.length > 0 ? texto.split('\n').length : 0;
+
+            const quebrasDeLinha = (texto.match(/\n/g) || []).length;
+            const total = texto.length;
+            const numeros = texto.replace(/[^0-9]/g, '').length;
+            const letras = texto.replace(/[^A-Za-z]/g, '').length;
+            const espacos = (texto.match(/ /g) || []).length;
+            
+            document.getElementById('simbolos').textContent = total - (numeros + letras + espacos + quebrasDeLinha);
+        });
+
+        // Botão Limpar do Contador
+        const botaoLimparContador = document.getElementById('limpar');
+        if (botaoLimparContador) {
+            botaoLimparContador.addEventListener('click', function () {
+                campoTexto.value = '';
+                const ids = ['total', 'numeros', 'letras', 'palavras', 'espacos', 'simbolos', 'linhas'];
+                ids.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.textContent = '0';
+                });
+            });
         }
-    });
+    }
+});
+
+// --- 9. Validador de CPF e CNPJ (Definição das Ferramentas) ---
+
+function applyMask(input) {
+    var value = input.value.replace(/[^\d]/g, '');
+    var formatted = '';
+    if (value.length < 12) {
+        for (var i = 0; i < value.length; i++) {
+            if (i === 3 || i === 6) formatted += '.';
+            else if (i === 9) formatted += '-';
+            formatted += value[i];
+        }
+    } else {
+        for (var i = 0; i < value.length; i++) {
+            if (i === 2 || i === 5) formatted += '.';
+            else if (i === 8) formatted += '/';
+            else if (i === 12) formatted += '-';
+            formatted += value[i];
+        }
+    }
+    input.value = formatted;
+}
+
+function formatDocument(number) {
+    number = number.replace(/[^\d]/g, '');
+    var formatted = '';
+    if (number.length === 11) {
+        for (var i = 0; i < number.length; i++) {
+            if (i === 3 || i === 6) formatted += '.';
+            else if (i === 9) formatted += '-';
+            formatted += number[i];
+        }
+    } else if (number.length === 14) {
+        for (var i = 0; i < number.length; i++) {
+            if (i === 2 || i === 5) formatted += '.';
+            else if (i === 8) formatted += '/';
+            else if (i === 12) formatted += '-';
+            formatted += number[i];
+        }
+    }
+    return formatted || number;
+}
+
+function validateCPF(cpf) {
+    cpf = cpf.replace(/[^\d]/g, '');
+    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+    var sum = 0, remainder;
+    for (var i = 0; i < 9; i++) sum += parseInt(cpf.charAt(i)) * (10 - i);
+    remainder = (sum * 10) % 11;
+    if (remainder === 10 || remainder === 11) remainder = 0;
+    if (remainder !== parseInt(cpf.charAt(9))) return false;
+    sum = 0;
+    for (var i = 0; i < 10; i++) sum += parseInt(cpf.charAt(i)) * (11 - i);
+    remainder = (sum * 10) % 11;
+    if (remainder === 10 || remainder === 11) remainder = 0;
+    if (remainder !== parseInt(cpf.charAt(10))) return false;
+    return true;
+}
+
+function validateCNPJ(cnpj) {
+    cnpj = cnpj.replace(/[^\d]/g, '');
+    if (cnpj.length !== 14 || /^(\d)\1{13}$/.test(cnpj)) return false;
+    var weights1 = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    var weights2 = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
+    var sum = 0, remainder;
+    for (var i = 0; i < 12; i++) sum += parseInt(cnpj.charAt(i)) * weights1[i];
+    remainder = sum % 11;
+    remainder = remainder < 2 ? 0 : 11 - remainder;
+    if (remainder !== parseInt(cnpj.charAt(12))) return false;
+    sum = 0;
+    for (var i = 0; i < 13; i++) sum += parseInt(cnpj.charAt(i)) * weights2[i];
+    remainder = sum % 11;
+    remainder = remainder < 2 ? 0 : 11 - remainder;
+    if (remainder !== parseInt(cnpj.charAt(13))) return false;
+    return true;
+}
+
+// --- Ativação Segura do Validador ---
+document.addEventListener('DOMContentLoaded', function() {
+    const inputDoc = document.getElementById("documentInput");
+    const resultDoc = document.getElementById("result");
+    const btnValidar = document.getElementById("btnValidar"); // Certifique-se que seu botão tem esse ID ou ajuste aqui
+    const btnLimparDoc = document.getElementById("btnLimparDoc"); // Certifique-se que seu botão limpar tem esse ID
+
+    // O "IF" Mágico: Só roda se o campo de input existir na página
+    if (inputDoc && resultDoc) {
+        
+        // Focar no campo ao abrir a página
+        inputDoc.focus();
+        resultDoc.style.color = "#666666";
+
+        // Aplicar máscara enquanto digita
+        inputDoc.addEventListener('input', function() {
+            applyMask(this);
+        });
+
+        // Ação do Botão Validar
+        if (btnValidar) {
+            btnValidar.addEventListener('click', function() {
+                var input = inputDoc.value;
+                var cleanInput = input.replace(/[^\d]/g, '');
+
+                if (cleanInput.length === 11) {
+                    if (validateCPF(cleanInput)) {
+                        resultDoc.textContent = "O CPF " + formatDocument(cleanInput) + " é válido!";
+                        resultDoc.style.color = "#198754";
+                    } else {
+                        resultDoc.textContent = "O CPF " + formatDocument(cleanInput) + " é inválido!";
+                        resultDoc.style.color = "#ff0000";
+                    }
+                } else if (cleanInput.length === 14) {
+                    if (validateCNPJ(cleanInput)) {
+                        resultDoc.textContent = "O CNPJ " + formatDocument(cleanInput) + " é válido!";
+                        resultDoc.style.color = "#198754";
+                    } else {
+                        resultDoc.textContent = "O CNPJ " + formatDocument(cleanInput) + " é inválido!";
+                        resultDoc.style.color = "#ff0000";
+                    }
+                } else {
+                    resultDoc.textContent = "Digite 11 dígitos para CPF ou 14 para CNPJ!";
+                    resultDoc.style.color = "black";
+                }
+            });
+        }
+
+        // Ação do Botão Limpar
+        if (btnLimparDoc) {
+            btnLimparDoc.addEventListener('click', function() {
+                inputDoc.value = "";
+                resultDoc.textContent = "Resultado aparecerá aqui";
+                resultDoc.style.color = "#666666";
+                setTimeout(() => inputDoc.focus(), 0);
+            });
+        }
+    }
 });
