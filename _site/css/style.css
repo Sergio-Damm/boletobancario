@@ -561,3 +561,21 @@ input.form-control {
   color: #000;
 }
 
+.form-control, 
+.form-select {
+    min-height: 3.5rem !important;
+    height: auto !important; /* Permite que o campo respire se o texto for grande */
+    padding: 0.75rem 1rem !important; /* Aumenta o respiro interno para centralizar o texto */
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important; /* Altura de linha padrão para textos não colarem */
+}
+
+.form-select {
+    display: block !important;
+    background-position: right 0.75rem center !important; /* Mantém a setinha do select no lugar */
+}
+
+textarea.form-control {
+    min-height: 6rem !important;
+}
+
