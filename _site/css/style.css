@@ -7,14 +7,12 @@ body {
   font-weight: 400;
 }
 
-/* celular */
 .h1-title-content {
   font-size: 1.8rem;
   margin-top: 1rem;
   line-height: 2.25rem;
 }
 
-/* computador */
 @media (min-width: 576px) {
 .h1-title-content{
   font-size: 3rem;
@@ -23,25 +21,21 @@ body {
 }
 }
 
-/* celular */
 .h2-title-content {
   font-size: 1.6rem;
 }
 
-/* computador */
 @media (min-width: 576px) {
 .h2-title-content{
   font-size: 1.9rem;
 }
 }
 
-/* celular */
 .h1-subtitle-content {
   font-size: 1.2rem;
   margin-top: 1rem;
 }
 
-/* computador */
 @media (min-width: 576px) {
 .h1-subtitle-content {
   font-size: 1.25rem;
@@ -293,7 +287,6 @@ body.scrolled #btn-back-to-top {
   }
 }
 
-/* card principal homepage */
 .news-card {
   overflow: hidden;
   background: #fff;
@@ -361,7 +354,6 @@ body.scrolled #btn-back-to-top {
   text-align: center;
 }
 
-/* share button */
 .share-btn {
     width: 200px;
     height: 42px;
@@ -412,7 +404,6 @@ body.scrolled #btn-back-to-top {
     }
 }
 
-/* FORM BUTTONS START */
 .btn-secondary {
     --bs-btn-color: #fff;
     --bs-btn-bg: #da3458;
@@ -442,20 +433,16 @@ body.scrolled #btn-back-to-top {
     --bs-btn-hover-bg: #ffe4c4;
     --bs-btn-hover-border-color: #f5d1a0;
 }
-/* FORM BUTTONS END */
 
-/* FORM START */
-/* Garante que o código de barras (SVG ou Imagem) seja responsivo */
 #barcode, 
 #barcode-container img, 
 #barcode-container svg {
     max-width: 100% !important;
     height: auto !important;
     display: block;
-    margin: 0 auto; /* Centraliza o código de barras se ele for menor que a tela */
+    margin: 0 auto;
 }
 
-/* CONTAINER PRINCIPAL: Alinha o input e o ícone de cópia */
 .input-container {
     display: flex !important;
     align-items: center !important;
@@ -472,7 +459,6 @@ body.scrolled #btn-back-to-top {
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
-/* O CAMPO DE TEXTO (INPUT): Mantém a linha única para Desktop */
 .input-container .form-control {
     flex: 1 1 auto !important;
     border: none !important;
@@ -481,12 +467,11 @@ body.scrolled #btn-back-to-top {
     padding: 12px !important;
     font-family: 'Poppins', sans-serif !important;
     font-size: 1rem;
-    min-width: 0; /* Impede que o input empurre o ícone para fora */
+    min-width: 0;
 }
 
-/* O ÍCONE DE CÓPIA: Fixo à direita, com área de clique clara */
 .input-container svg {
-    flex: 0 0 44px !important; /* Tamanho fixo do botão de cópia */
+    flex: 0 0 44px !important;
     height: 44px;
     padding: 10px;
     cursor: pointer;
@@ -501,13 +486,11 @@ body.scrolled #btn-back-to-top {
     background-color: #da3458 !important;
 }
 
-/* Ajuste para o código de barras (imagem) ficar centralizado e responsivo */
 #barcode-container svg {
     max-width: 100%;
     height: auto;
 }
 
-/* O CAMPO DE TEXTO (INPUT): Mantém a linha única para Desktop */
 .input-container .form-control {
     flex: 1 1 auto !important;
     border: none !important;
@@ -516,61 +499,54 @@ body.scrolled #btn-back-to-top {
     padding: 12px !important;
     font-family: 'Poppins', sans-serif !important;
     font-size: 1rem;
-    min-width: 0; /* Impede que o input empurre o ícone para fora */
+    min-width: 0;
 }
 
-/* Ajuste específico para o Input do Conversor (permite scroll se não couber) */
 input.form-control#linhadigitavel1, 
 input.form-control#codigodebarras1 {
     white-space: nowrap !important;
     overflow-x: auto !important;
 }
 
-/* Específico para a DIV do Gerador: Força quebra de linha */
 div.form-control#resLinha, div.form-control#resBarras {
     word-break: break-all !important;
     white-space: normal !important;
     height: auto !important;
     min-height: 58px;
-    display: block !important; /* Divs funcionam melhor como block para quebrar linha */
+    display: block !important;
 }
 
-/* Específico para o INPUT do Conversor: Permite scroll lateral se for muito grande */
 input.form-control {
     white-space: nowrap;
     overflow-x: auto;
 }
 
-/* Área do Ícone: Espaço reservado e fixo */
 .input-container svg, 
 .input-container .copy-icon-linha, 
 .input-container .copy-icon-barra {
-    flex: 0 0 45px !important; /* Não encolhe, mantém 45px */
+    flex: 0 0 45px !important;
     height: auto !important;
     padding: 10px;
     cursor: pointer;
     fill: #373a40;
     transition: fill 0.2s, background 0.2s;
-    background-color: #f8f9fa; /* Leve fundo para destacar o botão */
+    background-color: #f8f9fa;
     border-left: 1px solid #dee2e6;
-    position: static !important; /* Remove o absolute que causava sobreposição */
-    transform: none !important;  /* Remove o translateY que tirava do centro */
+    position: static !important;
+    transform: none !important;
 }
 
-/* Foco visual */
 .input-container:focus-within {
     border-color: #86b7fe;
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
-/* Responsividade para Celular */
 @media (max-width: 576px) {
     .input-container svg {
-        flex: 0 0 38px !important; /* Diminuímos de 44px para 38px */
-        padding: 8px;              /* Diminuímos o respiro interno */
+        flex: 0 0 38px !important;
+        padding: 8px;
     }
 }
-/* FORM END */
 
 .alerta-valor { 
         color: #dc3545; 
@@ -582,6 +558,6 @@ input.form-control {
 
 .bg-mylight {
   background-color: #f9f9f9 !important;
-  color: #000; /* Ajuste a cor do texto se necessário */
+  color: #000;
 }
 
