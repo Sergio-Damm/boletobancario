@@ -355,8 +355,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (inputDoc && resultDoc) {
         
         // Focar no campo ao abrir a página
-        inputDoc.focus();
-        resultDoc.style.color = "#666666";
+        // inputDoc.focus();
+        // resultDoc.style.color = "#666666";
 
         // Aplicar máscara enquanto digita
         inputDoc.addEventListener('input', function() {
