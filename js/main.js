@@ -1,56 +1,51 @@
-// --- Auto-refresh a cada 10 minutos ---
 setInterval(() => window.location.reload(), 600000);
 
-// --- Botão Voltar ao Topo ---
 function updateFooterStyle() {
-  const button = document.getElementById("btn-back-to-top");
-  const footer = document.getElementById("my-footer");
-  if (!button || !footer) return;
+    const button = document.getElementById("btn-back-to-top");
+    const footer = document.getElementById("my-footer");
+    if (!button || !footer) return;
 
-  const scrollTop = window.scrollY || document.documentElement.scrollTop;
-  const footerOffset = footer.offsetTop;
-  const winHeight = window.innerHeight;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const footerOffset = footer.offsetTop;
+    const winHeight = window.innerHeight;
 
-  if (scrollTop + winHeight >= footerOffset) {
-    button.classList.add("on-footer");
-  } else {
-    button.classList.remove("on-footer");
-  }
+    if (scrollTop + winHeight >= footerOffset) {
+        button.classList.add("on-footer");
+    } else {
+        button.classList.remove("on-footer");
+    }
 }
 
 function updateScrollStyle() {
-  const scrollTop = window.scrollY || document.documentElement.scrollTop;
-  if (scrollTop > 20) {
-    document.body.classList.add("scrolled");
-  } else {
-    document.body.classList.remove("scrolled");
-  }
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    if (scrollTop > 20) {
+        document.body.classList.add("scrolled");
+    } else {
+        document.body.classList.remove("scrolled");
+    }
 }
 
 window.addEventListener("scroll", function () {
-  updateFooterStyle();
-  updateScrollStyle();
+    updateFooterStyle();
+    updateScrollStyle();
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const button = document.getElementById("btn-back-to-top");
-  if (!button) return;
+    const button = document.getElementById("btn-back-to-top");
+    if (!button) return;
 
-  button.addEventListener("click", function (e) {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+    button.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
 
-  // Inicialização
-  updateFooterStyle();
-  updateScrollStyle();
+    updateFooterStyle();
+    updateScrollStyle();
 });
 
-// --- 6. feed de noticias (rss) ---
 function gerarIniciais(nome) {
     if (!nome) return 'XX';
 
-    // remove números e caracteres especiais
     const limpo = nome.replace(/[^a-zA-Z\s]/g, '').trim();
 
     const partes = limpo.split(' ').filter(Boolean);
@@ -67,12 +62,12 @@ async function carregarFeed(config) {
     const loading = document.getElementById(config.loadingId);
     if (!lista || !loading) return;
 
-    lista.innerHTML = ''; 
+    lista.innerHTML = '';
     loading.style.display = 'block';
 
     const iniciais = gerarIniciais(config.nome);
 
-const svg = `
+    const svg = `
 <svg xmlns='http://www.w3.org/2000/svg' width='400' height='200'>
 <rect width='100%' height='100%' fill='#333'/>
 <text x='50%' y='50%' font-size='40' fill='white' text-anchor='middle' dy='.3em'>
@@ -81,7 +76,7 @@ ${iniciais}
 </svg>
 `;
 
-const placeholder = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
+    const placeholder = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg);
 
     try {
         const controller = new AbortController();
@@ -106,11 +101,11 @@ const placeholder = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg
             });
         }
 
-        let htmlItens = []; 
+        let htmlItens = [];
 
         itens.slice(0, 6).forEach(item => {
             let thumb = placeholder;
-            
+
             if (item.enclosure?.link && item.enclosure.type?.includes('image')) {
                 thumb = item.enclosure.link;
             } else if (item.thumbnail) {
@@ -121,19 +116,19 @@ const placeholder = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg
             }
 
             const diff = Math.floor((Date.now() - new Date(item.pubDate || Date.now())) / 1000);
-            const tempo = diff < 3600 ? Math.floor(Math.max(1, diff/60))+' min atrás' :
-                          diff < 86400 ? Math.floor(diff/3600)+'h atrás' :
-                          diff < 172800 ? 'ontem' : Math.floor(diff/86400)+' dias atrás';
+            const tempo = diff < 3600 ? Math.floor(Math.max(1, diff / 60)) + ' min atrás' :
+                diff < 86400 ? Math.floor(diff / 3600) + 'h atrás' :
+                    diff < 172800 ? 'ontem' : Math.floor(diff / 86400) + ' dias atrás';
 
             htmlItens.push(
                 '<div class="col-md-6 col-lg-4 mb-4">' +
-                '<a href="'+item.link+'" target="_blank" rel="noopener" class="text-decoration-none text-dark">' +
+                '<a href="' + item.link + '" target="_blank" rel="noopener" class="text-decoration-none text-dark">' +
                 '<div class="card card-liftshadow border-light-subtle h-100">' +
-                '<img alt="'+item.title.trim()+'" src="'+thumb+'" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover;" ' +
-                'onerror="this.onerror=null; this.src=\''+placeholder+'\'">' +
+                '<img alt="' + item.title.trim() + '" src="' + thumb + '" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover;" ' +
+                'onerror="this.onerror=null; this.src=\'' + placeholder + '\'">' +
                 '<div class="card-body d-flex flex-column">' +
-                '<p class="card-title link-interno mb-2">'+item.title.trim()+'</p>' +
-                '<p class="card-text mt-auto text-cerise small">'+config.nome+' • '+tempo+'</p>' +
+                '<p class="card-title link-interno mb-2">' + item.title.trim() + '</p>' +
+                '<p class="card-text mt-auto text-cerise small">' + config.nome + ' • ' + tempo + '</p>' +
                 '</div>' +
                 '</div>' +
                 '</a>' +
@@ -151,42 +146,37 @@ const placeholder = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(svg
     }
 }
 
-// --- Feed - execucao das chamadas ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Investing Brasil
     carregarFeed({
-        listaId: 'lista1', 
-        loadingId: 'loading1', 
-        rss: 'https://neofeed.com.br/feed/', 
-        nome: 'NeoFeed', 
+        listaId: 'lista1',
+        loadingId: 'loading1',
+        rss: 'https://neofeed.com.br/feed/',
+        nome: 'NeoFeed',
         letras: 'NF'
     });
 
-    // Infomoney
     carregarFeed({
-        listaId: 'lista3', 
-        loadingId: 'loading3', 
-        rss: 'https://www.infomoney.com.br/economia/feed/', 
-        nome: 'Infomoney', 
+        listaId: 'lista3',
+        loadingId: 'loading3',
+        rss: 'https://www.infomoney.com.br/economia/feed/',
+        nome: 'Infomoney',
         letras: 'IM'
     });
 
-    // Contabeis
     carregarFeed({
-        listaId: 'lista5', 
-        loadingId: 'loading5', 
-        rss: 'https://www.contabeis.com.br/rss/conteudo/', 
-        nome: 'Contabeis', 
-        letras: 'CO', 
+        listaId: 'lista5',
+        loadingId: 'loading5',
+        rss: 'https://www.contabeis.com.br/rss/conteudo/',
+        nome: 'Contabeis',
+        letras: 'CO',
         filtroPaywall: true
     });
 
 });
 
-// --- 7. Limpar campos dos formularios nas duas páginas ---
 function limparCodigoBarras() {
     const ids = [
-        'linhadigitavel1', 'codigodebarras1', 'vencimento1', 'valor1', 'nomeBanco', 
+        'linhadigitavel1', 'codigodebarras1', 'vencimento1', 'valor1', 'nomeBanco',
         'banco', 'valor', 'vencimento', 'resLinha', 'resBarras', 'sumBanco', 'sumValor', 'sumVenc'
     ];
 
@@ -213,10 +203,8 @@ function limparCodigoBarras() {
     }
 }
 
-// --- 8. Inicialização de Componentes Específicos (Busca e Contador) ---
 document.addEventListener('DOMContentLoaded', function () {
-    
-    // --- Lógica da Busca de Bancos ---
+
     const campoBusca = document.getElementById('buscaBanco');
     if (campoBusca) {
         campoBusca.addEventListener('keyup', function () {
@@ -230,13 +218,11 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- Lógica do Contador de Caracteres ---
     const campoTexto = document.getElementById('texto');
     if (campoTexto) {
         campoTexto.addEventListener('input', function () {
             const texto = this.value;
 
-            // Atualiza os campos de resultados
             document.getElementById('total').textContent = texto.length;
             document.getElementById('numeros').textContent = texto.replace(/[^0-9]/g, '').length;
             document.getElementById('letras').textContent = texto.replace(/[^A-Za-z]/g, '').length;
@@ -249,11 +235,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const numeros = texto.replace(/[^0-9]/g, '').length;
             const letras = texto.replace(/[^A-Za-z]/g, '').length;
             const espacos = (texto.match(/ /g) || []).length;
-            
+
             document.getElementById('simbolos').textContent = total - (numeros + letras + espacos + quebrasDeLinha);
         });
 
-        // Botão Limpar do Contador
         const botaoLimparContador = document.getElementById('limpar');
         if (botaoLimparContador) {
             botaoLimparContador.addEventListener('click', function () {
@@ -267,8 +252,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
-
-// --- 9. Validador de CPF e CNPJ (Definição das Ferramentas) ---
 
 function applyMask(input) {
     var value = input.value.replace(/[^\d]/g, '');
@@ -344,28 +327,20 @@ function validateCNPJ(cnpj) {
     return true;
 }
 
-// --- Ativação Segura do Validador ---
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const inputDoc = document.getElementById("documentInput");
     const resultDoc = document.getElementById("result");
-    const btnValidar = document.getElementById("btnValidar"); // Certifique-se que seu botão tem esse ID ou ajuste aqui
-    const btnLimparDoc = document.getElementById("btnLimparDoc"); // Certifique-se que seu botão limpar tem esse ID
+    const btnValidar = document.getElementById("btnValidar");
+    const btnLimparDoc = document.getElementById("btnLimparDoc");
 
-    // O "IF" Mágico: Só roda se o campo de input existir na página
     if (inputDoc && resultDoc) {
-        
-        // Focar no campo ao abrir a página
-        // inputDoc.focus();
-        // resultDoc.style.color = "#666666";
 
-        // Aplicar máscara enquanto digita
-        inputDoc.addEventListener('input', function() {
+        inputDoc.addEventListener('input', function () {
             applyMask(this);
         });
 
-        // Ação do Botão Validar
         if (btnValidar) {
-            btnValidar.addEventListener('click', function() {
+            btnValidar.addEventListener('click', function () {
                 var input = inputDoc.value;
                 var cleanInput = input.replace(/[^\d]/g, '');
 
@@ -392,9 +367,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // Ação do Botão Limpar
         if (btnLimparDoc) {
-            btnLimparDoc.addEventListener('click', function() {
+            btnLimparDoc.addEventListener('click', function () {
                 inputDoc.value = "";
                 resultDoc.textContent = "O resultado aparecerá aqui";
                 resultDoc.style.color = "#666666";
@@ -404,19 +378,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// LIMPAR TUDO GERAL - FUNCIONA PARA O GERADOR E PARA O CONVERSOR
 function limparTudoGeral() {
-    // 1. Limpa o formulário (reseta selects e inputs de data/texto nativos)
     const formulario = document.getElementById('boletoForm');
     if (formulario) formulario.reset();
 
-    // 2. Lista de todos os IDs possíveis (dos dois formulários)
     const IDsParaLimpar = [
-        'linhadigitavel1', 'codigodebarras1', 'vencimento1', 'valor1', 'nomeBanco', // IDs do Conversor
-        'resLinha', 'resBarras', 'sumBanco', 'sumValor', 'sumVenc', 'valor', 'vencimento' // IDs do Gerador
+        'linhadigitavel1', 'codigodebarras1', 'vencimento1', 'valor1', 'nomeBanco',
+        'resLinha', 'resBarras', 'sumBanco', 'sumValor', 'sumVenc', 'valor', 'vencimento'
     ];
 
-    // 3. Loop que limpa cada campo se ele existir na página atual
     IDsParaLimpar.forEach(id => {
         const campo = document.getElementById(id);
         if (campo) {
@@ -424,43 +394,40 @@ function limparTudoGeral() {
         }
     });
 
-    // 4. Limpa alertas e imagens se existirem
     const alerta = document.getElementById('alert-container');
     if (alerta) alerta.innerHTML = '';
-    
+
     const msgErro = document.getElementById('msgErroValor');
     if (msgErro) msgErro.style.display = 'none';
 
-    // 5. Se houver função de código de barras, reseta
     if (typeof generateBarcode === "function") {
         generateBarcode('');
     }
 }
 
-    // Função principal para validar o documento
-    function validateDocument() {
-        var input = document.getElementById("documentInput").value;
-        var resultElement = document.getElementById("result");
-        var cleanInput = input.replace(/[^\d]/g, '');
+function validateDocument() {
+    var input = document.getElementById("documentInput").value;
+    var resultElement = document.getElementById("result");
+    var cleanInput = input.replace(/[^\d]/g, '');
 
-        if (cleanInput.length === 11) {
-            if (validateCPF(cleanInput)) {
-                resultElement.textContent = "O CPF " + formatDocument(cleanInput) + " é válido!";
-                resultElement.style.color = "#198754"; // Verde para válido
-            } else {
-                resultElement.textContent = "O CPF " + formatDocument(cleanInput) + " é inválido!";
-                resultElement.style.color = "#ff0000"; // Vermelho para inválido
-            }
-        } else if (cleanInput.length === 14) {
-            if (validateCNPJ(cleanInput)) {
-                resultElement.textContent = "O CNPJ " + formatDocument(cleanInput) + " é válido!";
-                resultElement.style.color = "#198754"; // Verde para válido
-            } else {
-                resultElement.textContent = "O CNPJ " + formatDocument(cleanInput) + " é inválido!";
-                resultElement.style.color = "#ff0000"; // Vermelho para inválido
-            }
+    if (cleanInput.length === 11) {
+        if (validateCPF(cleanInput)) {
+            resultElement.textContent = "O CPF " + formatDocument(cleanInput) + " é válido!";
+            resultElement.style.color = "#198754";
         } else {
-            resultElement.textContent = "Digite um CPF com 11 dígitos ou um CNPJ com 14 dígitos!";
-            resultElement.style.color = "black";
+            resultElement.textContent = "O CPF " + formatDocument(cleanInput) + " é inválido!";
+            resultElement.style.color = "#ff0000";
         }
+    } else if (cleanInput.length === 14) {
+        if (validateCNPJ(cleanInput)) {
+            resultElement.textContent = "O CNPJ " + formatDocument(cleanInput) + " é válido!";
+            resultElement.style.color = "#198754";
+        } else {
+            resultElement.textContent = "O CNPJ " + formatDocument(cleanInput) + " é inválido!";
+            resultElement.style.color = "#ff0000";
+        }
+    } else {
+        resultElement.textContent = "Digite um CPF com 11 dígitos ou um CNPJ com 14 dígitos!";
+        resultElement.style.color = "black";
     }
+}

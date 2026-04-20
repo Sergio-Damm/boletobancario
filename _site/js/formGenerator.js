@@ -1,17 +1,13 @@
-// Inicializa a data de hoje
 document.addEventListener('DOMContentLoaded', () => {
     const campoVenc = document.getElementById('vencimento');
     if (campoVenc) {
-        // O "if" garante que isso só rode se o campo existir na tela
         campoVenc.valueAsDate = new Date();
     }
 });
 
-// --- FUNÇÃO MÁSCARA DE MOEDA ---
 function mascaraMoeda(campo) {
-    let valor = campo.value.replace(/\D/g, ""); // Remove tudo que não é número
+    let valor = campo.value.replace(/\D/g, "");
 
-    // Verifica limite de 99.999.999,99 (máximo 10 dígitos)
     const limite = 9999999999;
     const erroMsg = document.getElementById('msgErroValor');
 
@@ -22,7 +18,6 @@ function mascaraMoeda(campo) {
         erroMsg.style.display = 'none';
     }
 
-    // Formatação BRL
     valor = (parseInt(valor) / 100).toFixed(2) + "";
     valor = valor.replace(".", ",");
     valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -34,7 +29,6 @@ async function copyToClipboard(elementId) {
     const el = document.getElementById(elementId);
     if (!el) return;
 
-    // Detecta se é INPUT (Conversor) ou TEXTO (Gerador)
     const textToCopy = (el.tagName === 'INPUT') ? el.value : el.innerText;
 
     if (!textToCopy || textToCopy.trim() === "" || textToCopy.includes("aparecerá aqui")) {
@@ -47,7 +41,6 @@ async function copyToClipboard(elementId) {
             await navigator.clipboard.writeText(textToCopy.trim());
             mostrarToastCopiado();
         } else {
-            // Fallback para navegadores antigos ou conexões não seguras
             const textArea = document.createElement("textarea");
             textArea.value = textToCopy.trim();
             document.body.appendChild(textArea);
@@ -61,7 +54,6 @@ async function copyToClipboard(elementId) {
     }
 }
 
-// Mensagem visual de sucesso
 function mostrarToastCopiado() {
     const toast = document.createElement('div');
     toast.textContent = 'Copiado!';
@@ -104,7 +96,6 @@ function modulo11(bloco) {
 }
 
 function gerarBoletoFinal() {
-    // 1. Banco
     let bancoSelect = document.getElementById('banco');
     let bancoCodigo = bancoSelect.value;
     let bancoNome = "";
@@ -118,7 +109,6 @@ function gerarBoletoFinal() {
         bancoNome = bancoSelect.options[bancoSelect.selectedIndex].text;
     }
 
-    // 2. Valor
     let valorInput = document.getElementById('valor').value.replace(/[^\d]/g, '');
     let valorFinalNumerico = 0;
 
@@ -130,11 +120,9 @@ function gerarBoletoFinal() {
         valorInput = valorInput.padStart(10, '0');
     }
 
-    // 3. Vencimento
     let vencimento = document.getElementById('vencimento').value;
     if (!vencimento) vencimento = new Date().toISOString().split('T')[0];
 
-    // --- Lógica de Geração ---
     const fator = calcularFatorVencimento(vencimento);
     let campoLivre = "";
     for (let i = 0; i < 25; i++) campoLivre += Math.floor(Math.random() * 10);
@@ -150,7 +138,6 @@ function gerarBoletoFinal() {
 
     let linhaPura = b1 + modulo10(b1) + b2 + modulo10(b2) + b3 + modulo10(b3) + dvGeral + fator + valorInput;
 
-// --- Interface (Atualizado para Input) ---
     document.getElementById('resLinha').value = linhaPura;
     document.getElementById('resBarras').value = codigoBarras;
     document.getElementById('sumBanco').value = bancoNome;
@@ -159,7 +146,6 @@ function gerarBoletoFinal() {
         maximumFractionDigits: 2
     });
     document.getElementById('sumVenc').value = vencimento.split('-').reverse().join('/');
-    
-    // Esta linha deve estar DENTRO da função (antes da última chave)
+
     document.getElementById('resultado').classList.remove('d-none');
 }
