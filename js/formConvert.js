@@ -266,26 +266,6 @@ document.addEventListener('DOMContentLoaded', () => {
     generateBarcode('');
 });
 
-// LIMPAR TUDO GERAL - QUANDO O USUÁRIO CLICA NO BOTÃO LIMPAR TUDO
-function limparTudoGeral() {
-    // Limpa os inputs principais
-    document.getElementById('linhadigitavel1').value = '';
-    document.getElementById('codigodebarras1').value = '';
-    
-    // Limpa os resultados
-    document.getElementById('vencimento1').value = '';
-    document.getElementById('valor1').value = '';
-    
-    // Limpa o Banco
-    if (document.getElementById('nomeBanco')) {
-        document.getElementById('nomeBanco').value = '';
-    }
-
-    // Limpa alertas e imagem do código de barras
-    document.getElementById('alert-container').innerHTML = '';
-    generateBarcode('');
-}
-
 const mapeamentoBancos = {
 "001": "BCO DO BRASIL S.A.",
 "070": "BRB - BCO DE BRASILIA S.A.",

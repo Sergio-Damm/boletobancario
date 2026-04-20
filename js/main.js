@@ -396,10 +396,71 @@ document.addEventListener('DOMContentLoaded', function() {
         if (btnLimparDoc) {
             btnLimparDoc.addEventListener('click', function() {
                 inputDoc.value = "";
-                resultDoc.textContent = "Resultado aparecerá aqui";
+                resultDoc.textContent = "O resultado aparecerá aqui";
                 resultDoc.style.color = "#666666";
                 setTimeout(() => inputDoc.focus(), 0);
             });
         }
     }
 });
+
+// LIMPAR TUDO GERAL - FUNCIONA PARA O GERADOR E PARA O CONVERSOR
+function limparTudoGeral() {
+    // 1. Limpa o formulário (reseta selects e inputs de data/texto nativos)
+    const formulario = document.getElementById('boletoForm');
+    if (formulario) formulario.reset();
+
+    // 2. Lista de todos os IDs possíveis (dos dois formulários)
+    const IDsParaLimpar = [
+        'linhadigitavel1', 'codigodebarras1', 'vencimento1', 'valor1', 'nomeBanco', // IDs do Conversor
+        'resLinha', 'resBarras', 'sumBanco', 'sumValor', 'sumVenc', 'valor', 'vencimento' // IDs do Gerador
+    ];
+
+    // 3. Loop que limpa cada campo se ele existir na página atual
+    IDsParaLimpar.forEach(id => {
+        const campo = document.getElementById(id);
+        if (campo) {
+            campo.value = '';
+        }
+    });
+
+    // 4. Limpa alertas e imagens se existirem
+    const alerta = document.getElementById('alert-container');
+    if (alerta) alerta.innerHTML = '';
+    
+    const msgErro = document.getElementById('msgErroValor');
+    if (msgErro) msgErro.style.display = 'none';
+
+    // 5. Se houver função de código de barras, reseta
+    if (typeof generateBarcode === "function") {
+        generateBarcode('');
+    }
+}
+
+    // Função principal para validar o documento
+    function validateDocument() {
+        var input = document.getElementById("documentInput").value;
+        var resultElement = document.getElementById("result");
+        var cleanInput = input.replace(/[^\d]/g, '');
+
+        if (cleanInput.length === 11) {
+            if (validateCPF(cleanInput)) {
+                resultElement.textContent = "O CPF " + formatDocument(cleanInput) + " é válido!";
+                resultElement.style.color = "#198754"; // Verde para válido
+            } else {
+                resultElement.textContent = "O CPF " + formatDocument(cleanInput) + " é inválido!";
+                resultElement.style.color = "#ff0000"; // Vermelho para inválido
+            }
+        } else if (cleanInput.length === 14) {
+            if (validateCNPJ(cleanInput)) {
+                resultElement.textContent = "O CNPJ " + formatDocument(cleanInput) + " é válido!";
+                resultElement.style.color = "#198754"; // Verde para válido
+            } else {
+                resultElement.textContent = "O CNPJ " + formatDocument(cleanInput) + " é inválido!";
+                resultElement.style.color = "#ff0000"; // Vermelho para inválido
+            }
+        } else {
+            resultElement.textContent = "Digite um CPF com 11 dígitos ou um CNPJ com 14 dígitos!";
+            resultElement.style.color = "black";
+        }
+    }

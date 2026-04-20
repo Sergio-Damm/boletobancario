@@ -156,8 +156,11 @@ redirect_from:
 						<button type="button" class="col p-2 btn btn-info shadow-sm rounded" onclick="f_linha();">Calcular a Linha Digitável</button>
 						<button type="button" class="col-md-2 p-2 btn btn-danger shadow-sm rounded" onclick="limparCampo('codigodebarras1');">Limpar</button>
 					</div>
-					<div id="barcode-container" class="form-control py-5 mb-4 rounded border text-center auto-mx" role="alert">
+					<div id="barcode-container" class="form-control py-5 mb-5 rounded border text-center auto-mx" role="alert">
 						<p class="text-center">O Código de Barras aparecerá aqui</p>
+					</div>
+					<div class="mb-5">
+						<label class="fs-4 form-label fw-semibold">Resultado</label>
 					</div>
 					<div class="mb-3">
     					<label for="nomeBanco" class="fw-semibold form-label">Banco</label>
@@ -172,7 +175,7 @@ redirect_from:
 						<input type="text" class="form-control" id="vencimento1" name="venc" readonly>
 					</div>
 					<div class="d-grid gap-2 col-12 mx-auto mb-3">
-						<button type="button" class="p-3 rounded-2 btn btn-danger shadow-sm rounded mt-3" onclick="limparTudoGeral();">Limpar Tudo</button>
+						<button type="button" class="p-3 rounded-2 btn btn-danger shadow-sm mt-3" onclick="limparCodigoBarras();">Limpar Tudo</button>
 					</div>
                 	</form>
 				</div>
