@@ -112,8 +112,7 @@
 			<div class="col-12 col-md-10 mx-auto">
 				<div class="mb-5">
 					<h1 class="h1-title-content">O Número do Banco</h1>
-					<p class="h1-subtitle-content">O Número do Banco, ou o Código do Banco, utilizado para TED, DOC e
-						Boletos, é um código de três dígitos que identifica de forma única cada instituição financeira
+					<p class="h1-subtitle-content">O Número do Banco é um código de três dígitos que identifica de forma única cada instituição financeira
 						no Brasil, garantindo que o dinheiro seja enviado para o banco correto</p>
 				</div>
 			</div>
@@ -181,9 +180,6 @@
 			<div class="col-12 col-md-10 mx-auto">
 				<div class="mb-5">
 					<h2 class="h2-title-content mb-5">O que é o Número do Banco?</h2>
-					<p class="mb-5">O <span class="fw-semibold">Número do Banco é um código de três dígitos</span> que
-						identifica cada Instituição Financeira no Brasil, garantindo que o dinheiro seja enviado para o
-						banco correto.</p>
 					<p class="mb-5">O <span class="fw-semibold">Número do Banco</span> também é chamado de <span
 							class="fw-semibold">Código do Banco</span>, <span class="fw-semibold">Número Código da
 							Instituição Destinatária</span> ou <span class="fw-semibold">Código COMPE</span> (Código do
@@ -195,10 +191,10 @@
 						<li>Bradesco = 237</li>
 						<li>Itaú = 341</li>
 					</ul>
-					<p class="mb-5">A Linha Digitável de um Boleto Bancário <span class="fw-semibold">começa sempre com
+					<p class="mb-5">A Linha Digitável <span class="fw-semibold">começa com
 							o Número do Banco</span>, que é uma identificação padronizada pelo Banco Central do Brasil.
 					</p>
-					<p class="mb-5">Exemplo de uma Linha Digitável com 47 dígitos:</p>
+					<p class="mb-3">Exemplo:</p>
 					<p class="mb-5 text-break fw-semibold"><span
 							style="color: #dc3545;">001</span>90500954014481606906809350314337370000000100</p>
 					<p class="mb-5">O Número do Banco pode ser conferido oficialmente na lista de participantes do
@@ -212,17 +208,22 @@
 </section>
 <!-- ============================================================================================= -->
 <section>
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-10 mx-auto">
-				<h2 class="mb-4">Lista de Bancos</h2>
-				<div class="mb-3">
-					<input type="text" id="buscaBanco" class="form-control p-3"
-						placeholder="Digite o número ou nome do banco para uma busca rápida ...">
-				</div>
-				<div class="table-responsive mb-5">
-					<table class="table table-striped mb-0" id="tabelaBancos">
-						<thead class="table-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-10 mx-auto">
+                <h2 class="mb-4">Lista de Bancos</h2>
+
+                <div class="mb-3 search-wrapper">
+                    <svg class="search-icon" viewBox="0 0 24 24" width="24" height="24">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                    <input type="text" id="buscaBanco" class="form-control p-3"
+                        placeholder="Pesquisar ...">
+                </div>
+
+                <div class="table-responsive mb-5">
+                    <table class="table table-striped mb-0" id="tabelaBancos">
+                        <thead class="table-dark">
 							<tr>
 								<th style="width: 150px;">Código</th>
 								<th>Nome da Instituição</th>
