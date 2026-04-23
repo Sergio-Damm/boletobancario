@@ -603,26 +603,27 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
-    .form-control.search-input {
-        background: transparent;
-        padding-left: 20px;
-        font-size: 1rem;
-        height: 50px;
-    }
-
-    .form-control.search-input:focus {
-        box-shadow: none;
-        outline: none;
-    }
-
-    #buscaBanco {
-    padding-left: 45px !important; /* Abre espaço na esquerda para a lupa */
+/* Estilo geral do campo */
+.search-input {
+    background: transparent !important;
+    height: 50px;
+    padding-left: 45px !important; /* Espaço para a lupa */
+    font-size: 1rem;
 }
 
-    .search-icon {
-        color: #888;
-        position: absolute;
-        left: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
+/* Remove a borda azul/sombra do Bootstrap ao clicar */
+.search-input:focus {
+    box-shadow: none !important;
+    outline: none;
+    border-color: #ced4da; /* Mantém a cor da borda original */
+}
+
+/* Posicionamento da lupa */
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5; /* Garante que a lupa fique por cima do campo */
+    pointer-events: none; /* Clique passa direto para o input */
+}
