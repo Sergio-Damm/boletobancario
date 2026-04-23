@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Boleto Bancário",
+  "short_name": "Boleto",
   "icons": [
     {
       "src": "/img/favicons/web-app-manifest-192x192.png?v=20260423",
