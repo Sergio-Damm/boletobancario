@@ -603,19 +603,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
-.search-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
+    .form-control.search-input {
+        background: transparent;
+        padding-left: 20px;
+        font-size: 1rem;
+        height: 50px;
+    }
+
+    .form-control.search-input:focus {
+        box-shadow: none;
+        outline: none;
+    }
+
+    #buscaBanco {
+    padding-left: 45px !important; /* Abre espaço na esquerda para a lupa */
 }
 
-.search-icon {
-    position: absolute;
-    left: 15px;
-    fill: #6c757d;
-    pointer-events: none;
-}
-
-#buscaBanco {
-    padding-left: 45px !important;
-}
+    .search-icon {
+        color: #888;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
