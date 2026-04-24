@@ -594,8 +594,8 @@ input.form-control {
 input[type="date"] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23212529' class='bi bi-calendar-event' viewBox='0 0 16 16'%3E%3Cpath d='M11 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z'/%3E%3Cpath d='M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 12px center; /* Fixa o ícone na direita com 12px de folga */
-    background-size: 18px; /* Define um tamanho elegante para o ícone */
+    background-position: right 12px center;
+    background-size: 18px;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
@@ -603,27 +603,50 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
-/* Estilo geral do campo */
 .search-input {
     background: transparent !important;
     height: 50px;
-    padding-left: 45px !important; /* Espaço para a lupa */
+    padding-left: 45px !important;
     font-size: 1rem;
 }
 
-/* Remove a borda azul/sombra do Bootstrap ao clicar */
 .search-input:focus {
     box-shadow: none !important;
     outline: none;
-    border-color: #ced4da; /* Mantém a cor da borda original */
+    border-color: #ced4da;
 }
 
-/* Posicionamento da lupa */
 .search-icon {
     position: absolute;
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 5; /* Garante que a lupa fique por cima do campo */
-    pointer-events: none; /* Clique passa direto para o input */
+    z-index: 5;
+    pointer-events: none;
+}
+
+.callout {
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  border: 1px solid var(--bs-border-color); 
+  border-left-width: .25rem;
+  border-radius: .25rem;
+}
+
+.callout-info {
+  border-left-color: var(--bs-info);
+  background-color: var(--bs-info-bg-subtle);
+  color: var(--bs-info-text-emphasis);
+}
+
+.callout-warning {
+  border-left-color: var(--bs-warning);
+  background-color: var(--bs-warning-bg-subtle);
+  color: var(--bs-warning-text-emphasis);
+}
+
+.callout-danger {
+  border-left-color: var(--bs-danger);
+  background-color: var(--bs-danger-bg-subtle);
+  color: var(--bs-danger-text-emphasis);
 }
