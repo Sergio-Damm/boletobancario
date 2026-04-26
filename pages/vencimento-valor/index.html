@@ -13,11 +13,10 @@ redirect_from:
 		<div class="row">
 			<div class="col-12 col-md-10 mx-auto">
 				<div class="mb-5">
-					<h1 class="h1-title-content">Vencimento e Valor do Boleto</h1>
-					<p class="h1-subtitle-content">Na Linha Digitável do Boleto Bancário, a Data de Vencimento não
+					<h1 class="h1-title-content">Vencimento e valor do boleto</h1>
+					<p class="h1-subtitle-content">Na linha digitável do boleto bancário, a data de vencimento não
 						aparece no formato tradicional de DD/MM/AAAA. Em vez disso, ela é representada por um número de
-						4
-						dígitos, chamado de Fator de Vencimento</p>
+						4 dígitos, chamado de fator de vencimento</p>
 				</div>
 			</div>
 		</div>
@@ -87,21 +86,21 @@ redirect_from:
 		<div class="row">
 			<div class="col-12 col-md-10 mx-auto">
 				<div class="mb-5">
-					<h2 class="h2-title-content mb-5">A Data de Vencimento</h2>
-					<p class="mb-5">A Data de Vencimento é a <span class="fw-semibold">data limite para o
+					<h2 class="h2-title-content mb-5">A data de vencimento</h2>
+					<p class="mb-5">A data de vencimento é a <span class="fw-semibold">data limite para o
 							pagamento</span> de uma dívida, sem ter que pagar multa ou juros pelo atraso. No boleto
 						(formato físico/PDF), a data de vencimento aparece no formato DD/MM/AAAA (dia, mês e ano).</p>
 					<p class="mb-5">No entanto, desde a implementação da <a class="link-externo"
 							href="https://normativos.bcb.gov.br/Lists/Normativos/Attachments/43524/C_Circ_2414_v5_P.pdf"
 							target="_blank" rel="noopener noreferrer">Compensação Eletrônica de Cobrança</a>, em 1993, o
-						campo destinado <span class="fw-semibold">a Data de Vencimento no Código de Barras passou por desafios de padronização</span> (DDMMAAAA, MMDDAAAA, AAAAMMDD, DDMMAA, etc.), agravados pela preocupação com o Bug do Milênio (virada de 1999 para 2000, temendo-se que computadores parassem ou falhassem ao interpretar o ano "00" como 1900 em vez de 2000), pois muitos sistemas
+						campo destinado <span class="fw-semibold">a data de vencimento no código de barras passou por desafios de padronização</span> (DDMMAAAA, MMDDAAAA, AAAAMMDD, DDMMAA, etc.), agravados pela preocupação com o Bug do Milênio (virada de 1999 para 2000, temendo-se que computadores parassem ou falhassem ao interpretar o ano "00" como 1900 em vez de 2000), pois muitos sistemas
 						utilizavam padrões de datas diferentes.</p>
 					<p class="mb-5"><span class="fw-semibold">Para resolver esse problema</span> com os formatos de datas de vencimento, no ano 2000, o
 						<span class="fw-semibold">Banco Central do Brasil instituiu</span> o <a class="link-externo"
 							href="https://www.bcb.gov.br/pre/normativos/c_circ/2000/pdf/c_circ_2926_v1_o.pdf"
-							target="_blank" rel="noopener noreferrer">Fator de Vencimento</a> com 4 dígitos (NNNN).</p>
+							target="_blank" rel="noopener noreferrer">fator de vencimento</a> com 4 dígitos (NNNN).</p>
 					<p class="mb-5">Em outras palavras, os diferentes formatos de datas de vencimentos deixaram de ser
-						um problema porque foram substituídos pelo <span class="fw-semibold">Fator de Vencimento</span>,
+						um problema porque foram substituídos pelo <span class="fw-semibold">fator de vencimento</span>,
 						que passou a ser calculado da seguinte forma:</p>
 					<p class="fst-italic mb-5">"Calcula-se o número de dias corridos entre a data base ('Fixada' em
 						07/10/1997) e a do vencimento desejado" - <a class="link-externo"
@@ -116,18 +115,18 @@ redirect_from:
 									<td>07/10/1997</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(b) Data de Vencimento</td>
+									<td class="text-nowrap">(b) Data de vencimento</td>
 									<td>03/7/2000</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(c) Fator de Vencimento = b - a</td>
+									<td class="text-nowrap">(c) Fator de vencimento = b - a</td>
 									<td>1000</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
 					<div class="mb-5 text-center">
-						<img src="/img/BoletoBBvecto31122007.jpg" alt="Boleto com Linha Digitável e Código de Barras"
+						<img src="/img/BoletoBBvecto31122007.jpg" alt="boleto com linha digitável e código de barras"
 							class="rounded mx-auto img-fluid my-3">
 						<p class="small">Boleto padrão Banco do Brasil com vencimento em 31/12/2007</p>
 					</div>
@@ -140,11 +139,11 @@ redirect_from:
 									<td>07/10/1997</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(b) Data de Vencimento</td>
-									<td>31/12/2007 </td>
+									<td class="text-nowrap">(b) Data de vencimento</td>
+									<td>31/12/2007</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(c) Fator de Vencimento = b - a</td>
+									<td class="text-nowrap">(c) Fator de vencimento = b - a</td>
 									<td>3737</td>
 								</tr>
 							</tbody>
@@ -161,12 +160,12 @@ redirect_from:
 		<div class="row">
 			<div class="col-12 col-md-10 mx-auto">
 				<div class="mb-5">
-					<h2 class="h2-title-content mb-5">O que é o Fator de Vencimento</h2>
-					<p class="mb-5">O <span class="fw-semibold">Fator de Vencimento</span>, no padrão com 4 dígitos
+					<h2 class="h2-title-content mb-5">O que é o fator de vencimento</h2>
+					<p class="mb-5">O <span class="fw-semibold">fator de vencimento</span>, no padrão com 4 dígitos
 						(NNNN), <span class="fw-semibold">é o número de dias corridos</span>
-						entre a Data-base e a Data de Vencimento do documento.</p>
-					<p class="mb-5"><span class="fw-semibold">A fórmula é</span>: Data-base - Data de Vencimento = Fator
-						de Vencimento</p>
+						entre a data-base e a data de vencimento do documento.</p>
+					<p class="mb-5"><span class="fw-semibold">A fórmula é</span>: data-base - data de vencimento = fator
+						de vencimento</p>
 					<p class="mb-5"><span class="fw-semibold">Exemplo de cálculo até 21/02/2025</span>:</p>
 					<div class="table-responsive mb-5">
 						<table class="table table-striped">
@@ -176,11 +175,11 @@ redirect_from:
 									<td>07/10/1997</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(b) Data de Vencimento</td>
+									<td class="text-nowrap">(b) Data de vencimento</td>
 									<td>31/12/2007</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(c) Fator de Vencimento = b - a</td>
+									<td class="text-nowrap">(c) Fator de vencimento = b - a</td>
 									<td>3737</td>
 								</tr>
 							</tbody>
@@ -197,10 +196,10 @@ redirect_from:
 		<div class="row">
 			<div class="col-12 col-md-10 mx-auto">
 				<div class="mb-5">
-					<h2 class="h2-title-content mb-5">Mudança no Fator de Vencimento em 2025</h2>
+					<h2 class="h2-title-content mb-5">Mudança no fator de vencimento em 2025</h2>
 					<p class="mb-5">Até 21 de fevereiro de 2025, <span class="fw-semibold">o sistema bancário utilizava
-							a Data-base 7/10/1997</span>.
-						Como o campo Fator de Vencimento possui apenas 4 dígitos, ele atingiu o limite de 9999 dias
+							a data-base 7/10/1997</span>.
+						Como o campo fator de vencimento possui apenas 4 dígitos, ele atingiu o limite de 9999 dias
 						nesta data, exigindo uma atualização.</p>
 					<p class="mb-5"><span class="fw-semibold">O Limite da Regra Antiga</span>:</p>
 					<div class="table-responsive mb-5">
@@ -211,11 +210,11 @@ redirect_from:
 									<td>07/10/1997</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(b) Data de Vencimento</td>
+									<td class="text-nowrap">(b) Data de vencimento</td>
 									<td>21/02/2025</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(c) Fator de Vencimento = b - a</td>
+									<td class="text-nowrap">(c) Fator de vencimento = b - a</td>
 									<td>9999</td>
 								</tr>
 							</tbody>
@@ -250,22 +249,22 @@ redirect_from:
 				<div class="mb-5">
 					<h2 class="h2-title-content mb-5">A Nova Regra</h2>
 					<p class="mb-5">Para evitar falhas nos sistemas, a partir de 22/02/2025, <span class="fw-semibold">a
-							FEBRABAN determinou o reinício da contagem do Fator de Vencimento</span>, que voltou a 1000.
-						A nova Data-base a ser considerada para os cálculos a partir de 22/02/2025 é 29/05/2022.
-					<p class="mb-5"><span class="fw-semibold">A Nova Data-base</span>:</p>
+							FEBRABAN determinou o reinício da contagem do fator de vencimento</span>, que voltou a 1000.
+						A nova data-base a ser considerada para os cálculos a partir de 22/02/2025 é 29/05/2022.
+					<p class="mb-5"><span class="fw-semibold">A nova data-base</span>:</p>
 					<div class="table-responsive mb-5">
 						<table class="table table-striped">
 							<tbody>
 								<tr>
-									<td class="text-nowrap">(a) Nova Data-base</td>
+									<td class="text-nowrap">(a) Nova data-base</td>
 									<td>29/05/2022</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(b) Data de Vencimento</td>
+									<td class="text-nowrap">(b) Data de vencimento</td>
 									<td>22/02/2025</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(c) Fator de Vencimento = b - a</td>
+									<td class="text-nowrap">(c) Fator de vencimento = b - a</td>
 									<td>1000</td>
 								</tr>
 							</tbody>
@@ -282,7 +281,7 @@ redirect_from:
 							rel="noopener noreferrer">Banco do Brasil</a>.</p>
 					<p class="mb-5"><a class="btn btn-danger" href="/formulario-conversor/" role="button">Formulário de
 							Conversão com a Nova Regra</a></p>
-					<p class="mb-5">Exemplos de novos Fatores de Vencimentos:</p>
+					<p class="mb-5">Exemplos de novos fatores de vencimentos:</p>
 					<div class="table-responsive mb-5">
 						<table class="table table-striped">
 							<thead>
@@ -326,14 +325,14 @@ redirect_from:
 		<div class="row">
 			<div class="col-12 col-md-10 mx-auto">
 				<div class="mb-5">
-					<h2 class="h2-title-content mb-5">Como Calcular um Novo Fator de Vencimento</h2>
+					<h2 class="h2-title-content mb-5">Como calcular um novo fator de vencimento</h2>
 
-					<p class="mb-5"><span class="fw-semibold">A fórmula permanece a mesma</span>: Data de Vencimento -
-						Data-base = Fator de Vencimento</p>
+					<p class="mb-5"><span class="fw-semibold">A fórmula permanece a mesma</span>: data de vencimento -
+						data-base = fator de vencimento</p>
 
 					<p class="mb-5"><span class="fw-semibold">O que mudou</span> foi que, a partir de 21/02/2025, o
-						Fator de Vencimento retornou para "1000" <span class="fw-semibold">, criando uma nova
-							Data-base</span>, fixada em 29/05/2022.</p>
+						fator de vencimento retornou para "1000" <span class="fw-semibold">, criando uma nova
+							data-base</span>, fixada em 29/05/2022.</p>
 					<p class="mb-5"><span class="fw-semibold">Exemplo de cálculo após 21/02/2025</span>:</p>
 					<div class="table-responsive mb-5">
 						<table class="table table-striped">
@@ -343,20 +342,20 @@ redirect_from:
 									<td>29/05/2022</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(b) Data de Vencimento desejada</td>
+									<td class="text-nowrap">(b) Data de vencimento</td>
 									<td>31/12/2026</td>
 								</tr>
 								<tr>
-									<td class="text-nowrap">(c) Fator de Vencimento = b - c</td>
+									<td class="text-nowrap">(c) Fator de vencimento = b - c</td>
 									<td>1677</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-					<p class="mb-5">Neste exemplo, o Fator de Vencimento 1677 corresponde ao Vencimento 31/12/2026.</p>
+					<p class="mb-5">Neste exemplo, o fator de vencimento 1677 corresponde ao vencimento 31/12/2026.</p>
 					<p class="mb-5"><span class="fw-semibold">Dica</span>: utilize uma planilha, do Excel ou do Google
-						Sheets, para calcular o Fator de
-						Vencimento.</p>
+						Sheets, para calcular o fator de
+						vencimento.</p>
 				</div>
 			</div>
 		</div>
@@ -368,13 +367,13 @@ redirect_from:
 		<div class="row">
 			<div class="col-12 col-md-10 mx-auto">
 				<div class="mb-5">
-					<h2 class="h2-title-content mb-5">O Valor do Boleto Bancário</h2>
-					<p class="mb-5">O Valor de um Boleto está localizado nos <span class="fw-semibold">10 últimos
-							dígitos da Linha Digitável</span>.</p>
+					<h2 class="h2-title-content mb-5">O valor do boleto bancário</h2>
+					<p class="mb-5">O valor de um boleto está localizado nos <span class="fw-semibold">10 últimos
+							dígitos da linha digitável</span>.</p>
 					<p class="mb-5">Os 10 dígitos representam o valor total incluindo os centavos, sem pontos ou
 						vírgulas, preenchido com zeros à esquerda</p>
 					<div class="mb-5 text-center">
-						<img src="/img/BoletoBBvalor100.jpg" alt="Boleto com Linha Digitável e Código de Barras"
+						<img src="/img/BoletoBBvalor100.jpg" alt="boleto com linha digitável e código de barras"
 							class="rounded mx-auto img-fluid my-3">
 					</div>
 					<p class="mb-5">Veja exemplos:</p>
@@ -382,10 +381,10 @@ redirect_from:
 						<li class="mb-3">R$ 1,00 = 0000000100</li>
 						<li class="mb-3">R$ 1.540,32 = 0000154032</li>
 					</ul>
-					<p class="mb-5">Linha Digitável com valor R$ 1,00:</p>
+					<p class="mb-5">Linha digitável com valor R$ 1,00:</p>
 					<p class="mb-5 text-break fw-semibold">00190.50095.40144.816069.06809.350314.3.3737.<span
 							class="fw-semibold text-cerise">0000000100</span></p>
-					<p class="mb-5">Linha Digitável com valor R$ 1.540,32:</p>
+					<p class="mb-5">Linha digitável com valor R$ 1.540,32:</p>
 					<p class="mb-5 text-break fw-semibold">00190.50095.40144.816069.06809.350314.3.3737.<span
 							class="fw-semibold text-cerise">0000154032</span></p>
 				</div>
@@ -401,10 +400,10 @@ redirect_from:
 				<div class="mb-5">
 					<h2 class="h2-title-content mb-5">Resumo rápido</h2>
 					<ul class="mb-5">
-						<li class="mb-3">Fator de Vencimento = Diferença de dias em relação à data-base</li>
-						<li class="mb-3">Até 21/02/2025 = Utiliza Data-base antiga (07/10/1997)</li>
-						<li class="mb-3">A partir de 22/02/2025 = Utiliza Data-base nova (29/05/2022)</li>
-						<li class="mb-3">Valor = Localizado sempre nos últimos 10 dígitos</li>
+						<li class="mb-3">Fator de vencimento = diferença de dias em relação à data-base</li>
+						<li class="mb-3">Até 21/02/2025 = utiliza data-base antiga (07/10/1997)</li>
+						<li class="mb-3">A partir de 22/02/2025 = utiliza data-base nova (29/05/2022)</li>
+						<li class="mb-3">Valor = localizado sempre nos últimos 10 dígitos</li>
 					</ul>
 				</div>
 			</div>
