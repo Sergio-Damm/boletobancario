@@ -356,8 +356,10 @@ body.scrolled #btn-back-to-top {
 }
 
 .adsense-spacer {
-  margin: 20px 0;
+  margin: 30px 0;
   text-align: center;
+  display: block;
+  clear: both;
 }
 
 .share-btn {
