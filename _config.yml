@@ -1,1 +1,12 @@
-# Configuração Jekyll
+title: Boleto Bancário - Código de Barras
+email: seu-email@exemplo.com # Opcional
+description: Ferramentas utilitárias para boletos e documentos financeiros.
+url: "https://boletobancario-codigodebarras.com"
+baseurl: ""
+
+# Configurações de Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  
