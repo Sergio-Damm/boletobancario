@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <script async='async' crossorigin='anonymous'
         src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8613196241841104'></script>
@@ -19,25 +18,22 @@
         content="Formulário para conversão da linha digitável em código de barras e conversão do código de barras em linha digitável.">
     <title>{{ page.title }}</title>
     <link rel="canonical" href="https://www.boletobancario-codigodebarras.com/">
-
     <meta content='website' property='og:type'>
     <meta content='https://www.boletobancario-codigodebarras.com/' property='og:url'>
     <meta content='Gerador e Conversor de Boletos - Padrão Febraban' property='og:title'>
     <meta content="Ferramenta gratuita para gerar e validar linhas digitais e códigos de barras."
         property='og:description'>
-
-    <meta property="og:image" content="https://www.boletobancario-codigodebarras.com/img/favicons/logoboleto-og.png?v=20260423">
+    <meta property="og:image"
+        content="https://www.boletobancario-codigodebarras.com/img/favicons/logoboleto-og.png?v=20260423">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-
     <link rel="icon" type="image/png" href="/img/favicons/favicon-96x96.png?v=20260423" sizes="96x96">
     <link rel="icon" type="image/svg+xml" href="/img/favicons/favicon.svg?v=20260423">
     <link rel="shortcut icon" href="/img/favicons/favicon.ico?v=20260423">
     <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png?v=20260423">
     <meta name="apple-mobile-web-app-title" content="Boleto">
     <link rel="manifest" href="/img/favicons/site.webmanifest?v=20260423">
-
     <link href='https://fonts.googleapis.com' rel='preconnect'>
     <link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect'>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
@@ -47,41 +43,49 @@
         integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' rel='stylesheet'>
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script src="/js/formConvert.js" defer></script>
+    <script src="/js/formGenerator.js" defer></script>
+    <script src="/js/main.js" defer></script>
 </head>
-
 <body>
     <header>
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
             <div class="container-md">
-
                 <a class="navbar-brand d-flex align-items-center" href="/">
-
-<svg class="mx-3" width="40" height="40" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-    <rect width="512" height="512" fill="#212529" />
-
-    <g transform="translate(38, 38) scale(0.85)">
-        <path d='M395.13,72.348c-9.217,0-16.696,7.473-16.696,16.696v333.913c0,9.223,7.479,16.696,16.696,16.696 s16.696-7.473,16.696-16.696V89.044C411.826,79.821,404.348,72.348,395.13,72.348z' fill='#fec400'></path>
-        <path d='M205.913,72.348c-9.217,0-16.696,7.473-16.696,16.696v333.913c0,9.223,7.479,16.696,16.696,16.696 c9.217,0,16.696-7.473,16.696-16.696V89.044C222.609,79.821,215.13,72.348,205.913,72.348z' fill='#fff'></path>
-        <path d='M128,72.348c-9.217,0-16.696,7.473-16.696,16.696v333.913c0,9.223,7.479,16.696,16.696,16.696s16.696-7.473,16.696-16.696 V89.044C144.696,79.821,137.217,72.348,128,72.348z' fill='#fff'></path>
-        <path d='M33.391,72.348C14.949,72.348,0,87.297,0,105.739v300.522c0,18.442,14.949,33.391,33.391,33.391 s33.391-14.949,33.391-33.391V105.739C66.783,87.297,51.833,72.348,33.391,72.348z' fill='#ff6f85'></path>
-        <path d='M300.522,72.348c-18.442,0-33.391,14.949-33.391,33.391v300.522c0,18.442,14.949,33.391,33.391,33.391 s33.391-14.949,33.391-33.391V105.739C333.913,87.297,318.964,72.348,300.522,72.348z' fill='#fff'></path>
-        <path d='M478.609,72.348c-18.442,0-33.391,14.949-33.391,33.391v300.522c0,18.442,14.949,33.391,33.391,33.391 S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z' fill='#fff'></path>
-    </g>
-</svg>
-
+                    <svg class="mx-3" width="40" height="40" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="512" height="512" fill="#212529" />
+                        <g transform="translate(38, 38) scale(0.85)">
+                            <path
+                                d='M395.13,72.348c-9.217,0-16.696,7.473-16.696,16.696v333.913c0,9.223,7.479,16.696,16.696,16.696 s16.696-7.473,16.696-16.696V89.044C411.826,79.821,404.348,72.348,395.13,72.348z'
+                                fill='#fec400'></path>
+                            <path
+                                d='M205.913,72.348c-9.217,0-16.696,7.473-16.696,16.696v333.913c0,9.223,7.479,16.696,16.696,16.696 c9.217,0,16.696-7.473,16.696-16.696V89.044C222.609,79.821,215.13,72.348,205.913,72.348z'
+                                fill='#fff'></path>
+                            <path
+                                d='M128,72.348c-9.217,0-16.696,7.473-16.696,16.696v333.913c0,9.223,7.479,16.696,16.696,16.696s16.696-7.473,16.696-16.696 V89.044C144.696,79.821,137.217,72.348,128,72.348z'
+                                fill='#fff'></path>
+                            <path
+                                d='M33.391,72.348C14.949,72.348,0,87.297,0,105.739v300.522c0,18.442,14.949,33.391,33.391,33.391 s33.391-14.949,33.391-33.391V105.739C66.783,87.297,51.833,72.348,33.391,72.348z'
+                                fill='#ff6f85'></path>
+                            <path
+                                d='M300.522,72.348c-18.442,0-33.391,14.949-33.391,33.391v300.522c0,18.442,14.949,33.391,33.391,33.391 s33.391-14.949,33.391-33.391V105.739C333.913,87.297,318.964,72.348,300.522,72.348z'
+                                fill='#fff'></path>
+                            <path
+                                d='M478.609,72.348c-18.442,0-33.391,14.949-33.391,33.391v300.522c0,18.442,14.949,33.391,33.391,33.391 S512,424.703,512,406.261V105.739C512,87.297,497.051,72.348,478.609,72.348z'
+                                fill='#fff'></path>
+                        </g>
+                    </svg>
                     Boleto Bancário
                 </a>
-
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item"><a class='nav-link' href='/formulario-conversor/'>Formulário Conversor</a></li>
+                        <li class="nav-item"><a class='nav-link' href='/formulario-conversor/'>Formulário Conversor</a>
+                        </li>
                         <li class="nav-item"><a class='nav-link' href='/formulario-gerador/'>Formulário Gerador</a></li>
                         <li class="nav-item"><a class='nav-link' href='/linha-digitavel/'>Linha Digitável</a></li>
                         <li class="nav-item"><a class='nav-link' href='/vencimento-valor/'>Vencimento</a></li>
@@ -98,7 +102,6 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
     </header>
@@ -106,7 +109,7 @@
         {{ content }}
     </main>
     <!-- ============================================================================================= -->
-    <section class="bg-light py-5">
+    <div class="bg-light py-5">
         <div class="container pt-5">
             <div class="row align-items-center">
                 <div class="col-12 col-md-10 mx-auto">
@@ -114,15 +117,13 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- ============================================================================================= -->
-    <section class="bg-light pb-5">
+    <div class="bg-light pb-5">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-10 mx-auto">
-
                     <div class="row row-cols-2 row-cols-lg-3 g-4 text-center pt-4">
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/formulario-conversor/'>
                                 <svg height='40px' viewBox='0 0 512 512' width='40px'
@@ -152,7 +153,6 @@
                                 <p class="my-3">Formulário de Conversão</p>
                             </a>
                         </div>
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/formulario-gerador/'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px"
@@ -163,7 +163,6 @@
                                 <p class="my-3">Formulário para Gerar Linha</p>
                             </a>
                         </div>
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/linha-digitavel/'>
                                 <svg height='40px' viewBox='0 0 16 16' width='40px' xmlns='http://www.w3.org/2000/svg'>
@@ -174,7 +173,6 @@
                                 <p class="my-3">A Linha Digitável</p>
                             </a>
                         </div>
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/vencimento-valor/'>
                                 <svg height='40px' viewBox='0 0 32 32' width='40px' xmlns='http://www.w3.org/2000/svg'>
@@ -185,7 +183,6 @@
                                 <p class="my-3">Vencimento e Valor</p>
                             </a>
                         </div>
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/modelos-boletos/'>
                                 <svg height='40px' viewBox='0 -960 960 960' width='40px'
@@ -197,7 +194,6 @@
                                 <p class="my-3">Modelos de Boletos</p>
                             </a>
                         </div>
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/campos-boleto/'>
                                 <svg height='40px' viewBox='0 -960 960 960' width='40px'
@@ -209,7 +205,6 @@
                                 <p class="my-3">Campos do Boleto</p>
                             </a>
                         </div>
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/numero-banco/'>
                                 <svg height='40px' viewBox='0 -960 960 960' width='40px'
@@ -221,7 +216,6 @@
                                 <p class="my-3">Número do Banco</p>
                             </a>
                         </div>
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/como-emitir-boleto/'>
                                 <svg height='40px' viewBox='0 -960 960 960' width='40px'
@@ -233,7 +227,6 @@
                                 <p class="my-3">Emissão de Boletos</p>
                             </a>
                         </div>
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/boleto-vencido/'>
                                 <svg height='40px' viewBox='0 -960 960 960' width='40px'
@@ -245,7 +238,6 @@
                                 <p class="my-3">Boleto Vencido</p>
                             </a>
                         </div>
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/segunda-via-boleto/'>
                                 <svg height='40px' viewBox='0 -960 960 960' width='40px'
@@ -257,7 +249,6 @@
                                 <p class="my-3">Segunda Via</p>
                             </a>
                         </div>
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/validador-cpf-cnpj/'>
                                 <svg height='40px' viewBox='0 -960 960 960' width='40px'
@@ -269,7 +260,6 @@
                                 <p class="my-3">Validador CPF/CNPJ</p>
                             </a>
                         </div>
-
                         <div class="col p-3">
                             <a class="link-interno d-block" href='/contador-caracteres/'>
                                 <svg height='40px' viewBox='0 0 32 32' width='40px' xmlns='http://www.w3.org/2000/svg'>
@@ -280,14 +270,13 @@
                                 <p class="my-3">Contador de Caracteres</p>
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
     <!-- ============================================================================================= -->
-    <section class='my-footer'>
+    <div class='my-footer'>
         <div class='container'>
             <footer class='py-5' id='my-footer'>
                 <ul class='fs-sm nav justify-content-center'>
@@ -299,11 +288,11 @@
                                 href="/boletobancario.contato@gmail.com">Contato</a></small></li>
                 </ul>
                 <ul class='fs-sm nav justify-content-center'>
-                    <li class='pt-3 text-white'>&#169; <small> Boleto Bancário</small></li>
+                    <li class='pt-3 text-white'>© <small> Boleto Bancário</small></li>
                 </ul>
             </footer>
         </div>
-    </section>
+    </div>
     <!-- ============================================================================================= -->
     <a aria-label='Voltar ao topo'
         class='top btn btn-floating rounded-circle shadow d-flex justify-content-center align-items-center' href='#'
@@ -319,11 +308,5 @@
     <script crossorigin='anonymous' defer='defer'
         integrity='sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy'
         src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js'></script>
-
-    <script src="/js/formConvert.js"></script>
-    <script src="/js/formGenerator.js"></script>
-    <script src="/js/main.js"></script>
-
 </body>
-
 </html>
