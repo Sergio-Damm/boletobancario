@@ -283,18 +283,6 @@ body.scrolled #btn-back-to-top {
   padding-bottom: 60px;
 }
 
-.section-spacing {
-  padding-block-start: 1.5rem;
-  padding-block-end: 2.5rem;
-}
-
-@media (max-width: 576px) {
-  .section-spacing {
-    padding-block-start: 2.5rem;
-    padding-block-end: 3.5rem;
-  }
-}
-
 .news-card {
   overflow: hidden;
   background: #fff;
@@ -353,13 +341,6 @@ body.scrolled #btn-back-to-top {
 
 .news-card-overlay .news-card-title {
   color: #ffffff;
-}
-
-.adsense-spacer {
-  margin: 30px 0;
-  text-align: center;
-  display: block;
-  clear: both;
 }
 
 .share-btn {
