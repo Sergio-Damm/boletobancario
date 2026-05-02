@@ -46,7 +46,7 @@ body {
 
 a {
   color: #373a40;
-  text-decoration: under;
+  text-decoration: underline;
 }
 
 a.link-interno {
