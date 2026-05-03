@@ -431,3 +431,51 @@ function validateDocument() {
         resultElement.style.color = "black";
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const whatsappBtn = document.getElementById('shareWhatsapp');
+    const genericBtn  = document.getElementById('shareGeneric');
+
+    const url   = window.location.href;
+    const title = document.title;
+
+    // WhatsApp
+    if (whatsappBtn) {
+        whatsappBtn.addEventListener('click', () => {
+            const whatsappUrl =
+                'https://wa.me/?text=' +
+                encodeURIComponent(title + ' - ' + url);
+
+            window.open(whatsappUrl, '_blank');
+        });
+    }
+
+    // generic share
+    if (genericBtn) {
+        genericBtn.addEventListener('click', async () => {
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: title,
+                        url: url
+                    });
+                } catch (err) {
+                    // usuário cancelou → não é erro
+                }
+            } else {
+                await navigator.clipboard.writeText(url);
+
+                const feedback = document.getElementById('shareFeedback');
+                if (feedback) {
+                    feedback.classList.remove('visually-hidden');
+                    setTimeout(() => {
+                        feedback.classList.add('visually-hidden');
+                    }, 2500);
+                }
+            }
+        });
+    }
+
+});
