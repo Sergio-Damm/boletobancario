@@ -2,7 +2,7 @@ setInterval(() => window.location.reload(), 600000);
 
 function updateFooterStyle() {
     const button = document.getElementById("btn-back-to-top");
-    const footer = document.getElementById("footer");
+    const footer = document.getElementById("my-footer");
     if (!button || !footer) return;
 
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
