@@ -2,7 +2,7 @@ setInterval(() => window.location.reload(), 600000);
 
 function updateFooterStyle() {
     const button = document.getElementById("btn-back-to-top");
-    const footer = document.getElementById("my-footer");
+    const footer = document.getElementById("footer");
     if (!button || !footer) return;
 
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         listaId: 'lista5',
         loadingId: 'loading5',
         rss: 'https://www.contabeis.com.br/rss/conteudo/',
-        nome: 'Contabeis',
+        nome: 'Contábeis',
         letras: 'CO',
         filtroPaywall: true
     });
