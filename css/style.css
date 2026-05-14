@@ -82,6 +82,18 @@ a.link-interno:hover {
   }
 }
 
+[data-bs-theme="dark"] .navbar-nav .nav-link,
+[data-bs-theme="dark"] .nav .nav-link {
+    color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .navbar-nav .nav-link:hover,
+[data-bs-theme="dark"] .navbar-nav .nav-link.active,
+[data-bs-theme="dark"] .nav .nav-link:hover,
+[data-bs-theme="dark"] .nav .nav-link.active {
+    color: #e0e0e0 !important;
+}
+
 .nav-item {
   position: relative;
 }
