@@ -328,6 +328,7 @@ body.scrolled #btn-back-to-top {
 
 .news-card-overlay {
   position: absolute;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -335,11 +336,11 @@ body.scrolled #btn-back-to-top {
   align-items: flex-end;
   padding: 1rem;
   z-index: 2;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      rgba(0, 0, 0, 0) 100%);
-}
+  background: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0.0) 0%,
+    rgba(0, 0, 0, 0.9) 100%
+    );
+  }
 
 .news-card-overlay .news-card-title {
   color: #ffffff;
