@@ -65,7 +65,7 @@ async function carregarFeed(config) {
     lista.innerHTML = '';
     loading.style.display = 'block';
 
-    const iniciais = gerarIniciais(config.nome);
+    const iniciais = config.letras || 'FI'; // Ajustado para usar a propriedade correta do config
 
     const svg = `
 <svg xmlns='http://www.w3.org/2000/svg' width='400' height='200'>
@@ -115,16 +115,23 @@ ${iniciais}
                 if (m) thumb = m[1];
             }
 
+            // OTIMIZAÇÃO PAGESPEED: Se a imagem não for o SVG placeholder, passa pelo proxy gratuito weserv.nl
+            // Ele redimensiona para 400px de largura e 200px de altura automaticamente e converte para WebP leve.
+            if (thumb !== placeholder) {
+                thumb = 'https://images.weserv.nl/?url=' + encodeURIComponent(thumb) + '&w=400&h=200&fit=cover';
+            }
+
             const diff = Math.floor((Date.now() - new Date(item.pubDate || Date.now())) / 1000);
             const tempo = diff < 3600 ? Math.floor(Math.max(1, diff / 60)) + ' min atrás' :
                 diff < 86400 ? Math.floor(diff / 3600) + 'h atrás' :
                     diff < 172800 ? 'ontem' : Math.floor(diff / 86400) + ' dias atrás';
 
             htmlItens.push(
-                '<div class="col-md-6 col-lg-4 mb-4">' +
+                '<div class="col-sm-6 col-lg-4 mb-4">' + // Alterado de col-md-6 para col-sm-6 garantindo 2 cards no celular/tablet menor se a tela permitir
                 '<a href="' + item.link + '" target="_blank" rel="noopener" class="text-decoration-none text-dark">' +
                 '<div class="card card-liftshadow border-light-subtle h-100">' +
-                '<img alt="' + item.title.trim() + '" src="' + thumb + '" class="card-img-top" loading="lazy" style="height:200px;object-fit:cover;" ' +
+                // Adicionado width="400" e height="200" nativos e classes do Bootstrap 5 (img-fluid)
+                '<img alt="' + item.title.trim() + '" src="' + thumb + '" width="400" height="200" class="card-img-top img-fluid" loading="lazy" style="object-fit:cover; aspect-ratio: 2 / 1;" ' +
                 'onerror="this.onerror=null; this.src=\'' + placeholder + '\'">' +
                 '<div class="card-body d-flex flex-column">' +
                 '<p class="card-title link-interno mb-2">' + item.title.trim() + '</p>' +
@@ -171,7 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
         letras: 'CO',
         filtroPaywall: true
     });
-
 });
 
 function limparCodigoBarras() {
