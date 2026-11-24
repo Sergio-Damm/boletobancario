@@ -1,10 +1,10 @@
 title: Boleto Bancário - Código de Barras
 email: boletobancario.contato@gmail.com
 description: Gerador e Conversor de Boletos - Padrão Febraban
-url: "https://boletobancario-codigodebarras.com"
 baseurl: ""
-
+url: "https://boletobancario-codigodebarras.com"
 plugins:
-  - jekyll-feed
-  - jekyll-sitemap
   - jekyll-redirect-from
+  - jekyll-sitemap
+include: ["assets/data"]
+keep_files: ["assets/data"]
